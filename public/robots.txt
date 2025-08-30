@@ -1,0 +1,4 @@
+RUser-agent: *
+Allow: /
+
+Sitemap: https://karthikeyabendi.vercel.app/sitemap.xml
