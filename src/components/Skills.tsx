@@ -69,11 +69,11 @@ const Skills = () => {
                     }`}>
                       {skill.name}
                     </div>
-                    {skill.level && (
+                    {/* {skill.level && (
                       <div className="text-xs text-cream-400 mt-1">
                         {skill.level}
                       </div>
-                    )}
+                    )} */}
                   </motion.div>
                 ))}
               </div>
