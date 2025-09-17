@@ -145,6 +145,8 @@ export const skills = {
   ],
   webDev: [
     { name: "React.js", icon: "⚛️" },
+    { name: "Next.js", icon: "▲" },
+    { name: "Express.js", icon: "🚀" },
     { name: "Tailwind CSS", icon: "🎨" }
   ],
   dataScience: [
@@ -156,6 +158,8 @@ export const skills = {
   automation: [
     { name: "Zapier", icon: "⚡" },
     { name: "Make (Integromat)", icon: "🔧" },
+    { name: "Microsoft Power Automate", icon: "🔋" },
+    { name: "IFTTT", icon: "🔀" }
   ],
   design: [
     { name: "UI/UX Design", icon: "🎨", level: "Basic" },
@@ -164,6 +168,7 @@ export const skills = {
   tools: [
     { name: "Git", icon: "📝" },
     { name: "AWS", icon: "☁️" },
+    { name: "Postman", icon: "📮" },
     { name: "Apify", icon: "🕷️" }
   ]
 }
@@ -183,6 +188,7 @@ export const projects = [
     id: 2,
     title: "E-commerce Analytics Dashboard",
     description: "Real-time analytics dashboard for e-commerce businesses with automated reporting.",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Chart.js", "n8n"],
     github: "https://github.com/karthikeyabendi/ecommerce-analytics",
     live: "https://ecommerce-analytics.vercel.app",
     image: "/api/placeholder/600/400",
@@ -192,6 +198,7 @@ export const projects = [
     id: 3,
     title: "Automated Content Management System",
     description: "CMS with automated content generation, SEO optimization, and multi-platform publishing.",
+    technologies: ["React", "Express.js", "MongoDB", "OpenAI API", "n8n"],
     github: "https://github.com/karthikeyabendi/auto-cms",
     live: "https://auto-cms.vercel.app",
     image: "/api/placeholder/600/400",
