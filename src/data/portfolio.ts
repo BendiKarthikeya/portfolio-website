@@ -135,15 +135,16 @@ export const skills = {
     { name: "Custom Functions", icon: "⚙️" }
   ],
   programming: [
-    { name: "HTML", icon: "🌐", level: "Intermediate" },
-    { name: "CSS", icon: "🎨", level: "Intermediate" },
+    
     { name: "C++", icon: "⚙️", level: "Intermediate" },
     { name: "Java", icon: "☕", level: "Basic" },
-    { name: "JavaScript", icon: "🟨", level: "Basic" },
     { name: "Python", icon: "🐍", level: "Basic" },
     { name: "C Programming", icon: "🔧", level: "Basic" }
   ],
   webDev: [
+    { name: "HTML", icon: "🌐", level: "Intermediate" },
+    { name: "CSS", icon: "🎨", level: "Intermediate" },
+    { name: "JavaScript", icon: "🟨", level: "Intermediate" },
     { name: "React.js", icon: "⚛️" },
     { name: "Tailwind CSS", icon: "🎨" }
   ],
@@ -237,24 +238,37 @@ export const education = [
 
 export const certifications = [
   {
-    name: "n8n Certified Automation Specialist",
-    issuer: "n8n",
+    name: "Generative AI Primer",
+    issuer: "Coursera",
     date: "2024",
-    badge: "/api/placeholder/100/100"
+    badge: "/Images/coursera.png"
   },
   {
-    name: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
+    name: "Infographic in Canva",
+    issuer: "Canva",
     date: "2024",
-    badge: "/api/placeholder/100/100"
+    badge: "/Images/canva.jpg"
   },
   {
-    name: "Google Analytics Certified",
-    issuer: "Google",
-    date: "2023",
-    badge: "/api/placeholder/100/100"
+    name: "Trustworthy Generative AI",
+    issuer: "Coursera",
+    date: "2024",
+    badge: "/Images/coursera.png"
+  },
+  {
+    name: "Introduction to Generative AI",
+    issuer: "Coursera",
+    date: "2024",
+    badge: "/Images/coursera.png"
+  },
+  {
+    name: "Create a Promotional Video using Canva",
+    issuer: "Canva",
+    date: "2024",
+    badge: "/Images/canva.jpg"
   }
 ]
+
 
 export const achievements = [
   "Built 50+ automation workflows saving 200+ hours weekly",
