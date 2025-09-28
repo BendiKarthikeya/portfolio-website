@@ -7,7 +7,7 @@ import { n8nProjects } from '@/data/portfolio'
 const N8nShowcase = () => {
   const stats = [
     { icon: <Workflow className="w-6 h-6" />, value: "50+", label: "n8n Workflows Built", color: "text-gold-400" },
-    { icon: <Clock className="w-6 h-6" />, value: "200+", label: "Hours Saved Weekly", color: "text-burgundy-500" },
+    { icon: <Clock className="w-6 h-6" />, value: "25+", label: "Different Nodes Used", color: "text-burgundy-500" },
     { icon: <Users className="w-6 h-6" />, value: "25+", label: "Organizations Helped", color: "text-gold-400" },
     { icon: <TrendingUp className="w-6 h-6" />, value: "90%", label: "Process Efficiency", color: "text-burgundy-500" }
   ]

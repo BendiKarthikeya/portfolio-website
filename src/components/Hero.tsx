@@ -84,7 +84,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn-secondary flex items-center gap-2"
-                download
+                download="Karthikeya_Bendi_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Download size={20} />
                 Download Resume
@@ -151,9 +153,9 @@ const Hero = () => {
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.2, type: "spring" }}
                 >
-                  200+
+                  25+
                 </motion.div>
-                <div className="text-sm text-cream-300">Hours Saved Weekly</div>
+                <div className="text-sm text-cream-300">Different Nodes Used</div>
               </div>
               
               <div className="text-center">

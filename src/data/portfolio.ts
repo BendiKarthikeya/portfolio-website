@@ -7,7 +7,7 @@ export const personalInfo = {
   tagline: "Transforming business processes through intelligent automation",
   bio: "Hi, I'm Karthikeya - an AI and automation enthusiast passionate about building solutions that save time and help businesses scale efficiently. I am currently pursuing a B.Sc. (Hons.) in Artificial Intelligence and Data Science at IIT Guwahati, where I've developed a strong foundation in programming, web development, and data-driven problem solving.",
   avatar: "/Images/karthikeya_crop.jpg",
-  resume: "/resume.pdf",
+  resume: "/Resume_Karthikeya.pdf",
   experience: "Over the past year, I have designed and implemented more than 50 custom automations in n8n, collectively saving over 200 hours of manual work every week. My journey includes working as an n8n Specialist Intern at Advait, where I focused on scalable automation solutions, and now collaborating with TenderSeal, Dubai, as a freelance n8n Specialist. At TenderSeal, I build intelligent workflows, seamless API integrations, and optimized processes that streamline operations and support business growth."
 }
 

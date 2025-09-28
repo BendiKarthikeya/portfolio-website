@@ -7,8 +7,8 @@ import Link from 'next/link'
 const N8nPreview = () => {
   const stats = [
     { icon: <Workflow className="w-6 h-6" />, value: "50+", label: "n8n Workflows Built", color: "text-gold-400" },
-    { icon: <Clock className="w-6 h-6" />, value: "200+", label: "Hours Saved Weekly", color: "text-burgundy-500" },
-    { icon: <Users className="w-6 h-6" />, value: "25+", label: "Organizations Helped", color: "text-gold-400" },
+    { icon: <Clock className="w-6 h-6" />, value: "25+", label: "Different Nodes Used", color: "text-burgundy-500" },
+    { icon: <Users className="w-6 h-6" />, value: "5+", label: "Organizations Helped", color: "text-gold-400" },
     { icon: <TrendingUp className="w-6 h-6" />, value: "90%", label: "Process Efficiency", color: "text-burgundy-500" }
   ]
 
@@ -30,7 +30,7 @@ const N8nPreview = () => {
     {
       icon: <Target className="w-8 h-8" />,
       title: "Business Process",
-      description: "End-to-end trading platform automation",
+      description: "End-to-end platform automation",
       color: "from-orange-500/20 to-red-500/20",
       borderColor: "border-orange-400/30"
     },
