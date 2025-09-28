@@ -5,10 +5,10 @@ export const personalInfo = {
   phone: "+91-94913XXXX",
   location: "India",
   tagline: "Transforming business processes through intelligent automation",
-  bio: "I'm currently pursuing a B.Sc. (Hons.) in Artificial Intelligence and Data Science at IIT Guwahati, with a solid foundation in programming, web development, and data-driven problem-solving. I specialize in automation using n8n, with experience designing and maintaining 50+ custom workflows that have saved over 200 hours of manual work per week. At Advait, I work as an n8n Specialist, creating API integrations and automations that streamline business operations across CRM, document systems, reporting, and compliance. I collaborate with cross-functional teams to identify automation opportunities and build scalable, maintainable solutions that align with business goals. ",
+  bio: "Hi, I'm Karthikeya - an AI and automation enthusiast passionate about building solutions that save time and help businesses scale efficiently. I am currently pursuing a B.Sc. (Hons.) in Artificial Intelligence and Data Science at IIT Guwahati, where I've developed a strong foundation in programming, web development, and data-driven problem solving.",
   avatar: "/Images/karthikeya_crop.jpg",
   resume: "/resume.pdf",
-  experience: "n8n Specialist at Advait - I design and implement custom workflows, API integrations, and process automations to help businesses operate more efficiently and at scale. Working remotely with cross-functional teams, I identify opportunities for automation, optimize existing processes, and ensure that solutions are well-documented, maintainable, and aligned with business objectives."
+  experience: "Over the past year, I have designed and implemented more than 50 custom automations in n8n, collectively saving over 200 hours of manual work every week. My journey includes working as an n8n Specialist Intern at Advait, where I focused on scalable automation solutions, and now collaborating with TenderSeal, Dubai, as a freelance n8n Specialist. At TenderSeal, I build intelligent workflows, seamless API integrations, and optimized processes that streamline operations and support business growth."
 }
 
 export const socialLinks = {
@@ -172,31 +172,93 @@ export const skills = {
 export const projects = [
   {
     id: 1,
-    title: "AI-Powered Task Management System",
-    description: "Full-stack application with AI-driven task prioritization and automated workflow management.",
-    technologies: ["React", "Node.js", "MongoDB", "OpenAI API", "n8n"],
-    github: "https://github.com/karthikeyabendi/ai-task-manager",
-    live: "https://ai-task-manager.vercel.app",
-    image: "/api/placeholder/600/400",
-    features: ["AI task prioritization", "Automated notifications", "Team collaboration", "Analytics dashboard"]
+    title: "Personal Portfolio Website",
+    description: "Modern, responsive portfolio website built with Next.js and Tailwind CSS showcasing my automation expertise and projects.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    github: "https://github.com/BendiKarthikeya/portfolio-website",
+    live: "https://karthikeyabendi05.vercel.app",
+    image: "/Images/Portfolio.png",
+    features: [
+      "Modern responsive design",
+      "Dark/Light theme support",
+      "Smooth animations with Framer Motion",
+      "SEO optimized",
+      "Fast loading performance",
+      "Mobile-first approach",
+      "Interactive project showcases"
+    ]
   },
   {
     id: 2,
-    title: "E-commerce Analytics Dashboard",
-    description: "Real-time analytics dashboard for e-commerce businesses with automated reporting.",
-    github: "https://github.com/karthikeyabendi/ecommerce-analytics",
-    live: "https://ecommerce-analytics.vercel.app",
-    image: "/api/placeholder/600/400",
-    features: ["Real-time metrics", "Automated reports", "Custom dashboards", "API integrations"]
+    title: "Business Data Analysis & Chatbot Automation",
+    description: "Complete data analysis pipeline with AI-powered insights and interactive chatbot for business intelligence.",
+    technologies: ["n8n", "AWS", "OpenAI API", "Webhook", "Google Drive"],
+    github: "https://github.com/BendiKarthikeya",
+    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
+    image: "/Images/Project_bussines_analyst -1.png",
+    features: [
+      "Dataset upload via website (Webhook)",
+      "Data cleaning & storage (AWS)",
+      "AI insights & graphs (OpenAI API)",
+      "Business improvement suggestions",
+      "Reusable cleaned data for analysis",
+      "Interactive chatbot for Q&A on uploaded data",
+      "Seamless website + n8n integration"
+    ]
   },
   {
     id: 3,
-    title: "Automated Content Management System",
-    description: "CMS with automated content generation, SEO optimization, and multi-platform publishing.",
-    github: "https://github.com/karthikeyabendi/auto-cms",
-    live: "https://auto-cms.vercel.app",
-    image: "/api/placeholder/600/400",
-    features: ["AI content generation", "SEO optimization", "Multi-platform publishing", "Workflow automation"]
+    title: "Daily Thought Mail Automation",
+    description: "Automated daily email system for educational institutions with personalized content and tracking.",
+    technologies: ["n8n", "Google Drive", "Google Sheets", "Gmail API", "Image Processing"],
+    github: "https://github.com/BendiKarthikeya",
+    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
+    image: "/Images/daily thought.png",
+    features: [
+      "Daily email to all students (thought/fact of the day)",
+      "Auto-fetch image from Google Drive",
+      "Update Google Sheet to track used images",
+      "Avoid duplicate content",
+      "Custom recognition for student suggestions",
+      "Personalized greetings",
+      "Error handling for missing data"
+    ]
+  },
+  {
+    id: 4,
+    title: "Business Platform Automation",
+    description: "End-to-end business process automation for trading platform with multi-database integration.",
+    technologies: ["n8n", "PDF API", "Multiple Databases", "Email API", "Payment Systems"],
+    github: "https://github.com/BendiKarthikeya",
+    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
+    image: "/Images/work-1.png",
+    features: [
+      "Traders, buyers, sellers workflows",
+      "Auto emails to admins/users",
+      "PDF generation with API Templates",
+      "Send PDFs in multiple formats",
+      "Background process updates",
+      "Daily payment reminders",
+      "End-to-end process automation"
+    ]
+  },
+  {
+    id: 5,
+    title: "Restaurant Lead Generation & Mail Automation",
+    description: "Comprehensive lead generation and email marketing automation for restaurant industry.",
+    technologies: ["n8n", "Apify", "Google Maps API", "Google Sheets", "Gmail/IMAP"],
+    github: "https://github.com/BendiKarthikeya",
+    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
+    image: "/Images/mail automation.png",
+    features: [
+      "Restaurant leads scraping via Apify (Google Maps)",
+      "Email-based deduplication and smart filtering",
+      "Auto-store clean leads into Google Sheets",
+      "Personalized email outreach to each lead",
+      "Scheduled follow-ups with reply detection",
+      "Fully automated multi-step email flow",
+      "Gmail/IMAP integration for inbox monitoring"
+    ]
   }
 ]
 

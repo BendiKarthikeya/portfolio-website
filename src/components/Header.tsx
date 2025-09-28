@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X, Moon, Sun } from 'lucide-react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isDark, setIsDark] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +25,30 @@ const Header = () => {
     document.documentElement.classList.toggle('dark')
   }
 
+  const handleNavigation = (href: string) => {
+    if (href.startsWith('#')) {
+      // If it's a hash link and we're not on the home page, go to home first
+      if (window.location.pathname !== '/') {
+        router.push('/' + href)
+      } else {
+        // If we're on home page, scroll to section
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    } else {
+      // Regular navigation
+      router.push(href)
+    }
+    setIsOpen(false)
+  }
+
   const navItems = [
     { name: 'About', href: '#about' },
-    { name: 'n8n Portfolio', href: '/n8n-portfolio' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'n8n Portfolio', href: '/n8n-portfolio' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' }
   ]
@@ -42,25 +64,26 @@ const Header = () => {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="font-bold text-xl gradient-text"
-          >
-            Karthikeya Bendi
-          </motion.div>
+          <Link href="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="font-bold text-xl gradient-text cursor-pointer"
+            >
+              Karthikeya Bendi
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <motion.a
+              <motion.button
                 key={item.name}
-                href={item.href}
+                onClick={() => handleNavigation(item.href)}
                 whileHover={{ scale: 1.05 }}
                 className="text-cream-200 hover:text-gold-400 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
               >
                 {item.name}
-              </motion.a>
+              </motion.button>
             ))}
             
             {/* Theme Toggle */}
@@ -107,15 +130,14 @@ const Header = () => {
         >
           <div className="py-4 space-y-4">
             {navItems.map((item) => (
-              <motion.a
+              <motion.button
                 key={item.name}
-                href={item.href}
+                onClick={() => handleNavigation(item.href)}
                 whileHover={{ x: 10 }}
-                className="block px-4 py-2 text-cream-200 hover:text-gold-400 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+                className="block px-4 py-2 text-cream-200 hover:text-gold-400 transition-colors duration-200 w-full text-left"
               >
                 {item.name}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
         </motion.div>

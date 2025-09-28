@@ -61,12 +61,9 @@ const About = () => {
               <p className="text-cream-200 leading-relaxed">
                 {personalInfo.experience}
               </p>
-              
-              <p className="text-cream-200 leading-relaxed">
-                My expertise lies in creating intelligent automation solutions using n8n, where I've built 50+ workflows 
-                that have collectively saved over 200 hours of manual work weekly. I combine technical proficiency with 
-                business understanding to deliver automation that truly makes a difference.
-              </p>
+
+         <p className="text-cream-200 leading-relaxed">
+                My mission is to transform complex processes into simple, automated systems that are reliable, scalable, and impactful.              </p>
             </div>
 
             <div className="flex flex-wrap gap-3">

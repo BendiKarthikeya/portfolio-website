@@ -82,37 +82,7 @@ const Skills = () => {
         </div>
 
         {/* n8n Expertise Highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/30 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-gold-400">n8n Automation Expertise</h3>
-            <p className="text-cream-200 leading-relaxed mb-6">
-              As an n8n Specialist at Advait, I design and implement custom workflows, API integrations, and process automations 
-              to help businesses operate more efficiently and at scale. Working remotely with cross-functional teams, I identify 
-              opportunities for automation, optimize existing processes, and ensure solutions are well-documented, maintainable, 
-              and aligned with business objectives.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-400 mb-2">50+</div>
-                <div className="text-cream-300 font-medium">n8n Workflows Built</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-burgundy-500 mb-2">200+</div>
-                <div className="text-cream-300 font-medium">Hours Saved Weekly</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-400 mb-2">90%</div>
-                <div className="text-cream-300 font-medium">Process Efficiency</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   )
