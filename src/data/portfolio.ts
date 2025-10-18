@@ -25,53 +25,30 @@ export const socialLinks = {
 export const n8nProjects = [
   {
     id: 1,
-    title: "Business Data Analysis & Chatbot Automation",
-    description: "Complete data analysis pipeline with AI-powered insights and interactive chatbot for business intelligence.",
-    technologies: ["n8n", "AWS", "OpenAI API", "Webhook", "Google Drive"],
+    title: "AI Voice Agent Automation",
+    description: "Intelligent voice-based automation system with LLM integration for interactive communication and task execution.",
+    technologies: ["n8n", "OpenAI API", "Webhook", "HTTP Request", "Twilio", "Speech Processing"],
     features: [
-      "Dataset upload via website (Webhook)",
-      "Data cleaning & storage (AWS)",
-      "Insights & graphs (OpenAI API)",
-      "Business improvement suggestions",
-      "Reusable cleaned data for analysis",
-      "Chatbot for Q&A on uploaded data",
-      "Website + n8n integration"
+      "Voice-triggered workflow execution",
+      "Natural language understanding with LLM",
+      "Multi-step conversation handling",
+      "Real-time voice response generation",
+      "Integration with multiple AI models (Basic LLM Chain)",
+      "Structured output parsing for actions",
+      "Webhook-based event handling",
+      "Automated response routing"
     ],
-    impact: "Automated entire data analysis workflow, reducing analysis time by 85%",
-    image: "/Images/Project_bussines_analyst -1.png",
+    impact: "Enabled hands-free automation control, reducing manual intervention by 70%",
+    image: "/Images/Voice Agent.png",
     workflow: {
-      trigger: "Website Webhook",
-      steps: ["Data Upload", "AWS Processing", "AI Analysis", "Chatbot Integration"],
-      integrations: 6
+      trigger: "Voice Webhook",
+      steps: ["Voice Input", "LLM Processing", "Action Execution", "Voice Response"],
+      integrations: 5
     },
-    category: "Data Analysis"
+    category: "AI Integration"
   },
   {
     id: 2,
-    title: "Daily Thought Mail Automation",
-    description: "Automated daily email system for educational institutions with personalized content and tracking.",
-    technologies: ["n8n", "Google Drive", "Google Sheets", "Gmail API", "Image Processing"],
-    features: [
-      "Daily email to all students (thought/fact of the day)",
-      "Auto-fetch image from Google Drive",
-      "Update Google Sheet to track used images",
-      "Avoid duplicate content",
-      "Custom email: recognize students who suggested thoughts/facts",
-      "Personalized greetings",
-      "Error handling for missing data",
-      "n8n integration in college"
-    ],
-    impact: "Automated daily communication to 500+ students, saving 2 hours daily",
-    image: "/Images/daily thought.png",
-    workflow: {
-      trigger: "Daily Schedule",
-      steps: ["Content Selection", "Image Fetch", "Email Generation", "Tracking Update"],
-      integrations: 4
-    },
-    category: "Education"
-  },
-  {
-    id: 3,
     title: "Business Platform Automation (n8n)",
     description: "End-to-end business process automation for trading platform with multi-database integration.",
     technologies: ["n8n", "PDF API", "Multiple Databases", "Email API", "Payment Systems"],
@@ -97,7 +74,81 @@ export const n8nProjects = [
     category: "Business Process"
   },
   {
+    id: 3,
+    title: "Workflow Automation & System Prompt Generator",
+    description: "Meta-automation system for creating, duplicating, and optimizing n8n workflows with AI-powered prompt generation.",
+    technologies: ["n8n", "n8n API", "OpenAI API", "Webhook", "Code Nodes", "Filtering", "Mapping"],
+    features: [
+      "Automated workflow duplication via n8n API",
+      "Dynamic workflow retrieval and filtering",
+      "AI-powered system prompt generation",
+      "Custom prompt templates for different use cases",
+      "Workflow mapping and object transformation",
+      "Bulk workflow creation capabilities",
+      "Version control for automation workflows",
+      "Template library management"
+    ],
+    impact: "Reduced workflow creation time by 80%, standardized 50+ automation templates",
+    image: "/Images/System Prompt Generation.png",
+    additionalImages: ["/Images/Duplicate Workflow.png"],
+    workflow: {
+      trigger: "Webhook",
+      steps: ["Workflow Fetch", "Filtering", "Prompt Generation", "Workflow Creation"],
+      integrations: 4
+    },
+    category: "Business Process"
+  },
+  {
     id: 4,
+    title: "Advanced Mail Management System",
+    description: "Comprehensive email monitoring and automation system with intelligent reply detection and multi-step follow-ups.",
+    technologies: ["n8n", "Gmail API", "IMAP", "Google Sheets", "Filtering Logic", "Code Nodes"],
+    features: [
+      "Automated daily mail checking across multiple accounts",
+      "Intelligent reply detection and categorization",
+      "Multi-threaded conversation tracking",
+      "Data filtering and deduplication",
+      "Automated status updates in Google Sheets",
+      "Scheduled follow-up sequences",
+      "Custom code for complex email parsing",
+      "Real-time notification system"
+    ],
+    impact: "Managed 500+ emails daily with 95% accuracy in categorization",
+    image: "/Images/Multi Mail.png",
+    additionalImages: ["/Images/Mail Check.png"],
+    workflow: {
+      trigger: "Daily Schedule",
+      steps: ["Email Fetch", "Reply Detection", "Data Processing", "Sheet Update"],
+      integrations: 7
+    },
+    category: "Business Process"
+  } ,
+   {
+    id: 5,
+    title: "Business Data Analysis & Chatbot Automation",
+    description: "Complete data analysis pipeline with AI-powered insights and interactive chatbot for business intelligence.",
+    technologies: ["n8n", "AWS", "OpenAI API", "Webhook", "Google Drive"],
+    features: [
+      "Dataset upload via website (Webhook)",
+      "Data cleaning & storage (AWS)",
+      "Insights & graphs (OpenAI API)",
+      "Business improvement suggestions",
+      "Reusable cleaned data for analysis",
+      "Chatbot for Q&A on uploaded data",
+      "Website + n8n integration"
+    ],
+    impact: "Automated entire data analysis workflow, reducing analysis time by 85%",
+    image: "/Images/Project_bussines_analyst -1.png",
+    workflow: {
+      trigger: "Website Webhook",
+      steps: ["Data Upload", "AWS Processing", "AI Analysis", "Chatbot Integration"],
+      integrations: 6
+    },
+    category: "Data Analysis"
+  },
+   
+  {
+    id: 6,
     title: "Restaurant Lead Generation & Mail Automation",
     description: "Comprehensive lead generation and email marketing automation for restaurant industry.",
     technologies: ["n8n", "Apify", "Google Maps API", "Google Sheets", "Gmail/IMAP"],
@@ -120,6 +171,57 @@ export const n8nProjects = [
       integrations: 6
     },
     category: "Lead Generation"
+  },
+  {
+    id: 7,
+    title: "Certificate Generation & Distribution System",
+    description: "Automated certificate creation and delivery system with Google Sheets integration and personalized PDF generation.",
+    technologies: ["n8n", "Google Sheets", "PDF API", "Loop Over Items", "HTTP Request", "Gmail API"],
+    features: [
+      "Bulk certificate generation from Google Sheets data",
+      "Dynamic PDF creation with custom templates",
+      "Personalized content for each recipient",
+      "Automated email distribution with attachments",
+      "Loop-based processing for multiple recipients",
+      "Error handling and retry logic",
+      "Delivery status tracking in sheets",
+      "Template customization support"
+    ],
+    impact: "Generated and distributed 1000+ certificates automatically, saving 20+ hours per event",
+    image: "/Images/Certificate Workflow.png",
+
+    workflow: {
+      trigger: "Manual/Webhook",
+      steps: ["Data Fetch", "Certificate Generation", "PDF Creation", "Email Distribution"],
+      integrations: 5
+    },
+    category: "Education"
+  },
+  
+
+  {
+    id: 8,
+    title: "Daily Thought Mail Automation",
+    description: "Automated daily email system for educational institutions with personalized content and tracking.",
+    technologies: ["n8n", "Google Drive", "Google Sheets", "Gmail API", "Image Processing"],
+    features: [
+      "Daily email to all students (thought/fact of the day)",
+      "Auto-fetch image from Google Drive",
+      "Update Google Sheet to track used images",
+      "Avoid duplicate content",
+      "Custom email: recognize students who suggested thoughts/facts",
+      "Personalized greetings",
+      "Error handling for missing data",
+      "n8n integration in college"
+    ],
+    impact: "Automated daily communication to 500+ students, saving 2 hours daily",
+    image: "/Images/daily thought.png",
+    workflow: {
+      trigger: "Daily Schedule",
+      steps: ["Content Selection", "Image Fetch", "Email Generation", "Tracking Update"],
+      integrations: 4
+    },
+    category: "Education"
   }
 ]
 
