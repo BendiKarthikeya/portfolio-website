@@ -25,6 +25,58 @@ export const socialLinks = {
 export const n8nProjects = [
   {
     id: 1,
+    title: "Reddit Content Seeding & Community Management",
+    description: "Automated Reddit content seeding system for MyAibo with intelligent post scheduling, community engagement, and brand visibility management across multiple subreddits.",
+    technologies: ["n8n", "Reddit API", "Google Sheets", "OpenAI API", "Webhook", "Scheduling"],
+    features: [
+      "Automated content posting across targeted subreddits",
+      "AI-powered content generation and optimization",
+      "Community engagement tracking and analytics",
+      "Smart scheduling to optimize post timing",
+      "Subreddit research and targeting automation",
+      "Reply monitoring and auto-response system",
+      "Brand mention tracking and sentiment analysis",
+      "Content performance metrics and reporting",
+      "Multi-account management capabilities",
+      "Compliance with Reddit's posting guidelines"
+    ],
+    impact: "Increased brand visibility by 300%, managed 50+ posts weekly with 40% engagement rate",
+    image: "/Images/Reddit.png",
+    workflow: {
+      trigger: "Scheduled/Webhook",
+      steps: ["Content Generation", "Subreddit Selection", "Post Scheduling", "Engagement Tracking"],
+      integrations: 6
+    },
+    category: "Lead Generation"
+  },
+  {
+    id: 2,
+    title: "Reddit Community Search & Lead Discovery",
+    description: "Advanced Reddit community search and lead generation system that identifies relevant subreddits, analyzes engagement patterns, and discovers potential leads for targeted outreach.",
+    technologies: ["n8n", "Reddit API", "Google Sheets", "Data Analysis", "Filtering Logic", "Webhook"],
+    features: [
+      "Automated subreddit discovery based on keywords",
+      "Community size and engagement analysis",
+      "Lead identification from post comments",
+      "Sentiment analysis of discussions",
+      "Member activity tracking and scoring",
+      "Export qualified leads to Google Sheets",
+      "Real-time notification for high-value opportunities",
+      "Competitor mention tracking",
+      "Trend analysis across communities",
+      "Custom filtering based on engagement metrics"
+    ],
+    impact: "Discovered 1000+ qualified leads monthly, identified 200+ high-potential communities",
+    image: "/Images/ReditCommunitySearch.png",
+    workflow: {
+      trigger: "Scheduled Search",
+      steps: ["Keyword Search", "Community Analysis", "Lead Extraction", "Data Export"],
+      integrations: 5
+    },
+    category: "Lead Generation"
+  },
+  {
+    id: 3,
     title: "AI Voice Agent Automation",
     description: "Intelligent voice-based automation system with LLM integration for interactive communication and task execution.",
     technologies: ["n8n", "OpenAI API", "Webhook", "HTTP Request", "Twilio", "Speech Processing"],
@@ -48,7 +100,7 @@ export const n8nProjects = [
     category: "AI Integration"
   },
   {
-    id: 2,
+    id: 4,
     title: "Business Platform Automation (n8n)",
     description: "End-to-end business process automation for trading platform with multi-database integration.",
     technologies: ["n8n", "PDF API", "Multiple Databases", "Email API", "Payment Systems"],
@@ -74,7 +126,7 @@ export const n8nProjects = [
     category: "Business Process"
   },
   {
-    id: 3,
+    id: 5,
     title: "Workflow Automation & System Prompt Generator",
     description: "Meta-automation system for creating, duplicating, and optimizing n8n workflows with AI-powered prompt generation.",
     technologies: ["n8n", "n8n API", "OpenAI API", "Webhook", "Code Nodes", "Filtering", "Mapping"],
@@ -99,7 +151,7 @@ export const n8nProjects = [
     category: "Business Process"
   },
   {
-    id: 4,
+    id: 6,
     title: "Advanced Mail Management System",
     description: "Comprehensive email monitoring and automation system with intelligent reply detection and multi-step follow-ups.",
     technologies: ["n8n", "Gmail API", "IMAP", "Google Sheets", "Filtering Logic", "Code Nodes"],
@@ -124,7 +176,7 @@ export const n8nProjects = [
     category: "Business Process"
   } ,
    {
-    id: 5,
+    id: 7,
     title: "Business Data Analysis & Chatbot Automation",
     description: "Complete data analysis pipeline with AI-powered insights and interactive chatbot for business intelligence.",
     technologies: ["n8n", "AWS", "OpenAI API", "Webhook", "Google Drive"],
@@ -148,7 +200,7 @@ export const n8nProjects = [
   },
    
   {
-    id: 6,
+    id: 8,
     title: "Restaurant Lead Generation & Mail Automation",
     description: "Comprehensive lead generation and email marketing automation for restaurant industry.",
     technologies: ["n8n", "Apify", "Google Maps API", "Google Sheets", "Gmail/IMAP"],
@@ -173,7 +225,7 @@ export const n8nProjects = [
     category: "Lead Generation"
   },
   {
-    id: 7,
+    id: 9,
     title: "Certificate Generation & Distribution System",
     description: "Automated certificate creation and delivery system with Google Sheets integration and personalized PDF generation.",
     technologies: ["n8n", "Google Sheets", "PDF API", "Loop Over Items", "HTTP Request", "Gmail API"],
@@ -200,7 +252,7 @@ export const n8nProjects = [
   
 
   {
-    id: 8,
+    id: 10,
     title: "Daily Thought Mail Automation",
     description: "Automated daily email system for educational institutions with personalized content and tracking.",
     technologies: ["n8n", "Google Drive", "Google Sheets", "Gmail API", "Image Processing"],

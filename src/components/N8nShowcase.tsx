@@ -1,13 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target } from 'lucide-react'
+import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target, X } from 'lucide-react'
 import { n8nProjects } from '@/data/portfolio'
+import { useState } from 'react'
 
 const N8nShowcase = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
   const stats = [
     { icon: <Workflow className="w-6 h-6" />, value: "50+", label: "n8n Workflows Built", color: "text-gold-400" },
-    { icon: <Clock className="w-6 h-6" />, value: "25+", label: "Different Nodes Used", color: "text-burgundy-500" },
+    { icon: <Clock className="w-6 h-6" />, value: "30+", label: "Different Nodes Used", color: "text-burgundy-500" },
     { icon: <Users className="w-6 h-6" />, value: "25+", label: "Organizations Helped", color: "text-gold-400" },
     { icon: <TrendingUp className="w-6 h-6" />, value: "90%", label: "Process Efficiency", color: "text-burgundy-500" }
   ]
@@ -16,12 +19,51 @@ const N8nShowcase = () => {
     "Data Analysis": <Bot className="w-5 h-5" />,
     "Education": <FileText className="w-5 h-5" />,
     "Business Process": <Target className="w-5 h-5" />,
-    "Lead Generation": <Mail className="w-5 h-5" />
+    "Lead Generation": <Mail className="w-5 h-5" />,
+    "AI Integration": <Bot className="w-5 h-5" />
+  }
+
+  const handleImageClick = (imageSrc: string) => {
+    setSelectedImage(imageSrc)
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
   }
 
   return (
     <section id="n8n-showcase" className="section-padding bg-gray-900">
       <div className="container-custom">
+        {/* Image Modal */}
+        {selectedImage && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={closeModal}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 p-2 bg-gray-800 hover:bg-gray-700 rounded-full transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6 text-cream-100" />
+            </button>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-7xl max-h-[90vh] overflow-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Enlarged view"
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+            </motion.div>
+          </div>
+        )}
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -190,7 +232,8 @@ const N8nShowcase = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover rounded-lg mb-4"
+                      className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-90 transition-opacity"
+                      onClick={() => handleImageClick(project.image)}
                     />
                     
                     {/* Additional Images for Business Platform */}
@@ -201,7 +244,8 @@ const N8nShowcase = () => {
                             key={idx}
                             src={img}
                             alt={`${project.title} - View ${idx + 2}`}
-                            className="w-full h-20 object-cover rounded border border-gray-600 hover:border-gold-400/50 transition-colors"
+                            className="w-full h-20 object-cover rounded border border-gray-600 hover:border-gold-400/50 transition-colors cursor-pointer hover:opacity-90"
+                            onClick={() => handleImageClick(img)}
                           />
                         ))}
                       </div>
