@@ -5,13 +5,13 @@ import { skills } from '@/data/portfolio'
 
 const Skills = () => {
   const skillCategories = [
-    { title: 'n8n Specialist', skills: skills.n8nSpecialist, color: 'border-gold-400', bgColor: 'bg-gradient-to-br from-gold-400/10 to-burgundy-500/10' },
-    { title: 'Programming Languages', skills: skills.programming, color: 'border-gray-600', bgColor: 'bg-gray-800' },
-    { title: 'Web Development', skills: skills.webDev, color: 'border-gray-600', bgColor: 'bg-gray-800' },
-    { title: 'Data Science', skills: skills.dataScience, color: 'border-gray-600', bgColor: 'bg-gray-800' },
-    { title: 'Automation Tools', skills: skills.automation, color: 'border-gray-600', bgColor: 'bg-gray-800' },
-    { title: 'Design', skills: skills.design, color: 'border-gray-600', bgColor: 'bg-gray-800' },
-    { title: 'Tools & Technologies', skills: skills.tools, color: 'border-gray-600', bgColor: 'bg-gray-800' }
+    { title: 'n8n & Automation', skills: skills.n8nSpecialist, color: 'border-gold-400', bgColor: 'bg-gradient-to-br from-gold-400/10 to-burgundy-500/10' },
+    { title: 'Languages', skills: skills.programming, color: 'border-gray-600', bgColor: 'bg-gray-800' },
+    { title: 'Web / Full Stack', skills: skills.webDev, color: 'border-gray-600', bgColor: 'bg-gray-800' },
+    { title: 'Databases & BI', skills: skills.dataScience, color: 'border-gray-600', bgColor: 'bg-gray-800' },
+    { title: 'AI Integrations', skills: skills.automation, color: 'border-gray-600', bgColor: 'bg-gray-800' },
+    { title: 'AI Tools', skills: skills.design, color: 'border-gray-600', bgColor: 'bg-gray-800' },
+    { title: 'DevOps & Tools', skills: skills.tools, color: 'border-gray-600', bgColor: 'bg-gray-800' }
   ]
 
   return (

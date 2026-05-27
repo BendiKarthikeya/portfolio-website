@@ -1,12 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target, X } from 'lucide-react'
+import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target, X, ExternalLink } from 'lucide-react'
 import { n8nProjects } from '@/data/portfolio'
 import { useState } from 'react'
 
+const NEW_PROJECT_IDS = [11, 12, 13, 14]
+
 const N8nShowcase = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  // Show the newest n8n projects first, keeping the rest in their original order
+  const orderedProjects = [
+    ...n8nProjects.filter((p) => NEW_PROJECT_IDS.includes(p.id)),
+    ...n8nProjects.filter((p) => !NEW_PROJECT_IDS.includes(p.id)),
+  ]
 
   const stats = [
     { icon: <Workflow className="w-6 h-6" />, value: "50+", label: "n8n Workflows Built", color: "text-gold-400" },
@@ -119,7 +127,7 @@ const N8nShowcase = () => {
 
         {/* Projects */}
         <div className="space-y-12">
-          {n8nProjects.map((project, index) => (
+          {orderedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
@@ -249,6 +257,18 @@ const N8nShowcase = () => {
                           />
                         ))}
                       </div>
+                    )}
+
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center bg-gold-400 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gold-500 transition-colors"
+                      >
+                        View Live Demo
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </a>
                     )}
                   </div>
                 </div>

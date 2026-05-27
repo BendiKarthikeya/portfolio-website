@@ -1,14 +1,14 @@
 export const personalInfo = {
   name: "Karthikeya Bendi",
-  title: "n8n Automation Specialist & Full-Stack Developer",
+  title: "Exploring AI, Building Products | Full Stack Dev & Automation | Founder @ GoAutomate",
   email: "karthikeyabendi05@gmail.com",
   phone: "+91-94913XXXX",
-  location: "India",
-  tagline: "Transforming business processes through intelligent automation",
-  bio: "Hi, I'm Karthikeya - an AI and automation enthusiast passionate about building solutions that save time and help businesses scale efficiently. I am currently pursuing a B.Sc. (Hons.) in Artificial Intelligence and Data Science at IIT Guwahati, where I've developed a strong foundation in programming, web development, and data-driven problem solving.",
+  location: "Bengaluru, India",
+  tagline: "Building production-grade applications and intelligent automation workflows",
+  bio: "Hi, I'm Karthikeya - an AI & Full Stack Developer and Automation Specialist with expertise in building production-grade applications and intelligent workflows. I integrate LLMs, Voice AI, and WhatsApp APIs into real-world systems, and have deep hands-on knowledge of n8n for end-to-end business automation. I'm currently pursuing a B.Sc. (Hons.) in Computer Science and Artificial Intelligence at IIT Guwahati. Passionate about exploring AI tools daily and understanding where to apply which model or platform for the best outcome.",
   avatar: "/Images/karthikeya_crop.jpg",
-  resume: "/Resume_Karthikeya.pdf",
-  experience: "Over the past year, I have designed and implemented more than 50 custom automations in n8n, collectively saving over 200 hours of manual work every week. My journey includes working as an n8n Specialist Intern at Advait, where I focused on scalable automation solutions, and now collaborating with TenderSeal, Dubai, as a freelance n8n Specialist. At TenderSeal, I build intelligent workflows, seamless API integrations, and optimized processes that streamline operations and support business growth."
+  resume: "/Bendi_Karthikeya_Resume.pdf",
+  experience: "I'm the Founder & CEO of GoAutomate, helping businesses scale faster by eliminating manual work through intelligent n8n workflows, AI agents, and API integrations, and Co-Founder of XimVerse (Bengaluru). As a Full Stack Generative AI developer at FIT - First Information Technology (Muscat), I build production-grade apps from scratch with React, TypeScript, Node.js, Express and PostgreSQL - integrating Voice AI (VAPI), WhatsApp Business API, and LLM APIs, with RBAC, OAuth-based CRM integrations, and real-time analytics dashboards. Alongside this I've worked as Automation Manager at Cervoa (Noida) and Automation Developer at MyAibo, and as an n8n Specialist for TenderSeal (UK) and Advait - designing end-to-end automation systems, integrating APIs and databases, and optimizing API usage to cut operational cost and manual workload by up to 90%."
 }
 
 export const socialLinks = {
@@ -274,6 +274,104 @@ export const n8nProjects = [
       integrations: 4
     },
     category: "Education"
+  },
+  {
+    id: 11,
+    title: "Brand Intelligence - Multi-Platform Lead Intelligence",
+    description: "Multi-platform social listening and lead-intelligence system that monitors Reddit, Quora, X (Twitter) and Threads to surface relevant conversations and qualified leads in real time, with a dedicated web dashboard.",
+    technologies: ["n8n", "SerpAPI", "Reddit API", "X (Twitter) API", "Threads API", "Google Sheets", "Webhook"],
+    features: [
+      "Cross-platform monitoring of Reddit, Quora, X and Threads",
+      "Keyword and intent-based lead discovery via SerpAPI",
+      "Batch processing with rate-limit handling (Split in Batches + Wait)",
+      "Automated logging of leads and mentions to Google Sheets",
+      "Webhook-triggered, on-demand intelligence runs",
+      "SerpAPI credit monitoring to control API spend",
+      "Deduplication and filtering of captured results",
+      "Dedicated web dashboard for browsing captured intelligence"
+    ],
+    impact: "Unified lead discovery across 4+ platforms, automating thousands of social mentions into a single qualified-lead pipeline",
+    image: "/Images/Intelligence_reddit.png",
+    additionalImages: ["/Images/Intelligence_Quora.png", "/Images/Intelligence_X.png"],
+    live: "https://socialintelligence-psi.vercel.app/",
+    workflow: {
+      trigger: "Webhook / Scheduled",
+      steps: ["Multi-Platform Search", "Result Parsing", "Filtering & Dedup", "Sheet Logging"],
+      integrations: 7
+    },
+    category: "Lead Generation"
+  },
+  {
+    id: 12,
+    title: "Social Media Management Automation",
+    description: "Single-trigger publishing engine that distributes content to Instagram, LinkedIn and YouTube with conditional, per-platform routing.",
+    technologies: ["n8n", "Instagram API", "LinkedIn API", "YouTube API", "Webhook", "Switch/If Logic"],
+    features: [
+      "One-click multi-platform publishing to Instagram, LinkedIn and YouTube",
+      "Conditional routing per platform (Switch/If)",
+      "Webhook-triggered content intake",
+      "Platform-specific formatting and payload handling",
+      "Retry and wait handling for API rate limits",
+      "Custom Code nodes for content transformation",
+      "Centralized control over distributed posting",
+      "Scalable 30+ node orchestration"
+    ],
+    impact: "Cut multi-platform posting to a single trigger, eliminating manual cross-posting across 3 networks",
+    image: "/Images/Social Media Management.png",
+    workflow: {
+      trigger: "Webhook",
+      steps: ["Content Intake", "Platform Routing", "Format & Publish", "Status Handling"],
+      integrations: 5
+    },
+    category: "Business Process"
+  },
+  {
+    id: 13,
+    title: "Reel Machine - AI Video Factory & Analytics",
+    description: "End-to-end short-video pipeline that sources content, edits reels with MediaFX, auto-posts, and tracks performance analytics on a schedule.",
+    technologies: ["n8n", "MediaFX", "Google Drive", "Google Sheets", "RSS", "Webhook", "Scheduling"],
+    features: [
+      "Automated source ingestion via RSS and Google Drive",
+      "Programmatic video/reel editing with MediaFX",
+      "Scheduled, hands-free reel publishing",
+      "Performance analytics tracked back to Google Sheets",
+      "Branching logic and data merging across 50+ nodes",
+      "Webhook + schedule triggers for flexible runs",
+      "Batch processing with rate-limit waits",
+      "Respond-to-webhook for external integrations"
+    ],
+    impact: "Automated the full create-post-measure loop for short-form video, the most complex workflow in the system (50+ nodes)",
+    image: "/Images/Reel Machine.png",
+    workflow: {
+      trigger: "Scheduled / Webhook",
+      steps: ["Source Ingestion", "Video Editing (MediaFX)", "Auto-Posting", "Analytics Tracking"],
+      integrations: 7
+    },
+    category: "AI Integration"
+  },
+  {
+    id: 14,
+    title: "AI Cold Email Outreach Automation (Instantly)",
+    description: "AI-driven cold outreach system that verifies leads, runs Instantly campaigns, and generates AI replies with a human-in-the-loop email approval step.",
+    technologies: ["n8n", "Instantly", "OpenAI API", "Google Gemini", "Million Verifier", "Gmail", "Webhook"],
+    features: [
+      "Email verification via Million Verifier before outreach",
+      "Automated Instantly campaign creation and lead push",
+      "AI-generated replies using Gemini / OpenAI",
+      "Human-in-the-loop email approval before sending",
+      "Reply detection and follow-up handling",
+      "Structured output parsing for reply drafting",
+      "Lead data synced to Google Sheets",
+      "Webhook-driven, end-to-end outreach pipeline"
+    ],
+    impact: "Automated cold outreach end-to-end while keeping a human approval gate, protecting deliverability with pre-send verification",
+    image: "/Images/Cold Email Outreach.png",
+    workflow: {
+      trigger: "Webhook / Scheduled",
+      steps: ["Email Verification", "Campaign Push", "AI Reply Generation", "Human Approval & Send"],
+      integrations: 7
+    },
+    category: "Lead Generation"
   }
 ]
 
@@ -289,37 +387,57 @@ export const skills = {
     { name: "Custom Functions", icon: "⚙️" }
   ],
   programming: [
-    
-    { name: "C++", icon: "⚙️", level: "Intermediate" },
-    { name: "Java", icon: "☕", level: "Basic" },
-    { name: "Python", icon: "🐍", level: "Basic" },
-    { name: "C Programming", icon: "🔧", level: "Basic" }
+    { name: "C", icon: "🔧" },
+    { name: "C++", icon: "⚙️" },
+    { name: "Java", icon: "☕" },
+    { name: "Python", icon: "🐍" },
+    { name: "JavaScript", icon: "🟨" }
   ],
   webDev: [
-    { name: "HTML", icon: "🌐", level: "Intermediate" },
-    { name: "CSS", icon: "🎨", level: "Intermediate" },
-    { name: "JavaScript", icon: "🟨", level: "Intermediate" },
-    { name: "React.js", icon: "⚛️" },
-    { name: "Tailwind CSS", icon: "🎨" }
+    { name: "React", icon: "⚛️" },
+    { name: "Node.js", icon: "🟩" },
+    { name: "Express.js", icon: "🚂" },
+    { name: "Django", icon: "🎸" },
+    { name: "HTML5", icon: "🌐" },
+    { name: "CSS3", icon: "🎨" },
+    { name: "Tailwind CSS", icon: "💨" },
+    { name: "GSAP", icon: "✨" }
   ],
   dataScience: [
-    { name: "SQL", icon: "🗄️", level: "Basic" },
-    { name: "Power BI", icon: "📊", level: "Basic" },
-    { name: "Data Analysis in Excel", icon: "📈", level: "Basic" },
-    { name: "Pandas", icon: "🐼", level: "Basic" }
+    { name: "PostgreSQL", icon: "🐘" },
+    { name: "MySQL", icon: "🗄️" },
+    { name: "MongoDB", icon: "🍃" },
+    { name: "Neon DB", icon: "💡" },
+    { name: "Supabase", icon: "⚡" },
+    { name: "Drizzle ORM", icon: "🌧️" },
+    { name: "Power BI", icon: "📊" },
+    { name: "Excel", icon: "📈" }
   ],
   automation: [
-    { name: "Zapier", icon: "⚡" },
-    { name: "Make (Integromat)", icon: "🔧" },
+    { name: "OpenRouter API", icon: "🧭" },
+    { name: "VAPI (Voice AI)", icon: "🎙️" },
+    { name: "WhatsApp Business API", icon: "💬" },
+    { name: "RAG Systems", icon: "📚" },
+    { name: "LLM Integration", icon: "🧠" }
   ],
   design: [
-    { name: "UI/UX Design", icon: "🎨", level: "Basic" },
-    { name: "Graphic Design", icon: "🖌️", level: "Basic" }
+    { name: "Claude", icon: "🤖" },
+    { name: "ChatGPT", icon: "💡" },
+    { name: "Gemini", icon: "♊" },
+    { name: "Perplexity", icon: "🔍" },
+    { name: "Cursor AI", icon: "🖱️" },
+    { name: "GitHub Copilot", icon: "🐙" },
+    { name: "Clay", icon: "🧱" },
+    { name: "Instantly", icon: "📨" }
   ],
   tools: [
-    { name: "Git", icon: "📝" },
-    { name: "AWS", icon: "☁️" },
-    { name: "Apify", icon: "🕷️" }
+    { name: "Git & GitHub", icon: "📝" },
+    { name: "REST APIs", icon: "🔗" },
+    { name: "JWT Auth", icon: "🔐" },
+    { name: "OAuth 2.0", icon: "🛡️" },
+    { name: "Brevo SMTP", icon: "📧" },
+    { name: "Zapier", icon: "⚡" },
+    { name: "SerpAPI", icon: "🔎" }
   ]
 }
 
@@ -343,87 +461,53 @@ export const projects = [
     ]
   },
   {
-    id: 2,
-    title: "Business Data Analysis & Chatbot Automation",
-    description: "Complete data analysis pipeline with AI-powered insights and interactive chatbot for business intelligence.",
-    technologies: ["n8n", "AWS", "OpenAI API", "Webhook", "Google Drive"],
+    id: 6,
+    title: "InsightPulse - Multi-Channel Survey & Analytics Platform",
+    description: "Full-stack survey platform that distributes surveys via Voice AI, WhatsApp, and Web, with LLM-powered analysis generating NPS, EVI, CSAT, and CES scores in real time.",
+    technologies: ["React", "Node.js", "VAPI (Voice AI)", "WhatsApp Business API", "LLM Integration", "PostgreSQL"],
     github: "https://github.com/BendiKarthikeya",
-    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
-    image: "/Images/Project_bussines_analyst -1.png",
+    live: "https://skill-pulse.io/",
+    image: "/Images/InsightPulse.png",
     features: [
-      "Dataset upload via website (Webhook)",
-      "Data cleaning & storage (AWS)",
-      "AI insights & graphs (OpenAI API)",
-      "Business improvement suggestions",
-      "Reusable cleaned data for analysis",
-      "Interactive chatbot for Q&A on uploaded data",
-      "Seamless website + n8n integration"
+      "Multi-channel survey distribution (Voice AI, WhatsApp, Web)",
+      "LLM-powered analysis of open-ended responses",
+      "Real-time NPS, EVI, CSAT, and CES scoring",
+      "Role-based access control (RBAC)",
+      "CRM integration via OAuth",
+      "Employee retention analysis module",
+      "Executive analytics dashboard"
     ]
   },
   {
-    id: 3,
-    title: "Daily Thought Mail Automation",
-    description: "Automated daily email system for educational institutions with personalized content and tracking.",
-    technologies: ["n8n", "Google Drive", "Google Sheets", "Gmail API", "Image Processing"],
+    id: 7,
+    title: "HRMS - HR Management System",
+    description: "End-to-end hiring and onboarding platform covering the full recruitment lifecycle, from requisition to offer and onboarding.",
+    technologies: ["React", "Node.js", "Express.js", "PostgreSQL", "AI CV Screening", "E-Signature"],
     github: "https://github.com/BendiKarthikeya",
-    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
-    image: "/Images/daily thought.png",
+    live: "https://hcmspro.net/",
+    image: "/Images/HRMS.png",
     features: [
-      "Daily email to all students (thought/fact of the day)",
-      "Auto-fetch image from Google Drive",
-      "Update Google Sheet to track used images",
-      "Avoid duplicate content",
-      "Custom recognition for student suggestions",
-      "Personalized greetings",
-      "Error handling for missing data"
-    ]
-  },
-  {
-    id: 4,
-    title: "Business Platform Automation",
-    description: "End-to-end business process automation for trading platform with multi-database integration.",
-    technologies: ["n8n", "PDF API", "Multiple Databases", "Email API", "Payment Systems"],
-    github: "https://github.com/BendiKarthikeya",
-    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
-    image: "/Images/work-1.png",
-    features: [
-      "Traders, buyers, sellers workflows",
-      "Auto emails to admins/users",
-      "PDF generation with API Templates",
-      "Send PDFs in multiple formats",
-      "Background process updates",
-      "Daily payment reminders",
-      "End-to-end process automation"
-    ]
-  },
-  {
-    id: 5,
-    title: "Restaurant Lead Generation & Mail Automation",
-    description: "Comprehensive lead generation and email marketing automation for restaurant industry.",
-    technologies: ["n8n", "Apify", "Google Maps API", "Google Sheets", "Gmail/IMAP"],
-    github: "https://github.com/BendiKarthikeya",
-    live: "https://karthikeyabendi.vercel.app/n8n-portfolio",
-    image: "/Images/mail automation.png",
-    features: [
-      "Restaurant leads scraping via Apify (Google Maps)",
-      "Email-based deduplication and smart filtering",
-      "Auto-store clean leads into Google Sheets",
-      "Personalized email outreach to each lead",
-      "Scheduled follow-ups with reply detection",
-      "Fully automated multi-step email flow",
-      "Gmail/IMAP integration for inbox monitoring"
+      "Hiring pipeline: requisition → multi-step approval → public careers page job posting",
+      "Candidate management with AI-powered CV screening",
+      "Interview scheduling with calendar invites and online-meeting links",
+      "Multi-round tracking and panel evaluation scoring",
+      "Offer letter lifecycle with e-signature capture and inline PDF preview",
+      "Post-offer onboarding tracking (medical, visa, clearance status)",
+      "Automated transactional emails at every pipeline stage",
+      "Reports dashboard with KPIs (open vacancies, pipeline funnel, avg hire cycle) and CSV exports"
     ]
   }
 ]
 
 export const education = [
   {
-    degree: "B.Sc Honours in AI and DS",
+    degree: "B.Sc Honours in Computer Science and Artificial Intelligence",
     institution: "Indian Institute of Technology Guwahati",
     year: "2023 - Present",
+    grade: "CGPA: 8.68/10.0",
     achievements: [
-      "Achieved a GPA of 8.31 in the second trimester",
-      "Secured a GPA of 8.23 in the third trimester"
+      "Maintaining a CGPA of 8.68/10.0",
+      "Strong foundation in programming, AI, and full-stack development"
     ],
     level: "undergraduate"
   },
@@ -487,8 +571,8 @@ export const certifications = [
 
 
 export const achievements = [
-  "Built 50+ automation workflows saving 200+ hours weekly",
-  "Increased client productivity by average 65% through automation",
-  "Contributed to open-source n8n community projects",
-  "Mentored 20+ developers in workflow automation"
+  "JEE Mains 2023: 94.63 percentile - secured admission to IIT Guwahati",
+  "Qualified for NSEJS (National Standard Examination in Junior Science) - top 300 nationwide",
+  "Solved 275+ problems on LeetCode",
+  "Completed two 108-day LinkedIn learning challenges"
 ]
