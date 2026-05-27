@@ -44,12 +44,12 @@ const Contact = () => {
       name: 'Portfolio',
       icon: <ExternalLink className="w-5 h-5" />,
       href: socialLinks.portfolio,
-      color: 'hover:text-primary-600'
+      color: 'hover:text-gold-400'
     }
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gray-800">
+    <section id="contact" className="section-padding bg-gray-800/40 backdrop-blur-md">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <Github size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">GitHub</span>
@@ -92,7 +92,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <Linkedin size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">LinkedIn</span>
@@ -103,7 +103,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">Blog</span>
@@ -114,7 +114,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">LeetCode</span>
@@ -125,7 +125,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">Codeforces</span>
@@ -136,7 +136,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">CodeChef</span>
@@ -147,7 +147,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">HackerRank</span>
@@ -158,7 +158,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800 border border-gray-700 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
               >
                 <ExternalLink size={20} className="text-cream-300" />
                 <span className="text-cream-200 text-sm hidden sm:inline">Portfolio</span>
@@ -201,7 +201,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="flex flex-col items-center text-center bg-gray-900 border border-gray-700 rounded-xl p-6 pb-8 hover:border-gold-400/50 transition-all duration-300"
+                className="flex flex-col items-center text-center bg-gray-900 border border-white/10 rounded-xl p-6 pb-8 hover:border-gold-400/50 transition-all duration-300"
               >
                 <div className="p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg mb-3">
                   {info.icon}

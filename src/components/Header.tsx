@@ -40,6 +40,7 @@ const Header = () => {
 
   const navItems = [
     { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'n8n Portfolio', href: '/n8n-portfolio' },
@@ -61,9 +62,10 @@ const Header = () => {
           <Link href="/">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="font-bold text-xl gradient-text cursor-pointer"
+              className="font-bold text-xl cursor-pointer"
             >
-              Karthikeya Bendi
+              <span className="text-cream-50">Karthikeya</span>{' '}
+              <span className="text-cream-400">Bendi</span>
             </motion.div>
           </Link>
 

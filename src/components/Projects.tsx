@@ -6,7 +6,7 @@ import { projects } from '@/data/portfolio'
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-white dark:bg-gray-900">
+    <section id="projects" className="section-padding bg-transparent">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ const Projects = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex-shrink-0 w-96"
+                className="bg-gray-800/40 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex-shrink-0 w-96"
               >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -58,7 +58,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+                    className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
                   >
                     <Github size={18} />
                   </motion.a>
@@ -68,7 +68,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+                    className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
                   >
                     <ExternalLink size={18} />
                   </motion.a>
@@ -78,7 +78,7 @@ const Projects = () => {
               {/* Project Content */}
               <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary-500 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-gold-400 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -94,7 +94,7 @@ const Projects = () => {
                   <ul className="space-y-1">
                     {project.features.map((feature, idx) => (
                       <li key={idx} className="text-xs text-gray-600 dark:text-gray-400 flex items-center">
-                        <div className="w-1 h-1 bg-primary-500 rounded-full mr-2"></div>
+                        <div className="w-1 h-1 bg-gold-400 rounded-full mr-2"></div>
                         {feature}
                       </li>
                     ))}
@@ -107,7 +107,7 @@ const Projects = () => {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded text-xs font-medium"
+                        className="px-2 py-1 bg-gold-400/15 text-gold-400 border border-gold-400/30 rounded text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -116,14 +116,14 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex space-x-3 pt-4 border-t border-gray-200 dark:border-white/10">
                   <motion.a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg text-sm font-medium transition-colors"
+                    className="flex-1 flex items-center justify-center px-4 py-2 bg-gold-400 hover:bg-gold-500 text-gray-900 rounded-lg text-sm font-medium transition-colors"
                   >
                     <ExternalLink size={16} className="mr-2" />
                     Live Demo
@@ -135,7 +135,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors"
+                    className="flex-1 flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-cream-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors"
                   >
                     <Github size={16} className="mr-2" />
                     Code
@@ -173,7 +173,7 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center px-6 py-3 border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-gray-900 rounded-lg font-semibold transition-colors"
               >
                 <Github size={20} className="mr-2" />
                 View GitHub Profile
@@ -183,7 +183,7 @@ const Projects = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-6 py-3 border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center px-6 py-3 border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-white rounded-lg font-semibold transition-colors"
               >
                 Discuss a Project
                 <ArrowRight size={20} className="ml-2" />

@@ -29,7 +29,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-gray-800">
+    <section id="about" className="section-padding bg-gray-800/40 backdrop-blur-md">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -95,7 +95,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-gray-900 border border-gray-700 p-6 rounded-xl hover:border-gold-400/50 transition-all duration-300"
+                className="bg-gray-900 border border-white/10 p-6 rounded-xl hover:border-gold-400/50 transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg">

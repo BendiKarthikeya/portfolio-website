@@ -78,7 +78,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
-                className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-primary-400 hover:bg-gray-700 transition-all duration-200"
+                className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-gold-400 hover:bg-gray-700 transition-all duration-200"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -137,7 +137,7 @@ const Footer = () => {
                 onClick={scrollToTop}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-2 bg-primary-500 hover:bg-primary-600 rounded-lg text-white transition-colors duration-200"
+                className="p-2 bg-gold-400 hover:bg-gold-500 rounded-lg text-white transition-colors duration-200"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="w-4 h-4" />

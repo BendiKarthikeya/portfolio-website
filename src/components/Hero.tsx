@@ -28,7 +28,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-900 pt-16">
+    <section className="min-h-screen flex items-center justify-center bg-transparent pt-16">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -39,19 +39,18 @@ const Hero = () => {
           {/* Content */}
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-4">
-              <motion.h1 
+              <motion.h1
                 className="text-5xl lg:text-6xl font-bold leading-tight"
                 variants={itemVariants}
               >
                 Hi, I'm{' '}
-                <span className="gradient-text">
-                  {personalInfo.name}
-                </span>
+                <span className="text-cream-50">Karthikeya</span>{' '}
+                <span className="text-cream-400">Bendi</span>
               </motion.h1>
-              
-              <motion.h2 
+
+              <motion.h2
                 variants={itemVariants}
-                className="text-2xl lg:text-3xl text-gold-400 font-medium"
+                className="text-xl lg:text-2xl text-gold-400 font-medium"
               >
                 {personalInfo.title}
               </motion.h2>
@@ -103,7 +102,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: 5 }}
-                className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+                className="p-3 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-full text-cream-200 hover:text-gold-400 hover:border-gold-400/50 transition-colors"
               >
                 <Github size={24} />
               </motion.a>
@@ -113,7 +112,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: -5 }}
-                className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+                className="p-3 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-full text-cream-200 hover:text-gold-400 hover:border-gold-400/50 transition-colors"
               >
                 <Linkedin size={24} />
               </motion.a>
@@ -123,7 +122,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, rotate: 5 }}
-                className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+                className="p-3 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-full text-cream-200 hover:text-gold-400 hover:border-gold-400/50 transition-colors"
               >
                 <ExternalLink size={24} />
               </motion.a>
@@ -132,7 +131,7 @@ const Hero = () => {
             {/* Stats */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-700"
+              className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10"
             >
               <div className="text-center">
                 <motion.div 
@@ -188,7 +187,9 @@ const Hero = () => {
               }}
               className="relative"
             >
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gold-400 to-burgundy-500 p-2">
+              {/* Glow behind avatar */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-gold-400/40 to-burgundy-500/40 blur-3xl scale-110" />
+              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gold-400 to-burgundy-500 p-2 shadow-2xl shadow-gold-400/20">
                 <img
                   src={personalInfo.avatar}
                   alt={personalInfo.name}

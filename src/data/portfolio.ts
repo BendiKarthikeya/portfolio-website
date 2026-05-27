@@ -6,7 +6,7 @@ export const personalInfo = {
   location: "Bengaluru, India",
   tagline: "Building production-grade applications and intelligent automation workflows",
   bio: "Hi, I'm Karthikeya - an AI & Full Stack Developer and Automation Specialist with expertise in building production-grade applications and intelligent workflows. I integrate LLMs, Voice AI, and WhatsApp APIs into real-world systems, and have deep hands-on knowledge of n8n for end-to-end business automation. I'm currently pursuing a B.Sc. (Hons.) in Computer Science and Artificial Intelligence at IIT Guwahati. Passionate about exploring AI tools daily and understanding where to apply which model or platform for the best outcome.",
-  avatar: "/Images/karthikeya_crop.jpg",
+  avatar: "/Images/karthikeya.jpeg",
   resume: "/Bendi_Karthikeya_Resume.pdf",
   experience: "I'm the Founder & CEO of GoAutomate, helping businesses scale faster by eliminating manual work through intelligent n8n workflows, AI agents, and API integrations, and Co-Founder of XimVerse (Bengaluru). As a Full Stack Generative AI developer at FIT - First Information Technology (Muscat), I build production-grade apps from scratch with React, TypeScript, Node.js, Express and PostgreSQL - integrating Voice AI (VAPI), WhatsApp Business API, and LLM APIs, with RBAC, OAuth-based CRM integrations, and real-time analytics dashboards. Alongside this I've worked as Automation Manager at Cervoa (Noida) and Automation Developer at MyAibo, and as an n8n Specialist for TenderSeal (UK) and Advait - designing end-to-end automation systems, integrating APIs and databases, and optimizing API usage to cut operational cost and manual workload by up to 90%."
 }
@@ -21,6 +21,72 @@ export const socialLinks = {
   codechef: "https://www.codechef.com/users/karthikeya070",
   hackerrank: "https://www.hackerrank.com/profile/Karthikeya07"
 }
+
+export const experiences = [
+  {
+    company: "GoAutomate",
+    role: "Founder & CEO",
+    period: "Dec 2025 - Present",
+    location: "Bengaluru, India",
+    type: "Founder",
+    description: "Helping businesses scale faster by eliminating manual work through intelligent automation. Using n8n, AI agents, and API integrations to build custom workflows that run reliably in the background so teams can focus on growth, not operations.",
+    skills: ["n8n", "AI Agents", "API Integration", "Start-up Leadership"]
+  },
+  {
+    company: "XimVerse",
+    role: "Co-Founder",
+    period: "May 2026 - Present",
+    location: "Bengaluru, India",
+    type: "Founder",
+    description: "Co-founding XimVerse, building the orchestration layer for cross-border trade.",
+    skills: ["Product", "Automation", "Orchestration"]
+  },
+  {
+    company: "FIT - FIRST Information Technology",
+    role: "Full Stack Generative AI Developer",
+    period: "Nov 2025 - Present",
+    location: "Muscat, Oman",
+    type: "Full-time",
+    description: "Building production-grade applications from scratch based on client requirements: full-stack web apps with React, TypeScript, Node.js, Express and PostgreSQL; Voice AI (VAPI) conversational interfaces; WhatsApp Business API automated messaging; LLM APIs for AI-powered insights and metrics; RBAC, OAuth-based CRM integrations, and real-time analytics dashboards; Drizzle ORM for type-safe database operations.",
+    skills: ["React", "TypeScript", "Node.js", "PostgreSQL", "VAPI", "WhatsApp API", "LLM", "Drizzle ORM"]
+  },
+  {
+    company: "Cervoa",
+    role: "Automation Manager",
+    period: "Jan 2026 - Present",
+    location: "Noida, India",
+    type: "Contract",
+    description: "Designing and building end-to-end automation systems using n8n as the backend orchestration layer, integrated with frontend technologies to build internal websites and dashboards. Analyzing and optimizing API usage to reduce operational costs.",
+    skills: ["n8n", "Automation Engineering", "Dashboards", "API Optimization"]
+  },
+  {
+    company: "MyAibo",
+    role: "Automation Developer",
+    period: "Oct 2025 - Dec 2025",
+    location: "Bengaluru, India",
+    type: "Contract",
+    description: "Designed and deployed end-to-end automation workflows using n8n, streamlining business processes across multiple departments. Built seamless integrations between business applications, APIs, and databases, and managed workflow optimization, troubleshooting, and technical documentation.",
+    skills: ["n8n", "Integrations", "Process Optimization", "Documentation"]
+  },
+  {
+    company: "TenderSeal",
+    role: "n8n Specialist",
+    period: "Jul 2025 - Dec 2025",
+    location: "Guildford, UK",
+    type: "Freelance",
+    description: "Helping businesses scale efficiently by building smart automations using n8n - from seamless integrations to optimized workflows and streamlined operations.",
+    skills: ["n8n", "Integrations", "Workflow Optimization"]
+  },
+  {
+    company: "Advait",
+    role: "n8n Specialist",
+    period: "Jun 2025 - Jul 2025",
+    location: "Bengaluru, India",
+    type: "Internship",
+    description: "Automation expert specializing in n8n workflows, integrations, and process optimization for scalable business automation solutions.",
+    skills: ["n8n", "Automation", "Integrations"]
+  }
+]
 
 export const n8nProjects = [
   {

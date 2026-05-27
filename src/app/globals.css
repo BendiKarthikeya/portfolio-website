@@ -6,13 +6,19 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply antialiased bg-gray-900 text-cream-100;
+    @apply antialiased text-cream-100;
     margin: 0;
     padding: 0;
+    background-color: #212529;
+    background-image:
+      radial-gradient(900px circle at 12% 8%,  rgba(248, 249, 250, 0.04), transparent 42%),
+      radial-gradient(900px circle at 88% 22%, rgba(173, 181, 189, 0.06), transparent 45%),
+      radial-gradient(1000px circle at 50% 100%, rgba(108, 117, 125, 0.05), transparent 50%);
+    background-attachment: fixed;
   }
-  
+
   * {
     box-sizing: border-box;
   }
@@ -20,35 +26,39 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gold-400 hover:bg-gold-500 text-gray-900 px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+    @apply bg-cream-50 hover:bg-cream-100 text-cream-800 px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cream-300 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply border-2 border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-gray-900 px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+    @apply border-2 border-cream-300 text-cream-200 hover:bg-cream-300 hover:text-cream-800 px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cream-300 focus:ring-offset-2;
   }
-  
+
   .section-padding {
     @apply py-20 px-6 sm:px-8 lg:px-12;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .gradient-text {
-    @apply bg-gradient-to-r from-gold-400 to-burgundy-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cream-50 to-cream-400 bg-clip-text text-transparent;
   }
-  
+
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
   }
-  
+
   .n8n-card {
-    @apply bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-gold-400 transition-all duration-300;
+    @apply bg-cream-700/40 backdrop-blur-md border border-cream-600/30 rounded-2xl p-6 hover:border-cream-400/60 hover:shadow-xl hover:shadow-cream-400/10 transition-all duration-300;
   }
-  
+
   .skill-card {
-    @apply bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-gold-400 transition-all duration-300;
+    @apply bg-cream-700/40 backdrop-blur-md border border-cream-600/30 rounded-xl p-4 hover:border-cream-400/60 hover:shadow-lg hover:shadow-cream-400/10 transition-all duration-300;
+  }
+
+  .glass-card {
+    @apply bg-cream-700/40 backdrop-blur-md border border-cream-600/30 rounded-2xl hover:border-cream-400/60 transition-all duration-300;
   }
 }
 
@@ -59,15 +69,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-800;
+  background: #343a40;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gold-400 rounded-full;
+  background: #6c757d;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gold-500;
+  background: #adb5bd;
 }
 
 /* Horizontal scrollbar for projects */
@@ -76,13 +87,15 @@
 }
 
 .horizontal-scroll::-webkit-scrollbar-track {
-  @apply bg-gray-200 dark:bg-gray-700 rounded-full;
+  background: #343a40;
+  border-radius: 9999px;
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-500 rounded-full;
+  background: #6c757d;
+  border-radius: 9999px;
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500 dark:bg-gray-400;
+  background: #adb5bd;
 }
