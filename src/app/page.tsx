@@ -19,9 +19,9 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
-      <N8nPreview />
       <Skills />
       <Projects />
+      <N8nPreview />
       <Education />
       <Contact />
     </main>

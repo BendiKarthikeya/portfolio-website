@@ -92,10 +92,27 @@
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #6c757d;
+  background: #fac042;
   border-radius: 9999px;
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
-  background: #adb5bd;
+  background: #f5b041;
 }
+
+/* Disable scroll animations on mobile devices (< 768px) for instant, stutter-free viewing */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  section h2,
+  section p,
+  [data-gsap],
+  [data-gsap] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+

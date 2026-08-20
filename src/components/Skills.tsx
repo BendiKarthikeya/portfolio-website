@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Code2 } from 'lucide-react'
 import { skills } from '@/data/portfolio'
 
 const categories = [
@@ -49,6 +50,17 @@ const categories = [
     size: 'normal',
   },
   {
+    title: 'AI Stack',
+    skills: skills.aiStack,
+    accent: 'from-purple-400 to-pink-500',
+    border: 'border-purple-400/40',
+    bg: 'bg-purple-400/5',
+    textColor: 'text-purple-300',
+    pillBg: 'bg-purple-400/10 border-purple-400/25 hover:bg-purple-400/20 hover:border-purple-400/50',
+    span: 'lg:col-span-1',
+    size: 'normal',
+  },
+  {
     title: 'Databases & BI',
     skills: skills.dataScience,
     accent: 'from-teal-300 to-cyan-600',
@@ -92,10 +104,19 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-cream-100">Technical Skills</h2>
-          <p className="text-xl text-cream-300 max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <Code2 className="w-6 h-6 text-gold-400" />
+            </div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Capabilities</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Technical{' '}
+            <span className="text-gray-400">Skills</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
             Comprehensive expertise in automation, development, and integration technologies
           </p>
         </motion.div>

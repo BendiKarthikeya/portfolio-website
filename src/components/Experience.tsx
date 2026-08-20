@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Briefcase, MapPin, Rocket } from 'lucide-react'
+import { Briefcase, MapPin, Rocket, Globe, Linkedin } from 'lucide-react'
 import { experiences } from '@/data/portfolio'
 
 const Experience = () => {
@@ -13,17 +13,26 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-cream-100">Experience</h2>
-          <p className="text-xl text-cream-300 max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <Briefcase className="w-6 h-6 text-gold-400" />
+            </div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Career Journey</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Work{' '}
+            <span className="text-gray-400">Experience</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
             Building products and automation across startups and international teams
           </p>
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold-400/60 via-burgundy-500/40 to-transparent md:-translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cream-300/40 via-cream-500/20 to-transparent md:-translate-x-1/2" />
 
           <div className="space-y-10">
             {experiences.map((exp, index) => {
@@ -41,8 +50,10 @@ const Experience = () => {
                 >
                   {/* Node dot */}
                   <span
-                    className={`absolute top-6 left-4 md:left-auto h-3 w-3 rounded-full bg-gold-400 ring-4 ring-gold-400/20 -translate-x-1/2 ${
-                      isLeft ? 'md:right-[-6px] md:left-auto md:translate-x-0' : 'md:left-[-6px] md:translate-x-0'
+                    className={`absolute top-6 h-3 w-3 rounded-full bg-gold-400 ring-4 ring-gold-400/20 ${
+                      isLeft
+                        ? 'left-4 -translate-x-1/2 md:left-auto md:right-[-6px] md:translate-x-0'
+                        : 'left-4 -translate-x-1/2 md:left-[-6px] md:right-auto md:translate-x-0'
                     }`}
                   />
 
@@ -55,7 +66,31 @@ const Experience = () => {
                     </div>
 
                     <h3 className="text-xl font-bold text-cream-100">{exp.role}</h3>
-                    <p className="text-gold-400 font-semibold">{exp.company}</p>
+                    <div className={`flex items-center gap-2.5 mt-1 mb-1.5 ${isLeft ? 'md:justify-end' : ''}`}>
+                      <p className="text-gold-400 font-semibold">{exp.company}</p>
+                      {('website' in exp && exp.website) && (
+                        <a
+                          href={exp.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cream-400 hover:text-gold-400 transition-colors"
+                          title="Visit Website"
+                        >
+                          <Globe className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      {('linkedin' in exp && exp.linkedin) && (
+                        <a
+                          href={exp.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cream-400 hover:text-gold-400 transition-colors"
+                          title="View LinkedIn"
+                        >
+                          <Linkedin className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
 
                     <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cream-400 mt-1 mb-3 ${isLeft ? 'md:justify-end' : ''}`}>
                       <span>{exp.period}</span>

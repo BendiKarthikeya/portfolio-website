@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target, X, ExternalLink, ChevronRight } from 'lucide-react'
 import { n8nProjects } from '@/data/portfolio'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const NEW_PROJECT_IDS = [11, 12, 13, 14]
 
@@ -198,7 +198,7 @@ function ProjectModal({ project, onClose, onImageClick }: { project: Project; on
           </div>
 
           {/* Impact */}
-          <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/25 rounded-xl p-4">
+          <div className="bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/25 rounded-xl p-4">
             <div className="flex items-center gap-2 mb-1.5">
               <TrendingUp className="w-4 h-4 text-gold-400" />
               <span className="text-sm font-semibold text-gold-400">Business Impact</span>
@@ -206,20 +206,35 @@ function ProjectModal({ project, onClose, onImageClick }: { project: Project; on
             <p className="text-cream-200 text-sm">{project.impact}</p>
           </div>
 
-          {/* Additional images */}
-          {'additionalImages' in project && Array.isArray((project as any).additionalImages) && (project as any).additionalImages.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {(project as any).additionalImages.slice(0, 4).map((img: string, i: number) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`${project.title} view ${i + 2}`}
-                  className="w-full h-20 object-cover rounded-lg cursor-zoom-in border border-white/10 hover:border-gold-400/40 transition-colors"
-                  onClick={() => onImageClick(img)}
-                />
-              ))}
-            </div>
-          )}
+          {/* Workflow images gallery */}
+          {(() => {
+            const allImages = [
+              project.image,
+              ...('additionalImages' in project && Array.isArray((project as any).additionalImages)
+                ? (project as any).additionalImages
+                : [])
+            ]
+            if (allImages.length <= 1) return null
+
+            return (
+              <div className="space-y-3">
+                <h4 className="text-sm font-semibold text-gold-400 flex items-center gap-1.5">
+                  <Workflow className="w-4 h-4" /> Workflow Screenshots
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                  {allImages.map((img: string, i: number) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`${project.title} view ${i + 1}`}
+                      className="w-full h-20 object-cover rounded-lg cursor-zoom-in border border-white/10 hover:border-gold-400/40 hover:scale-[1.03] transition-all duration-200"
+                      onClick={() => onImageClick(img)}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
 
           {/* Live demo */}
           {'live' in project && (project as any).live && (
@@ -241,6 +256,20 @@ function ProjectModal({ project, onClose, onImageClick }: { project: Project; on
 const N8nShowcase = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const projectId = params.get('projectId')
+      if (projectId) {
+        const id = parseInt(projectId, 10)
+        const proj = n8nProjects.find((p) => p.id === id)
+        if (proj) {
+          setSelectedProject(proj)
+        }
+      }
+    }
+  }, [])
 
   const orderedProjects = [
     ...n8nProjects.filter((p) => NEW_PROJECT_IDS.includes(p.id)),
@@ -304,15 +333,19 @@ const N8nShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <div className="flex items-center justify-center mb-4">
-            <div className="p-3 bg-gradient-to-br from-gold-400/20 to-burgundy-500/20 border border-gold-400/30 rounded-full mr-4">
-              <Workflow className="w-8 h-8 text-gold-400" />
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <Workflow className="w-6 h-6 text-gold-400" />
             </div>
-            <h2 className="text-4xl font-bold text-cream-100">n8n Automation Portfolio</h2>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Automation</span>
           </div>
-          <p className="text-xl text-cream-300 max-w-3xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            n8n Automation{' '}
+            <span className="text-gray-400">Portfolio</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
             Comprehensive automation solutions that transform business operations and streamline complex workflows
           </p>
         </motion.div>
@@ -335,7 +368,7 @@ const N8nShowcase = () => {
               className="text-center"
             >
               <div className="flex items-center justify-center mb-3">
-                <div className="p-3 bg-gradient-to-br from-gold-400/20 to-burgundy-500/20 border border-gold-400/30 rounded-full">
+                <div className="p-3 bg-gradient-to-br from-cream-100/20 to-cream-600/20 border border-cream-400/30 rounded-full">
                   <div className="text-gold-400">{stat.icon}</div>
                 </div>
               </div>
@@ -364,7 +397,7 @@ const N8nShowcase = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/30 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gold-400">Ready to Transform Your Business Processes?</h3>
             <p className="text-lg text-cream-200 mb-6 max-w-2xl mx-auto">
               Let's discuss how custom n8n automation workflows can streamline your operations, reduce manual work,

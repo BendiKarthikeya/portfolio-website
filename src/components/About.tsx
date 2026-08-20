@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code, Zap, Heart, Target } from 'lucide-react'
+import { User, Code, Zap, Heart, Target } from 'lucide-react'
 import { personalInfo } from '@/data/portfolio'
 
 const About = () => {
@@ -13,8 +13,8 @@ const About = () => {
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Automation Expert",
-      description: "Specializing in n8n workflows and business process automation"
+      title: "AI & Automation Expert",
+      description: "Specializing in n8n workflows, business automation, and building autonomous agents using Agentic AI"
     },
     {
       icon: <Heart className="w-6 h-6" />,
@@ -29,17 +29,26 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-gray-800/40 backdrop-blur-md">
+    <section id="about" className="section-padding bg-transparent">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-cream-100">About Me</h2>
-          <p className="text-xl text-cream-300 max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <User className="w-6 h-6 text-gold-400" />
+            </div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Overview</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            About{' '}
+            <span className="text-gray-400">Me</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
             Passionate about transforming complex business processes into streamlined, automated workflows
           </p>
         </motion.div>
@@ -111,29 +120,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Personal Touch */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4 text-gold-400">Let's Build Something Amazing Together</h3>
-            <p className="text-lg text-cream-200 mb-6">
-              Ready to automate your business processes and boost productivity? Let's discuss how n8n automation can transform your workflow.
-            </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block bg-gold-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gold-500 transition-colors"
-            >
-              Start a Conversation
-            </motion.a>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { GraduationCap, Award, Trophy } from 'lucide-react'
+import { GraduationCap, Award, Trophy, FileText, ExternalLink } from 'lucide-react'
 import { education, certifications, achievements } from '@/data/portfolio'
 
 const Education = () => {
@@ -15,17 +15,17 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="text-center mb-12"
         >
-          <div className="flex items-center gap-3 mb-3">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
             <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
               <GraduationCap className="w-6 h-6 text-gold-400" />
             </div>
             <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Background</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-cream-100 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
             Education &{' '}
-            <span className="bg-gradient-to-r from-gold-400 to-burgundy-500 bg-clip-text text-transparent">Achievements</span>
+            <span className="text-gray-400">Achievements</span>
           </h2>
         </motion.div>
 
@@ -43,7 +43,7 @@ const Education = () => {
             <h3 className="text-xs font-semibold tracking-widest uppercase text-gold-400 mb-6">Academic Timeline</h3>
             <div className="relative">
               {/* vertical line */}
-              <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-gold-400/40 via-burgundy-500/30 to-transparent" />
+              <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-cream-300/40 via-cream-500/20 to-transparent" />
 
               <div className="space-y-8">
                 {education.map((edu, i) => (
@@ -66,22 +66,22 @@ const Education = () => {
 
                     <div className={`rounded-xl p-4 ${
                       edu.level === 'undergraduate'
-                        ? 'bg-gradient-to-br from-gold-400/10 to-burgundy-500/10 border border-gold-400/25'
+                        ? 'bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/25'
                         : 'bg-gray-800/40 border border-white/10'
                     }`}>
-                      <div className="flex items-start justify-between gap-3 mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                         <div>
                           <h4 className={`font-bold text-base ${edu.level === 'undergraduate' ? 'text-gold-400' : 'text-cream-100'}`}>
                             {edu.degree}
                           </h4>
                           <p className="text-cream-300 text-sm">{edu.institution}</p>
                         </div>
-                        <div className="text-right flex-shrink-0">
+                        <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 flex-shrink-0 pt-1.5 sm:pt-0 border-t sm:border-t-0 border-white/10 mt-1 sm:mt-0">
                           <div className={`text-sm font-semibold ${edu.level === 'undergraduate' ? 'text-gold-400' : 'text-cream-300'}`}>
                             {edu.year}
                           </div>
                           {edu.grade && (
-                            <div className="text-xs text-cream-400">GPA: {edu.grade}</div>
+                            <div className="text-xs text-cream-400 font-medium">CGPA: {edu.grade}</div>
                           )}
                         </div>
                       </div>
@@ -114,7 +114,7 @@ const Education = () => {
             {/* Quick stats */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { value: '8.68', label: 'CGPA', color: 'text-gold-400' },
+                { value: '8.72', label: 'CGPA', color: 'text-gold-400' },
                 { value: '3+', label: 'Certs', color: 'text-burgundy-500' },
                 { value: '50+', label: 'Projects', color: 'text-gold-400' },
               ].map((s) => (
@@ -126,7 +126,7 @@ const Education = () => {
             </div>
 
             {/* Achievements */}
-            <div className="bg-gradient-to-br from-gold-400/10 to-burgundy-500/10 border border-gold-400/20 rounded-2xl p-5 flex-1">
+            <div className="bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/20 rounded-2xl p-5 flex-1">
               <div className="flex items-center gap-2 mb-4">
                 <Trophy className="w-4 h-4 text-gold-400" />
                 <h4 className="text-xs font-semibold tracking-widest uppercase text-gold-400">Professional Achievements</h4>
@@ -165,26 +165,39 @@ const Education = () => {
             <h3 className="text-xs font-semibold tracking-widest uppercase text-gold-400">Certifications</h3>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert, i) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -3 }}
-                className="flex items-center gap-3 bg-gray-800/50 border border-white/10 hover:border-gold-400/30 rounded-xl p-4 transition-all duration-200"
-              >
-                <div className="w-12 h-12 bg-gradient-to-br from-gold-400/15 to-burgundy-500/15 border border-gold-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <img src={cert.badge} alt={cert.name} className="w-9 h-9 object-contain" />
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-sm font-semibold text-cream-100 truncate">{cert.name}</h4>
-                  <p className="text-gold-400 text-xs mt-0.5">{cert.issuer}</p>
-                  <p className="text-cream-400 text-xs">{cert.date}</p>
-                </div>
-              </motion.div>
-            ))}
+            {certifications.map((cert, i) => {
+              const CardComponent = cert.link ? motion.a : motion.div
+              const linkProps = cert.link ? { href: cert.link, target: "_blank", rel: "noopener noreferrer" } : {}
+              
+              return (
+                <CardComponent
+                  key={cert.name}
+                  {...linkProps}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  whileHover={{ y: -3 }}
+                  className={`flex items-center gap-3 bg-gray-800/50 border border-white/10 hover:border-gold-400/30 rounded-xl p-4 transition-all duration-200 ${cert.link ? 'cursor-pointer hover:bg-gray-800/80' : ''}`}
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-cream-100/15 to-cream-600/15 border border-cream-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    {cert.badge ? (
+                      <img src={cert.badge} alt={cert.name} className="w-9 h-9 object-contain" />
+                    ) : (
+                      <FileText className="w-5 h-5 text-gold-400" />
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-sm font-semibold text-cream-100 truncate flex items-center gap-1.5 justify-between">
+                      <span className="truncate">{cert.name}</span>
+                      {cert.link && <ExternalLink className="w-3.5 h-3.5 text-cream-400 flex-shrink-0" />}
+                    </h4>
+                    <p className="text-gold-400 text-xs mt-0.5">{cert.issuer}</p>
+                    <p className="text-cream-400 text-xs">{cert.date}</p>
+                  </div>
+                </CardComponent>
+              )
+            })}
           </div>
         </motion.div>
 

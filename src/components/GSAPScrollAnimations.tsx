@@ -8,6 +8,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 const GSAPScrollAnimations = () => {
   useEffect(() => {
+    // Disable GSAP scroll animations on mobile viewports (< 768px)
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return
+    }
+
     // Small delay so DOM is fully painted before we query elements
     const timer = setTimeout(() => {
       // Animate every section heading

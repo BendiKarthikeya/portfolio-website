@@ -49,19 +49,27 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gray-800/40 backdrop-blur-md">
+    <section id="contact" className="section-padding bg-transparent">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-cream-100">Let's Work Together</h2>
-          <p className="text-xl text-cream-300 max-w-3xl mx-auto">
-            I'm always excited to discuss new automation opportunities and collaborate on interesting projects. 
-            Ready to automate your workflows and boost productivity? Let's connect!
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <Mail className="w-6 h-6 text-gold-400" />
+            </div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Get In Touch</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Let's Work{' '}
+            <span className="text-gray-400">Together</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
+            I'm always excited to discuss new automation opportunities and collaborate on interesting projects. Let's connect!
           </p>
         </motion.div>
 
@@ -166,25 +174,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Availability */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-2xl mx-auto mb-8"
-          >
-            <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/30 rounded-xl p-6 text-center">
-              <div className="flex items-center justify-center mb-3">
-                <div className="w-3 h-3 bg-gold-400 rounded-full mr-3 animate-pulse"></div>
-                <h4 className="font-semibold text-gold-400">Available for Projects</h4>
-              </div>
-              <p className="text-cream-200 text-sm">
-                Currently accepting new automation projects and development opportunities. 
-                Response time: Usually within 24 hours.
-              </p>
-            </div>
-          </motion.div>
+
 
           {/* Contact Details */}
           <motion.div
@@ -227,7 +217,7 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-8 text-center"
         >
-          <div className="bg-gradient-to-r from-gold-400/10 to-burgundy-500/10 border border-gold-400/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/30 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gold-400">Prefer a Quick Chat?</h3>
             <p className="text-lg text-cream-200 mb-6">
               For urgent automation needs or quick questions, feel free to reach out directly

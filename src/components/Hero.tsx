@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, Mail, Github, Linkedin, ExternalLink } from 'lucide-react'
+import { Download, Mail, Github, Linkedin, ExternalLink, Sparkles, Zap } from 'lucide-react'
 import { personalInfo, socialLinks } from '@/data/portfolio'
 
 const Hero = () => {
@@ -28,19 +28,19 @@ const Hero = () => {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-transparent pt-16">
+    <section className="min-h-screen flex items-center justify-center bg-transparent pt-16 pb-8">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         >
           {/* Content */}
           <div className="space-y-8">
             <motion.div variants={itemVariants} className="space-y-4">
               <motion.h1
-                className="text-5xl lg:text-6xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
                 variants={itemVariants}
               >
                 Hi, I'm{' '}
@@ -131,53 +131,53 @@ const Hero = () => {
             {/* Stats */}
             <motion.div 
               variants={itemVariants}
-              className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10"
+              className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-white/10"
             >
               <div className="text-center">
-                <motion.div 
-                  className="text-3xl font-bold text-gold-400"
+                <motion.div
+                  className="text-2xl sm:text-3xl font-bold text-gold-400"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1, type: "spring" }}
                 >
                   50+
                 </motion.div>
-                <div className="text-sm text-cream-300">n8n Workflows</div>
+                <div className="text-xs sm:text-sm text-cream-300">Projects Built</div>
               </div>
-              
+
               <div className="text-center">
-                <motion.div 
-                  className="text-3xl font-bold text-burgundy-500"
+                <motion.div
+                  className="text-2xl sm:text-3xl font-bold text-burgundy-500"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.2, type: "spring" }}
                 >
                   25+
                 </motion.div>
-                <div className="text-sm text-cream-300">Different Nodes Used</div>
+                <div className="text-xs sm:text-sm text-cream-300">Clients Served</div>
               </div>
-              
+
               <div className="text-center">
-                <motion.div 
-                  className="text-3xl font-bold text-gold-400"
+                <motion.div
+                  className="text-2xl sm:text-3xl font-bold text-gold-400"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.4, type: "spring" }}
                 >
                   90%
                 </motion.div>
-                <div className="text-sm text-cream-300">Process Efficiency</div>
+                <div className="text-xs sm:text-sm text-cream-300">Process Efficiency</div>
               </div>
             </motion.div>
           </div>
 
-          {/* Avatar/Image */}
+          {/* Avatar/Image - hidden on mobile, shown on large screens */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center lg:justify-end"
+            className="hidden lg:flex justify-center lg:justify-end"
           >
             <motion.div
-              animate={{ 
+              animate={{
                 y: [0, -10, 0],
               }}
               transition={{
@@ -188,8 +188,8 @@ const Hero = () => {
               className="relative"
             >
               {/* Glow behind avatar */}
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-gold-400/40 to-burgundy-500/40 blur-3xl scale-110" />
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-gold-400 to-burgundy-500 p-2 shadow-2xl shadow-gold-400/20">
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-cream-100/10 to-cream-600/10 blur-3xl scale-110" />
+              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-cream-100 to-cream-500 p-2 shadow-2xl shadow-cream-400/10">
                 <img
                   src={personalInfo.avatar}
                   alt={personalInfo.name}
@@ -201,17 +201,17 @@ const Hero = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-gold-400 rounded-full flex items-center justify-center text-gray-900 text-2xl"
+                className="absolute -top-4 -right-4 w-14 h-14 bg-cream-50 rounded-full flex items-center justify-center text-gray-900 shadow-lg"
               >
-                🔄
+                <Sparkles className="w-7 h-7 text-gray-900" />
               </motion.div>
               
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 bg-burgundy-500 rounded-full flex items-center justify-center text-white text-xl"
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-cream-700 rounded-full flex items-center justify-center text-white shadow-lg"
               >
-                ⚡
+                <Zap className="w-6 h-6 text-white" />
               </motion.div>
             </motion.div>
           </motion.div>

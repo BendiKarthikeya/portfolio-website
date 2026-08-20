@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, Video, FolderGit2 } from 'lucide-react'
 import { projects } from '@/data/portfolio'
 
 const Projects = () => {
@@ -13,10 +13,19 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-3 mb-3">
+            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
+              <FolderGit2 className="w-6 h-6 text-gold-400" />
+            </div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Portfolio</span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Featured{' '}
+            <span className="text-gray-400">Projects</span>
+          </h2>
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
             A showcase of full-stack applications and automation solutions that demonstrate my technical expertise
           </p>
         </motion.div>
@@ -52,26 +61,42 @@ const Projects = () => {
                 
                 {/* Project Links Overlay */}
                 <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
-                  >
-                    <Github size={18} />
-                  </motion.a>
-                  <motion.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
-                  >
-                    <ExternalLink size={18} />
-                  </motion.a>
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
+                    >
+                      <Github size={18} />
+                    </motion.a>
+                  )}
+                  {'video' in project && project.video && (
+                    <motion.a
+                      href={project.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
+                    >
+                      <Video size={18} />
+                    </motion.a>
+                  )}
+                  {project.live && (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="p-2 bg-gray-800/70 rounded-full text-cream-200 hover:text-gold-400 transition-colors"
+                    >
+                      <ExternalLink size={18} />
+                    </motion.a>
+                  )}
                 </div>
               </div>
 
@@ -116,30 +141,48 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4 border-t border-gray-200 dark:border-white/10">
-                  <motion.a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center px-4 py-2 bg-gold-400 hover:bg-gold-500 text-gray-900 rounded-lg text-sm font-medium transition-colors"
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </motion.a>
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 dark:border-white/10">
+                  {project.live && (
+                    <motion.a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 min-w-[90px] flex items-center justify-center px-3 py-2 bg-gold-400 hover:bg-gold-500 text-gray-900 rounded-lg text-xs font-medium transition-colors"
+                    >
+                      <ExternalLink size={14} className="mr-1.5" />
+                      Live Site
+                    </motion.a>
+                  )}
                   
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-cream-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-sm font-medium transition-colors"
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </motion.a>
+                  {'video' in project && project.video && (
+                    <motion.a
+                      href={project.video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 min-w-[90px] flex items-center justify-center px-3 py-2 bg-burgundy-500/30 hover:bg-burgundy-500/50 text-cream-100 border border-burgundy-500/50 rounded-lg text-xs font-medium transition-all duration-200"
+                    >
+                      <Video size={14} className="mr-1.5 text-gold-400" />
+                      Video Demo
+                    </motion.a>
+                  )}
+                  
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-1 min-w-[90px] flex items-center justify-center px-3 py-2 border border-gray-300 dark:border-gray-600 text-cream-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xs font-medium transition-colors"
+                    >
+                      <Github size={14} className="mr-1.5" />
+                      Code
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -160,9 +203,9 @@ const Projects = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Want to See More?</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-r from-cream-100/10 via-cream-500/10 to-cream-100/10 border border-cream-400/20 backdrop-blur-md rounded-2xl p-8">
+            <h3 className="text-2xl font-bold mb-4 text-cream-100">Want to See More?</h3>
+            <p className="text-cream-300 mb-6 max-w-2xl mx-auto">
               These are just a few highlights from my portfolio. Check out my GitHub for more projects, 
               contributions, and code samples that showcase my development journey.
             </p>
