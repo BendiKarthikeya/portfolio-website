@@ -15,7 +15,7 @@ export const socialLinks = {
   github: "https://github.com/BendiKarthikeya",
   linkedin: "https://www.linkedin.com/in/karthikeyabendi/",
   leetcode: "https://leetcode.com/u/karthikeyabendi05/",
-  portfolio: "https://karthikeyabendi.vercel.app",
+  portfolio: "https://karthikeyabendi.tech",
   blog: "https://karthikeya07.hashnode.dev",
   codeforces: "https://codeforces.com/profile/B.karthikeya",
   codechef: "https://www.codechef.com/users/karthikeya070",
@@ -525,7 +525,7 @@ export const projects = [
     description: "Modern, responsive portfolio website built with Next.js and Tailwind CSS showcasing my automation expertise and projects.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     github: "https://github.com/BendiKarthikeya/portfolio-website",
-    live: "https://karthikeyabendi05.vercel.app",
+    live: "https://karthikeyabendi.tech",
     image: "/Images/Portfolio.png",
     features: [
       "Modern responsive design",

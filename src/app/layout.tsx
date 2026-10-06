@@ -7,7 +7,7 @@ import ClickSpark from '@/components/reactbits/ClickSpark'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://karthikeyabendi.vercel.app'),
+  metadataBase: new URL('https://karthikeyabendi.tech'),
   title: 'Karthikeya Bendi - Full Stack Dev & Automation',
   description: 'AI & Full Stack Developer and Automation Specialist. Building production-grade applications and intelligent n8n automation workflows. Founder @ GoAutomate.',
   keywords: 'full stack developer, n8n, automation, AI, LLM, Voice AI, React, Next.js, GoAutomate',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Karthikeya Bendi - Full Stack Dev & Automation',
     description: 'AI & Full Stack Developer and Automation Specialist. Founder @ GoAutomate.',
-    url: 'https://karthikeyabendi.vercel.app',
+    url: 'https://karthikeyabendi.tech',
     siteName: 'Karthikeya Bendi Portfolio',
     type: 'website',
   },
