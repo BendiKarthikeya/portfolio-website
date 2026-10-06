@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     title: 'Karthikeya Bendi - Full Stack Dev & Automation',
     description: 'AI & Full Stack Developer and Automation Specialist. Founder @ GoAutomate.',
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/icon.svg' }
+    ]
+  },
 }
 
 export default function RootLayout({
