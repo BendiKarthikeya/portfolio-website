@@ -558,11 +558,11 @@ export const projects = [
   },
   {
     id: 7,
-    title: "HRMS - HR Management System",
+    title: "HCMS - HR & Candidate Management System",
     description: "End-to-end hiring and onboarding platform covering the full recruitment lifecycle, from requisition to offer and onboarding.",
     technologies: ["React", "Node.js", "Express.js", "PostgreSQL", "AI CV Screening", "E-Signature"],
-    github: "https://github.com/BendiKarthikeya",
-    live: "https://hcmspro.net/",
+    github: "https://github.com/BendiKarthikeya/hcms-app",
+    live: "https://hcms-kappa.vercel.app/",
     video: "https://www.youtube.com/watch?v=GlqJ_HFPBWE",
     image: "/Images/HRMS.png",
     features: [
@@ -574,6 +574,40 @@ export const projects = [
       "Post-offer onboarding tracking (medical, visa, clearance status)",
       "Automated transactional emails at every pipeline stage",
       "Reports dashboard with KPIs (open vacancies, pipeline funnel, avg hire cycle) and CSV exports"
+    ]
+  },
+  {
+    id: 8,
+    title: "SyncJam — Real-Time Collaborative Listening Platform",
+    description: "A free, real-time web application enabling synchronized audio playback across multiple devices with zero perceptible latency, YouTube & Spotify link parsing, and multi-network routing.",
+    technologies: ["Next.js 14", "TypeScript", "Socket.io", "Tailwind CSS", "YouTube API", "Node.js"],
+    github: "https://github.com/BendiKarthikeya/SyncJam",
+    live: "https://musicsync-pi.vercel.app/",
+    image: "/Images/SyncJam.png",
+    features: [
+      "Real-time audio synchronization across devices via WebSocket (Socket.io) with <500ms drift tolerance",
+      "Instant room creation with shareable 6-character room codes and zero-install guest access",
+      "YouTube search integration and automated Spotify track/playlist link resolution",
+      "Host playback controls (play/pause/seek/queue jump) with automatic host failover transfer",
+      "Multi-network connectivity support: Cloud relay & Local Area Network (LAN) playback",
+      "Synchronized queue management with live participant list and in-room text chat"
+    ]
+  },
+  {
+    id: 9,
+    title: "Lumen — Keyboard-First Productivity & Focus Workspace",
+    description: "A single-page productivity application featuring an interactive Eisenhower task matrix, weekly schedule calendar, Pomodoro focus timer, and 26-week activity heatmap.",
+    technologies: ["React 18", "JavaScript", "Supabase", "Google Calendar API", "OKLCH CSS", "Babel Standalone"],
+    github: "https://github.com/BendiKarthikeya/Lumen",
+    live: "https://lumen-app-kappa.vercel.app/",
+    image: "/Images/Lumen.png",
+    features: [
+      "Interactive 2×2 Eisenhower Decision Matrix (Do / Plan / Delegate / Drop) with drag-and-drop",
+      "Built-in Pomodoro focus timer with session dots, ambient sounds, and quick spacebar toggling",
+      "Full keyboard-driven navigation (⌘/Ctrl+K Quick Add, route jumping, tweaks panel)",
+      "Weekly calendar scheduling with Google Calendar sync and click-drag time blocking",
+      "26-week productivity activity heatmap and task completion history log",
+      "Supabase authentication with per-user persistent state and customizable themes & typography"
     ]
   }
 ]
