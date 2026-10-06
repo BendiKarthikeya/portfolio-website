@@ -62,10 +62,15 @@ const Header = () => {
           <Link href="/">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="font-bold text-xl cursor-pointer"
+              className="flex items-center gap-3 font-bold text-xl cursor-pointer group"
             >
-              <span className="text-cream-50">Karthikeya</span>{' '}
-              <span className="text-cream-400">Bendi</span>
+              <div className="w-8 h-8 rounded-lg bg-black border border-white/20 flex items-center justify-center text-white text-xs font-bold tracking-wider shadow-sm group-hover:border-white/50 transition-colors">
+                KB
+              </div>
+              <div>
+                <span className="text-cream-50">Karthikeya</span>{' '}
+                <span className="text-cream-400">Bendi</span>
+              </div>
             </motion.div>
           </Link>
 
