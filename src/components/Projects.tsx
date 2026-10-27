@@ -7,6 +7,8 @@ import DepthCarousel from '@/components/DepthCarousel'
 import GlareHover from '@/components/GlareHover'
 import { projects, socialLinks } from '@/data/portfolio'
 
+const PROJECT_TRANSITION_MS = 560
+
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const previousIndexRef = useRef(0)
@@ -89,7 +91,7 @@ const Projects = () => {
             visibleCards={3}
             falloff={0.2}
             blur={4}
-            duration={620}
+            duration={PROJECT_TRANSITION_MS}
             loop={false}
             showControls
             showIndicators
@@ -97,15 +99,15 @@ const Projects = () => {
           />
         </div>
 
-        <div className="relative mx-auto w-full max-w-6xl">
-          <AnimatePresence initial={false} mode="wait">
+        <div className="relative mx-auto grid w-full max-w-6xl">
+          <AnimatePresence initial={false} mode="sync">
         <motion.article
           key={active.id}
-          initial={{ opacity: 0, x: pageDirection * 30, rotateY: pageDirection * -3, scale: 0.985 }}
-          animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
-          exit={{ opacity: 0, x: pageDirection * -20, rotateY: pageDirection * 2, scale: 0.985 }}
-          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
-          className="relative [transform-style:preserve-3d]"
+          initial={{ opacity: 0.2, x: pageDirection * 26, rotateY: pageDirection * -2.5, scale: 0.98, filter: 'blur(5px)' }}
+          animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, x: pageDirection * -26, rotateY: pageDirection * 2.5, scale: 0.98, filter: 'blur(5px)' }}
+          transition={{ duration: PROJECT_TRANSITION_MS / 1000, ease: [0.22, 1, 0.36, 1] }}
+          className="relative col-start-1 row-start-1 [transform-style:preserve-3d] will-change-[transform,opacity,filter]"
         >
           <GlareHover className="micro-slats min-h-[250px] overflow-hidden rounded-[28px] border border-slate-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_26px_70px_rgba(0,0,0,0.25)]">
             <div className="pointer-events-none absolute inset-0" aria-hidden="true">
