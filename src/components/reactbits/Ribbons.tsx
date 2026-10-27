@@ -37,7 +37,12 @@ const Ribbons: React.FC<RibbonsProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({ dpr: window.devicePixelRatio || 2, alpha: true });
+    const shouldReduceEffects = window.matchMedia(
+      '(max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)'
+    ).matches;
+    if (shouldReduceEffects) return;
+
+    const renderer = new Renderer({ dpr: Math.min(window.devicePixelRatio || 1, 1.5), alpha: true });
     const gl = renderer.gl;
     if (Array.isArray(backgroundColor) && backgroundColor.length === 4) {
       gl.clearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
@@ -243,6 +248,7 @@ const Ribbons: React.FC<RibbonsProps> = ({
       if (gl.canvas && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
       }
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [
     colors,

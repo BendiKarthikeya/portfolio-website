@@ -127,6 +127,13 @@ export default function Aurora(props: AuroraProps) {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
+    // A continuously-rendering WebGL background is expensive on phones and
+    // competes with native scrolling. The CSS background remains as fallback.
+    const shouldReduceEffects = window.matchMedia(
+      '(max-width: 767px), (prefers-reduced-motion: reduce)'
+    ).matches;
+    if (shouldReduceEffects) return;
+
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,

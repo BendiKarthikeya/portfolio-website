@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import { Download, Mail, Github, Linkedin, ExternalLink, Sparkles, Zap } from 'lucide-react'
 import { personalInfo, socialLinks } from '@/data/portfolio'
+import DitherVeil from '@/components/DitherVeil'
+import SpecularButton from '@/components/SpecularButton'
+import ParticleText from '@/components/ParticleText'
 
 const Hero = () => {
   const containerVariants = {
@@ -43,9 +46,8 @@ const Hero = () => {
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
                 variants={itemVariants}
               >
-                Hi, I'm{' '}
-                <span className="text-cream-50">Karthikeya</span>{' '}
-                <span className="text-cream-400">Bendi</span>
+                <span className="block text-cream-50">Hi, I&apos;m</span>
+                <ParticleText text="Karthikeya Bendi" />
               </motion.h1>
 
               <motion.h2
@@ -68,28 +70,42 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-wrap gap-4"
             >
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center gap-2"
+              <SpecularButton
+                size="md"
+                radius={12}
+                tint="#171b20"
+                tintOpacity={0.9}
+                textColor="#f8f9fa"
+                lineColor="#ffffff"
+                baseColor="#6c757d"
+                intensity={1.15}
+                glow={1.1}
+                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Mail size={20} />
                 Get In Touch
-              </motion.a>
+              </SpecularButton>
               
-              <motion.a
-                href={personalInfo.resume}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary flex items-center gap-2"
-                download="Karthikeya_Bendi_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <SpecularButton
+                size="md"
+                radius={12}
+                tint="#171b20"
+                tintOpacity={0.82}
+                textColor="#f8f9fa"
+                lineColor="#e9ecef"
+                baseColor="#6c757d"
+                intensity={0.95}
+                glow={0.8}
+                onClick={() => {
+                  const link = document.createElement('a')
+                  link.href = personalInfo.resume
+                  link.download = 'Karthikeya_Bendi_Resume.pdf'
+                  link.click()
+                }}
               >
                 <Download size={20} />
                 Download Resume
-              </motion.a>
+              </SpecularButton>
             </motion.div>
 
             {/* Social Links */}
@@ -189,12 +205,31 @@ const Hero = () => {
             >
               {/* Glow behind avatar */}
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-cream-100/10 to-cream-600/10 blur-3xl scale-110" />
-              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-cream-100 to-cream-500 p-2 shadow-2xl shadow-cream-400/10">
-                <img
-                  src={personalInfo.avatar}
-                  alt={personalInfo.name}
-                  className="w-full h-full rounded-full object-cover"
-                />
+              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-cream-100 to-cream-500 p-2 shadow-2xl shadow-black/40">
+                <div className="relative w-full h-full overflow-hidden rounded-full bg-gray-900">
+                  <img src={personalInfo.avatar} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                  <div className="absolute inset-0">
+                    <DitherVeil
+                      src={personalInfo.avatar}
+                      fit="cover"
+                      pattern="bayer"
+                      pixelSize={3}
+                      levels={3}
+                      palette="duotone"
+                      inkColor="#16191d"
+                      paperColor="#e9ecef"
+                      contrast={1.08}
+                      revealRadius={115}
+                      softness={0.72}
+                      linger={1.4}
+                      rimColor="#f8f9fa"
+                      rim={0.08}
+                      wander
+                      clickBurst={false}
+                    />
+                  </div>
+                  <span className="sr-only">{personalInfo.name}</span>
+                </div>
               </div>
               
               {/* Floating Elements */}

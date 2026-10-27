@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Workflow, Clock, Users, TrendingUp, Zap, Bot, Mail, FileText, Target } from 'lucide-react'
 import Link from 'next/link'
+import MagicBento from '@/components/MagicBento'
 
 const stats = [
   { icon: <Workflow className="w-5 h-5" />, value: "50+", label: "Workflows Built" },
@@ -80,6 +81,72 @@ const capabilities = [
 ]
 
 const N8nPreview = () => {
+  const bentoItems = [
+    {
+      id: 'metrics',
+      colSpan: 1,
+      content: (
+        <div className="h-full flex flex-col">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-cream-400">Measured impact</p>
+          <h3 className="text-base font-semibold text-cream-100 mt-1">Automation at scale</h3>
+          <div className="grid grid-cols-2 gap-3 mt-auto">
+            {stats.map((stat) => (
+              <div key={stat.label} className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                <div className="flex items-center gap-2 text-cream-300">{stat.icon}</div>
+                <div className="text-xl font-bold text-white mt-2">{stat.value}</div>
+                <div className="text-[10px] text-cream-400 mt-0.5">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 'capabilities',
+      colSpan: 2,
+      content: (
+        <div className="h-full flex flex-col">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-cream-400">Core capabilities</p>
+          <h3 className="text-base font-semibold text-cream-100 mt-1">From trigger to measurable outcome</h3>
+          <div className="grid sm:grid-cols-2 gap-2 mt-auto">
+            {capabilities.map((capability) => (
+              <div key={capability} className="flex items-center gap-2.5 rounded-lg bg-white/[0.035] px-3 py-2 text-xs text-cream-300">
+                <Zap className="w-3.5 h-3.5 text-cream-100 flex-shrink-0" />
+                {capability}
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+    ...categories.map((category, index) => ({
+      id: category.title,
+      href: `/n8n-portfolio?projectId=${category.projectId}`,
+      colSpan: index === 0 || index === 3 ? 2 : 1,
+      content: (
+        <div className="h-full flex flex-col group">
+          <div className="flex items-start justify-between gap-3">
+            <div className="p-2.5 rounded-xl border border-white/10 bg-white/[0.045] text-cream-100">
+              {category.icon}
+            </div>
+            <ArrowRight className="w-4 h-4 text-cream-400 transition-transform group-hover:translate-x-1" />
+          </div>
+          <div className="mt-4">
+            <h3 className="text-base font-semibold text-white">{category.title}</h3>
+            <p className="text-xs leading-relaxed text-cream-400 mt-1">{category.desc}</p>
+          </div>
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-4">
+            {category.tags.map((tag) => (
+              <span key={tag} className="rounded-full border border-white/10 bg-black/15 px-2 py-1 text-[10px] text-cream-300">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ),
+    })),
+  ]
+
   return (
     <section id="n8n-preview" className="section-padding bg-transparent">
       <div className="container-custom">
@@ -90,7 +157,7 @@ const N8nPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
           <div className="inline-flex items-center justify-center gap-3 mb-3">
             <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
@@ -98,119 +165,34 @@ const N8nPreview = () => {
             </div>
             <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Automation</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             n8n Automation{' '}
             <span className="text-gray-400">Expertise</span>
           </h2>
-          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
+          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-sm sm:text-lg">
             Transforming business operations through intelligent workflow automation
           </p>
         </motion.div>
 
-        {/* Main bento grid */}
-        <div className="grid lg:grid-cols-3 gap-5">
-
-          {/* Stats column */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-1 flex flex-col gap-4"
-          >
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-center gap-4 bg-gray-900/60 border border-white/10 rounded-2xl px-5 py-4 hover:border-gold-400/30 transition-colors"
-              >
-                <div className="p-2 bg-gold-400/10 border border-gold-400/20 rounded-lg text-gold-400 flex-shrink-0">
-                  {s.icon}
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gold-400 leading-none">{s.value}</div>
-                  <div className="text-xs text-cream-400 mt-0.5">{s.label}</div>
-                </div>
-              </motion.div>
-            ))}
-
-            {/* Capabilities */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-gray-900/60 border border-white/10 rounded-2xl p-5 flex-1"
-            >
-              <h4 className="text-xs font-semibold tracking-widest uppercase text-gold-400 mb-4">Core Capabilities</h4>
-              <div className="space-y-2.5">
-                {capabilities.map((cap, i) => (
-                  <div key={i} className="flex items-center gap-2.5">
-                    <Zap className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                    <span className="text-cream-300 text-sm">{cap}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Categories 2x2 grid (1-col on mobile, 2-col on tablet/desktop) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            {categories.map((cat, i) => (
-              <Link
-                key={cat.title}
-                href={`/n8n-portfolio?projectId=${cat.projectId}`}
-                className="block h-full"
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  whileHover={{ y: -4 }}
-                  className={`bg-gradient-to-br ${cat.accent} border ${cat.border} rounded-2xl p-6 hover:border-gold-400/40 transition-all duration-300 flex flex-col h-full cursor-pointer group`}
-                >
-                  <div className="p-2.5 bg-black/20 rounded-xl w-fit mb-3 text-gold-400">
-                    {cat.icon}
-                  </div>
-                  <h4 className="text-base font-bold text-cream-100 mb-1 group-hover:text-gold-400 transition-colors">{cat.title}</h4>
-                  <p className="text-cream-300 text-xs leading-relaxed mb-3">{cat.desc}</p>
-                  
-                  <ul className="space-y-1.5 mb-4 flex-1">
-                    {cat.highlights.map((h, idx) => (
-                      <li key={idx} className="flex items-center text-xs text-cream-400 gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold-400 flex-shrink-0" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex items-center justify-between pt-3 border-t border-white/10 mt-auto">
-                    <div className="flex flex-wrap gap-1">
-                      {cat.tags.map((t) => (
-                        <span key={t} className="text-[10px] px-2 py-0.5 bg-black/30 border border-white/10 text-cream-300 rounded-full">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <span className="text-xs text-gold-400 font-semibold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform whitespace-nowrap ml-2">
-                      View Case Study <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </motion.div>
-        </div>
+        <MagicBento
+          items={bentoItems}
+          columns={3}
+          rowHeight={230}
+          gap={14}
+          radius={20}
+          theme="dark"
+          glowColor="#94a3b8"
+          textAutoHide={false}
+          enableBorderGlow={false}
+          enableSpotlight={false}
+          spotlightRadius={310}
+          enableStars={false}
+          particleCount={4}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect={false}
+          intro
+        />
 
         {/* CTA banner */}
         <motion.div

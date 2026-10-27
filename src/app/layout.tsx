@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Aurora from '@/components/reactbits/Aurora'
-import ClickSpark from '@/components/reactbits/ClickSpark'
+import LightRays from '@/components/LightRays'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,22 +39,36 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
-      <body className={`${inter.className} text-cream-100 min-h-screen`} style={{ backgroundColor: '#212529' }}>
-        {/* Ambient animated aurora background */}
-        <div className="fixed inset-0 -z-10 pointer-events-none opacity-30">
-          <Aurora
-            colorStops={['#f8f9fa', '#adb5bd', '#495057']}
-            amplitude={0.8}
-            blend={0.4}
-            speed={0.4}
+    <html lang="en" className="relative scroll-smooth dark">
+      <body className={`${inter.className} text-cream-100 min-h-screen`}>
+        {/* Transparent rays over a guaranteed dark base; never paints an opaque field. */}
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-45" aria-hidden="true">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#94a3b8"
+            raysSpeed={0.34}
+            lightSpread={0.68}
+            rayLength={2.1}
+            rayDensity={0.82}
+            raySharpness={0.32}
+            glow={0.5}
+            haze={0.22}
+            atmosphere={0.32}
+            intensity={1.05}
+            fadeDistance={1.2}
+            saturation={0.12}
+            followMouse
+            mouseInfluence={0.06}
+            cursorShadow={false}
+            clickPulse={false}
+            opacity={0.62}
+            maxDevicePixelRatio={1.25}
           />
         </div>
 
-        {/* Click spark feedback across the whole app */}
-        <ClickSpark sparkColor="#f8f9fa" sparkSize={11} sparkRadius={22} sparkCount={8} duration={500}>
+        <div className="relative z-10">
           {children}
-        </ClickSpark>
+        </div>
       </body>
     </html>
   )

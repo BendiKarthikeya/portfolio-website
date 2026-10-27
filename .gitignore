@@ -28,8 +28,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# environment files (never commit Cloudflare credentials)
+.env
+.env.*
+!.env.example
+
+# Portfolio media is stored in Cloudflare R2, not Git.
+/public/Images/*
+!/public/Images/karthikeya_crop.jpg
 
 # vercel
 .vercel

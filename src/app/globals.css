@@ -11,11 +11,11 @@
     @apply antialiased text-cream-100;
     margin: 0;
     padding: 0;
-    background-color: #212529;
+    background-color: #111418;
     background-image:
-      radial-gradient(900px circle at 12% 8%,  rgba(248, 249, 250, 0.04), transparent 42%),
-      radial-gradient(900px circle at 88% 22%, rgba(173, 181, 189, 0.06), transparent 45%),
-      radial-gradient(1000px circle at 50% 100%, rgba(108, 117, 125, 0.05), transparent 50%);
+      radial-gradient(900px circle at 12% 8%, rgba(148, 163, 184, 0.07), transparent 42%),
+      radial-gradient(900px circle at 88% 22%, rgba(71, 85, 105, 0.09), transparent 45%),
+      radial-gradient(1000px circle at 50% 100%, rgba(51, 65, 85, 0.08), transparent 50%);
     background-attachment: fixed;
   }
 
@@ -34,7 +34,7 @@
   }
 
   .section-padding {
-    @apply py-20 px-6 sm:px-8 lg:px-12;
+    @apply py-12 px-4 sm:py-16 sm:px-8 lg:py-20 lg:px-12;
   }
 
   .container-custom {
@@ -60,7 +60,61 @@
   .glass-card {
     @apply bg-cream-700/40 backdrop-blur-md border border-cream-600/30 rounded-2xl hover:border-cream-400/60 transition-all duration-300;
   }
+
+  /* Dark adaptation of the ReactBits Micro Slats texture. */
+  .micro-slats {
+    background-color: #090b0e;
+    background-image:
+      radial-gradient(70% 56% at 14% 8%, rgba(255, 255, 255, 0.08), transparent 62%),
+      radial-gradient(50% 58% at 82% 22%, rgba(148, 163, 184, 0.05), transparent 68%),
+      repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.045) 0 1px, transparent 1px 8px),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 46%, rgba(0, 0, 0, 0.42));
+    background-size: auto, auto, 8px 100%, auto;
+    background-position: center;
+    animation: micro-slats-drift 15s linear infinite;
+  }
+
 }
+
+@keyframes micro-slats-drift {
+  from { background-position: center, center, 0 0, center; }
+  to { background-position: center, center, 80px 0, center; }
+}
+
+@keyframes signal-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes signal-orbit-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.75); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes signal-scan {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}
+
+.signal-orbit::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  box-shadow: 0 0 14px rgba(241, 245, 249, 0.55);
+}
+
+.signal-orbit-one { animation: signal-orbit 1.8s linear infinite; }
+.signal-orbit-two { animation: signal-orbit-reverse 2.7s linear infinite; }
+.signal-pulse { animation: signal-pulse 1.2s ease-in-out infinite; }
+.signal-scan { animation: signal-scan 1.5s ease-in-out infinite; }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -102,6 +156,17 @@
 
 /* Disable scroll animations on mobile devices (< 768px) for instant, stutter-free viewing */
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Backdrop filters over a moving page are costly on mobile GPUs. */
+  .backdrop-blur-md,
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
   html {
     scroll-behavior: auto !important;
   }
@@ -116,3 +181,25 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .micro-slats {
+    animation: none;
+  }
+
+  .signal-orbit-one,
+  .signal-orbit-two,
+  .signal-pulse,
+  .signal-scan {
+    animation: none;
+  }
+
+  .projects-viewport {
+    overflow-x: auto !important;
+    scrollbar-width: thin;
+  }
+
+  .projects-track {
+    transform: none !important;
+    will-change: auto !important;
+  }
+}

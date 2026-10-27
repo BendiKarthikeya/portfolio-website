@@ -1,121 +1,189 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { useCallback, useRef, useState } from 'react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
 import { Briefcase, MapPin, Rocket, Globe, Linkedin } from 'lucide-react'
+import GlareHover from '@/components/GlareHover'
 import { experiences } from '@/data/portfolio'
 
 const Experience = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const active = experiences[activeIndex]
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end end'],
+  })
+  const lineScaleX = useTransform(scrollYProgress, [0, 1], [0, 1])
+
+  useMotionValueEvent(scrollYProgress, 'change', (progress) => {
+    const nextIndex = Math.min(experiences.length - 1, Math.floor(progress * experiences.length))
+    setActiveIndex((current) => current === nextIndex ? current : nextIndex)
+  })
+
+  const goToExperience = useCallback((index: number) => {
+    const section = sectionRef.current
+    if (!section) return
+    const travel = Math.max(0, section.offsetHeight - window.innerHeight)
+    const targetProgress = (index + 0.5) / experiences.length
+    window.scrollTo({
+      top: section.offsetTop + travel * targetProgress,
+      behavior: 'smooth',
+    })
+  }, [])
+
   return (
-    <section id="experience" className="section-padding bg-transparent">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center justify-center gap-3 mb-3">
-            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
-              <Briefcase className="w-6 h-6 text-gold-400" />
+    <section
+      ref={sectionRef}
+      id="experience"
+      className="relative bg-transparent"
+      style={{ height: `${(experiences.length + 1) * 100}vh` }}
+    >
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden py-3 sm:py-5">
+        <div className="container-custom w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-4 text-center sm:mb-5"
+          >
+            <div className="mb-2 inline-flex items-center justify-center gap-2.5">
+              <div className="rounded-xl border border-slate-400/20 bg-slate-300/[0.06] p-2">
+                <Briefcase className="h-5 w-5 text-slate-200" />
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Career Journey</span>
             </div>
-            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Career Journey</span>
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
-            Work{' '}
-            <span className="text-gray-400">Experience</span>
-          </h2>
-          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
-            Building products and automation across startups and international teams
-          </p>
-        </motion.div>
+            <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              Work <span className="text-gray-400">Experience</span>
+            </h2>
+            <p className="mx-auto mt-1.5 max-w-2xl text-xs text-cream-300 sm:text-sm">
+              Keep scrolling — each role appears before the page continues
+            </p>
+          </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cream-300/40 via-cream-500/20 to-transparent md:-translate-x-1/2" />
-
-          <div className="space-y-10">
-            {experiences.map((exp, index) => {
-              const isLeft = index % 2 === 0
-              return (
-                <motion.div
-                  key={`${exp.company}-${exp.role}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className={`relative pl-12 md:pl-0 md:w-1/2 ${
-                    isLeft ? 'md:pr-12 md:text-right md:ml-0' : 'md:pl-12 md:ml-auto'
-                  }`}
-                >
-                  {/* Node dot */}
-                  <span
-                    className={`absolute top-6 h-3 w-3 rounded-full bg-gold-400 ring-4 ring-gold-400/20 ${
-                      isLeft
-                        ? 'left-4 -translate-x-1/2 md:left-auto md:right-[-6px] md:translate-x-0'
-                        : 'left-4 -translate-x-1/2 md:left-[-6px] md:right-auto md:translate-x-0'
-                    }`}
-                  />
-
-                  <div className="cursor-target bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 hover:border-gold-400/60 hover:shadow-lg hover:shadow-gold-400/10 transition-all duration-300">
-                    <div className={`flex items-center gap-2 mb-2 ${isLeft ? 'md:justify-end' : ''}`}>
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full bg-gold-400/15 text-gold-400 border border-gold-400/30">
-                        {exp.type === 'Founder' ? <Rocket className="w-3 h-3" /> : <Briefcase className="w-3 h-3" />}
-                        {exp.type}
+          <nav className="mx-auto mb-4 max-w-5xl px-3 sm:mb-6" aria-label="Work experience progress">
+            <div className="relative">
+              <div className="absolute left-0 right-0 top-3.5 h-px bg-slate-600/45" aria-hidden="true" />
+              <motion.div
+                className="absolute left-0 right-0 top-3.5 h-px origin-left bg-slate-100 will-change-transform"
+                style={{ scaleX: lineScaleX }}
+                aria-hidden="true"
+              />
+              <ol className="relative flex items-start justify-between">
+                {experiences.map((experience, index) => {
+                  const isActive = index === activeIndex
+                  const isComplete = index < activeIndex
+                  return (
+                    <li key={`${experience.company}-${experience.role}`} className="flex min-w-0 flex-col items-center">
+                      <button
+                        type="button"
+                        onClick={() => goToExperience(index)}
+                        aria-label={`Show ${experience.role} at ${experience.company}`}
+                        aria-current={isActive ? 'step' : undefined}
+                        className={`relative z-10 flex h-7 w-7 items-center justify-center rounded-full border text-[10px] font-semibold tabular-nums transition-all duration-300 sm:h-8 sm:w-8 ${
+                          isActive
+                            ? 'scale-110 border-white bg-white text-gray-950 shadow-[0_0_0_5px_rgba(255,255,255,0.08)]'
+                            : isComplete
+                              ? 'border-slate-200 bg-slate-300 text-gray-950'
+                              : 'border-slate-600 bg-[#101318] text-slate-400'
+                        }`}
+                      >
+                        {String(index + 1).padStart(2, '0')}
+                      </button>
+                      <span className={`mt-2 hidden max-w-24 truncate text-center text-[10px] transition-colors sm:block ${isActive ? 'text-white' : 'text-slate-500'}`}>
+                        {experience.company}
                       </span>
+                    </li>
+                  )
+                })}
+              </ol>
+            </div>
+          </nav>
+
+          <div className="relative mx-auto h-[500px] w-full max-w-6xl sm:h-[520px]">
+            <AnimatePresence initial={false} mode="popLayout">
+              <motion.div
+                key={`${active.company}-${active.role}`}
+                initial={{ opacity: 0, y: 22, scale: 0.975 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -18, scale: 0.975 }}
+                transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 will-change-transform"
+              >
+                <GlareHover className="micro-slats h-full overflow-hidden rounded-[30px] border border-slate-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_28px_80px_rgba(0,0,0,0.28)]">
+                  <article className="relative flex h-full overflow-hidden p-6 text-left sm:p-8 lg:p-10">
+                    <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+                      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,7,9,0.98)_0%,rgba(6,7,9,0.92)_48%,rgba(6,7,9,0.35)_74%,rgba(6,7,9,0.62)_100%)]" />
+                      <Image
+                        src="/decor/circuit-botanical.webp"
+                        alt=""
+                        width={470}
+                        height={730}
+                        sizes="(min-width: 1024px) 430px, 260px"
+                        className="absolute -bottom-24 -right-20 h-[112%] w-auto select-none object-contain grayscale saturate-0 brightness-75 contrast-150 opacity-[0.14] sm:-right-10 sm:opacity-[0.2] lg:-bottom-28 lg:right-2 lg:h-[125%] lg:opacity-[0.32]"
+                      />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_45%,rgba(226,232,240,0.1),transparent_28%)]" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-cream-100">{exp.role}</h3>
-                    <div className={`flex items-center gap-2.5 mt-1 mb-1.5 ${isLeft ? 'md:justify-end' : ''}`}>
-                      <p className="text-gold-400 font-semibold">{exp.company}</p>
-                      {('website' in exp && exp.website) && (
-                        <a
-                          href={exp.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-cream-400 hover:text-gold-400 transition-colors"
-                          title="Visit Website"
-                        >
-                          <Globe className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                      {('linkedin' in exp && exp.linkedin) && (
-                        <a
-                          href={exp.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-cream-400 hover:text-gold-400 transition-colors"
-                          title="View LinkedIn"
-                        >
-                          <Linkedin className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                    </div>
-
-                    <div className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-cream-400 mt-1 mb-3 ${isLeft ? 'md:justify-end' : ''}`}>
-                      <span>{exp.period}</span>
-                      <span className="inline-flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5" />
-                        {exp.location}
-                      </span>
-                    </div>
-
-                    <p className="text-cream-200 text-sm leading-relaxed">{exp.description}</p>
-
-                    <div className={`flex flex-wrap gap-2 mt-4 ${isLeft ? 'md:justify-end' : ''}`}>
-                      {exp.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="text-xs px-2.5 py-1 rounded-md bg-gray-700/60 text-cream-300 border border-gray-600"
-                        >
-                          {skill}
+                    <div className="relative z-10 flex w-full max-w-2xl flex-col">
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-[11px] font-medium text-cream-100 backdrop-blur-sm">
+                          {active.type === 'Founder' ? <Rocket className="h-3.5 w-3.5" /> : <Briefcase className="h-3.5 w-3.5" />}
+                          {active.type}
                         </span>
-                      ))}
+                        <span className="text-[11px] tabular-nums text-cream-400 sm:text-xs">
+                          {String(activeIndex + 1).padStart(2, '0')} / {String(experiences.length).padStart(2, '0')}
+                        </span>
+                      </div>
+
+                      <div className="mt-6 sm:mt-8">
+                        <p className="text-xs uppercase tracking-[0.24em] text-cream-400 sm:text-sm">{active.company}</p>
+                        <h3 className="mt-3 max-w-xl text-2xl font-bold leading-[1.08] text-white sm:text-4xl lg:text-5xl">{active.role}</h3>
+                        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-cream-300 sm:text-sm">
+                          <span>{active.period}</span>
+                          <span className="inline-flex items-center gap-1.5">
+                            <MapPin className="h-4 w-4" />
+                            {active.location}
+                          </span>
+                        </div>
+                      </div>
+
+                      <p className="mt-5 line-clamp-4 max-w-xl text-xs leading-relaxed text-cream-200 sm:mt-6 sm:line-clamp-5 sm:text-sm sm:leading-7 lg:text-base">{active.description}</p>
+
+                      <div className="mt-auto pt-5">
+                        <div className="flex flex-wrap gap-2">
+                          {active.skills.slice(0, 5).map((skill) => (
+                            <span key={skill} className="rounded-lg border border-white/10 bg-black/45 px-2.5 py-1.5 text-[10px] text-cream-300 backdrop-blur-sm sm:text-xs">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mt-5 flex gap-4">
+                          {'website' in active && active.website && (
+                            <a href={active.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white transition-colors hover:text-cream-300 sm:text-sm">
+                              <Globe className="h-4 w-4" /> Website
+                            </a>
+                          )}
+                          {'linkedin' in active && active.linkedin && (
+                            <a href={active.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white transition-colors hover:text-cream-300 sm:text-sm">
+                              <Linkedin className="h-4 w-4" /> LinkedIn
+                            </a>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              )
-            })}
+
+                    <div className="absolute bottom-8 right-8 z-10 hidden border-r border-white/10 pr-4 text-right lg:block">
+                      <p className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Craft / systems</p>
+                      <p className="mt-2 text-xs text-slate-400">AI · automation · product</p>
+                    </div>
+                  </article>
+                </GlareHover>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

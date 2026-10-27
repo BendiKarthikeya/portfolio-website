@@ -1,3 +1,8 @@
+const r2PublicUrl = process.env.NEXT_PUBLIC_R2_PUBLIC_URL?.replace(/\/+$/, "")
+
+export const imageAsset = (path: string) =>
+  r2PublicUrl ? `${r2PublicUrl}/${path.replace(/^\/+/, "")}` : path
+
 export const personalInfo = {
   name: "Karthikeya Bendi",
   title: "Exploring AI, Building Products | Full Stack Dev & Automation | Founder @ GoAutomate",
@@ -111,7 +116,7 @@ export const n8nProjects = [
       "Compliance with Reddit's posting guidelines"
     ],
     impact: "Increased brand visibility by 300%, managed 50+ posts weekly with 40% engagement rate",
-    image: "/Images/Reddit.png",
+    image: imageAsset("/Images/Reddit.png"),
     workflow: {
       trigger: "Scheduled/Webhook",
       steps: ["Content Generation", "Subreddit Selection", "Post Scheduling", "Engagement Tracking"],
@@ -137,7 +142,7 @@ export const n8nProjects = [
       "Custom filtering based on engagement metrics"
     ],
     impact: "Discovered 1000+ qualified leads monthly, identified 200+ high-potential communities",
-    image: "/Images/ReditCommunitySearch.png",
+    image: imageAsset("/Images/ReditCommunitySearch.png"),
     workflow: {
       trigger: "Scheduled Search",
       steps: ["Keyword Search", "Community Analysis", "Lead Extraction", "Data Export"],
@@ -161,7 +166,7 @@ export const n8nProjects = [
       "Automated response routing"
     ],
     impact: "Enabled hands-free automation control, reducing manual intervention by 70%",
-    image: "/Images/Voice Agent.png",
+    image: imageAsset("/Images/Voice Agent.png"),
     workflow: {
       trigger: "Voice Webhook",
       steps: ["Voice Input", "LLM Processing", "Action Execution", "Voice Response"],
@@ -186,8 +191,8 @@ export const n8nProjects = [
       "Synchronous website + n8n integration using webhook hooks"
     ],
     impact: "Streamlined entire business operations, reducing manual work by 90%",
-    image: "/Images/work-1.png",
-    additionalImages: ["/Images/work-2.png", "/Images/work-3.png", "/Images/work-4.png", "/Images/work-5.png"],
+    image: imageAsset("/Images/work-1.png"),
+    additionalImages: [imageAsset("/Images/work-2.png"), imageAsset("/Images/work-3.png"), imageAsset("/Images/work-4.png"), imageAsset("/Images/work-5.png")],
     workflow: {
       trigger: "Business Events",
       steps: ["Workflow Processing", "PDF Generation", "Email Automation", "Payment Tracking"],
@@ -211,8 +216,8 @@ export const n8nProjects = [
       "Template library management"
     ],
     impact: "Reduced workflow creation time by 80%, standardized 50+ automation templates",
-    image: "/Images/System Prompt Generation.png",
-    additionalImages: ["/Images/Duplicate Workflow.png"],
+    image: imageAsset("/Images/System Prompt Generation.png"),
+    additionalImages: [imageAsset("/Images/Duplicate Workflow.png")],
     workflow: {
       trigger: "Webhook",
       steps: ["Workflow Fetch", "Filtering", "Prompt Generation", "Workflow Creation"],
@@ -236,8 +241,8 @@ export const n8nProjects = [
       "Real-time notification system"
     ],
     impact: "Managed 500+ emails daily with 95% accuracy in categorization",
-    image: "/Images/Multi Mail.png",
-    additionalImages: ["/Images/Mail Check.png"],
+    image: imageAsset("/Images/Multi Mail.png"),
+    additionalImages: [imageAsset("/Images/Mail Check.png")],
     workflow: {
       trigger: "Daily Schedule",
       steps: ["Email Fetch", "Reply Detection", "Data Processing", "Sheet Update"],
@@ -261,7 +266,7 @@ export const n8nProjects = [
       "Custom system prompts configuration dynamically adapted to datasets"
     ],
     impact: "Automated entire data analysis workflow, reducing analysis time by 85%",
-    image: "/Images/Project_bussines_analyst -1.png",
+    image: imageAsset("/Images/Project_bussines_analyst -1.png"),
     workflow: {
       trigger: "Website Webhook",
       steps: ["Data Upload", "AWS Processing", "AI Analysis", "Chatbot Integration"],
@@ -286,8 +291,8 @@ export const n8nProjects = [
       "Comprehensive logs, error handling, and lead status tracking"
     ],
     impact: "Generated 1000+ qualified leads monthly with 25% response rate",
-    image: "/Images/mail automation.png",
-    additionalImages: ["/Images/mail automation-2.png"],
+    image: imageAsset("/Images/mail automation.png"),
+    additionalImages: [imageAsset("/Images/mail automation-2.png")],
     workflow: {
       trigger: "Scheduled Scraping",
       steps: ["Lead Scraping", "Data Cleaning", "Email Outreach", "Response Tracking"],
@@ -311,7 +316,7 @@ export const n8nProjects = [
       "Template customization support and flexible formatting options"
     ],
     impact: "Generated and distributed 1000+ certificates automatically, saving 20+ hours per event",
-    image: "/Images/Certificate Workflow.png",
+    image: imageAsset("/Images/Certificate Workflow.png"),
 
     workflow: {
       trigger: "Manual/Webhook",
@@ -338,7 +343,7 @@ export const n8nProjects = [
       "n8n integration in college"
     ],
     impact: "Automated daily communication to 500+ students, saving 2 hours daily",
-    image: "/Images/daily thought.png",
+    image: imageAsset("/Images/daily thought.png"),
     workflow: {
       trigger: "Daily Schedule",
       steps: ["Content Selection", "Image Fetch", "Email Generation", "Tracking Update"],
@@ -362,8 +367,8 @@ export const n8nProjects = [
       "Dedicated web dashboard for browsing captured intelligence"
     ],
     impact: "Unified lead discovery across 4+ platforms, automating thousands of social mentions into a single qualified-lead pipeline",
-    image: "/Images/Intelligence_reddit.png",
-    additionalImages: ["/Images/Intelligence_Quora.png", "/Images/Intelligence_X.png"],
+    image: imageAsset("/Images/Intelligence_reddit.png"),
+    additionalImages: [imageAsset("/Images/Intelligence_Quora.png"), imageAsset("/Images/Intelligence_X.png")],
     live: "https://socialintelligence-psi.vercel.app/",
     workflow: {
       trigger: "Webhook / Scheduled",
@@ -388,7 +393,7 @@ export const n8nProjects = [
       "Scalable 30+ node orchestration"
     ],
     impact: "Cut multi-platform posting to a single trigger, eliminating manual cross-posting across 3 networks",
-    image: "/Images/Social Media Management.png",
+    image: imageAsset("/Images/Social Media Management.png"),
     workflow: {
       trigger: "Webhook",
       steps: ["Content Intake", "Platform Routing", "Format & Publish", "Status Handling"],
@@ -412,7 +417,7 @@ export const n8nProjects = [
       "Respond-to-webhook for external integrations"
     ],
     impact: "Automated the full create-post-measure loop for short-form video, the most complex workflow in the system (50+ nodes)",
-    image: "/Images/Reel Machine.png",
+    image: imageAsset("/Images/Reel Machine.png"),
     workflow: {
       trigger: "Scheduled / Webhook",
       steps: ["Source Ingestion", "Video Editing (MediaFX)", "Auto-Posting", "Analytics Tracking"],
@@ -436,7 +441,7 @@ export const n8nProjects = [
       "Webhook-driven, end-to-end outreach pipeline"
     ],
     impact: "Automated cold outreach end-to-end while keeping a human approval gate, protecting deliverability with pre-send verification",
-    image: "/Images/Cold Email Outreach.png",
+    image: imageAsset("/Images/Cold Email Outreach.png"),
     workflow: {
       trigger: "Webhook / Scheduled",
       steps: ["Email Verification", "Campaign Push", "AI Reply Generation", "Human Approval & Send"],
@@ -526,7 +531,7 @@ export const projects = [
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     github: "https://github.com/BendiKarthikeya/portfolio-website",
     live: "https://karthikeyabendi.tech",
-    image: "/Images/Portfolio.png",
+    image: imageAsset("/Images/Portfolio.png"),
     features: [
       "Modern responsive design",
       "Dark/Light theme support",
@@ -545,7 +550,7 @@ export const projects = [
     github: "https://github.com/BendiKarthikeya",
     live: "https://skill-pulse.io/",
     video: "https://www.youtube.com/watch?v=AjDd56x8Q5o",
-    image: "/Images/InsightPulse.png",
+    image: imageAsset("/Images/InsightPulse.png"),
     features: [
       "Multi-channel survey distribution (Voice AI, WhatsApp, Web)",
       "LLM-powered analysis of open-ended responses",
@@ -564,7 +569,7 @@ export const projects = [
     github: "https://github.com/BendiKarthikeya/hcms-app",
     live: "https://hcms-kappa.vercel.app/",
     video: "https://www.youtube.com/watch?v=GlqJ_HFPBWE",
-    image: "/Images/HRMS.png",
+    image: imageAsset("/Images/HRMS.png"),
     features: [
       "Hiring pipeline: requisition → multi-step approval → public careers page job posting",
       "Candidate management with AI-powered CV screening",
@@ -583,7 +588,7 @@ export const projects = [
     technologies: ["Next.js 14", "TypeScript", "Socket.io", "Tailwind CSS", "YouTube API", "Node.js"],
     github: "https://github.com/BendiKarthikeya/SyncJam",
     live: "https://musicsync-pi.vercel.app/",
-    image: "/Images/SyncJam.png",
+    image: imageAsset("/Images/SyncJam.png"),
     features: [
       "Real-time audio synchronization across devices via WebSocket (Socket.io) with <500ms drift tolerance",
       "Instant room creation with shareable 6-character room codes and zero-install guest access",
@@ -600,7 +605,7 @@ export const projects = [
     technologies: ["React 18", "JavaScript", "Supabase", "Google Calendar API", "OKLCH CSS", "Babel Standalone"],
     github: "https://github.com/BendiKarthikeya/Lumen",
     live: "https://lumen-app-kappa.vercel.app/",
-    image: "/Images/Lumen.png",
+    image: imageAsset("/Images/Lumen.png"),
     features: [
       "Interactive 2×2 Eisenhower Decision Matrix (Do / Plan / Delegate / Drop) with drag-and-drop",
       "Built-in Pomodoro focus timer with session dots, ambient sounds, and quick spacebar toggling",
@@ -678,31 +683,31 @@ export const certifications = [
     name: "Generative AI Primer",
     issuer: "Coursera",
     date: "2024",
-    badge: "/Images/coursera.png"
+    badge: imageAsset("/Images/coursera.png")
   },
   {
     name: "Infographic in Canva",
     issuer: "Canva",
     date: "2024",
-    badge: "/Images/canva.jpg"
+    badge: imageAsset("/Images/canva.jpg")
   },
   {
     name: "Trustworthy Generative AI",
     issuer: "Coursera",
     date: "2024",
-    badge: "/Images/coursera.png"
+    badge: imageAsset("/Images/coursera.png")
   },
   {
     name: "Introduction to Generative AI",
     issuer: "Coursera",
     date: "2024",
-    badge: "/Images/coursera.png"
+    badge: imageAsset("/Images/coursera.png")
   },
   {
     name: "Create a Promotional Video using Canva",
     issuer: "Canva",
     date: "2024",
-    badge: "/Images/canva.jpg"
+    badge: imageAsset("/Images/canva.jpg")
   }
 ]
 

@@ -37,6 +37,10 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Avoid allocating a page-sized canvas on touch devices. It adds a large
+    // paint/compositing cost and the effect is not useful without a mouse.
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
     const parent = canvas.parentElement;
     if (!parent) return;
 
@@ -85,6 +89,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -134,6 +139,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();

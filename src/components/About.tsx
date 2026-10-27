@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { User, Code, Zap, Heart, Target } from 'lucide-react'
 import { personalInfo } from '@/data/portfolio'
+import GlareHover from '@/components/GlareHover'
 
 const About = () => {
   const features = [
@@ -36,7 +37,7 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-7 sm:mb-12"
         >
           <div className="inline-flex items-center justify-center gap-3 mb-3">
             <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
@@ -44,43 +45,43 @@ const About = () => {
             </div>
             <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Overview</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             About{' '}
             <span className="text-gray-400">Me</span>
           </h2>
-          <p className="text-cream-300 mt-3 max-w-2xl mx-auto text-lg">
+          <p className="text-cream-300 mt-2 sm:mt-3 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
             Passionate about transforming complex business processes into streamlined, automated workflows
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
-            <div className="max-w-none space-y-6">
-              <p className="text-cream-200 leading-relaxed">
+            <div className="max-w-none space-y-4 sm:space-y-6">
+              <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
                 {personalInfo.bio}
               </p>
               
-              <p className="text-cream-200 leading-relaxed">
+              <p className="hidden sm:block text-cream-200 leading-relaxed">
                 {personalInfo.experience}
               </p>
 
-         <p className="text-cream-200 leading-relaxed">
+         <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
                 My mission is to transform complex processes into simple, automated systems that are reliable, scalable, and impactful.              </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {['n8n Expert', 'Process Optimizer', 'API Integration', 'Workflow Designer'].map((trait) => (
                 <motion.span
                   key={trait}
                   whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-full text-sm font-medium"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-full text-xs sm:text-sm font-medium"
                 >
                   {trait}
                 </motion.span>
@@ -94,7 +95,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="grid grid-cols-2 gap-3 sm:gap-6"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -104,17 +105,19 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-gray-900 border border-white/10 p-6 rounded-xl hover:border-gold-400/50 transition-all duration-300"
+                className="h-full"
               >
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg">
-                    {feature.icon}
+                <GlareHover className="h-full rounded-xl border border-white/10 bg-gray-900 p-3 transition-colors duration-300 hover:border-slate-300/35 sm:p-6">
+                  <div className="flex items-center mb-2 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg">
+                      {feature.icon}
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-cream-100">{feature.title}</h3>
-                <p className="text-cream-300 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                  <h3 className="text-sm sm:text-lg font-semibold sm:mb-2 text-cream-100 leading-snug">{feature.title}</h3>
+                  <p className="hidden sm:block text-cream-300 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </GlareHover>
               </motion.div>
             ))}
           </motion.div>

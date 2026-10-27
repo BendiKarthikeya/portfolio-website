@@ -33,4 +33,4 @@ Tailwind with `darkMode: 'class'`. Custom color palettes defined in [tailwind.co
 ### Conventions
 
 - Import alias `@/*` maps to `src/*` (see [tsconfig.json](tsconfig.json)).
-- Images live in `public/Images/` and are referenced by path string in `portfolio.ts` (e.g. `image: "/Images/Reddit.png"`). External image domains must be allowlisted in [next.config.js](next.config.js).
+- Portfolio images are stored in Cloudflare R2. `portfolio.ts` uses `imageAsset("/Images/Reddit.png")`, which resolves via `NEXT_PUBLIC_R2_PUBLIC_URL`; local image paths are only a fallback. Run `npm run r2:sync` to upload new images before removing their local copies.

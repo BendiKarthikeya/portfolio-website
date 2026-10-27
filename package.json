@@ -6,13 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "r2:sync": "node scripts/sync-images-to-r2.mjs"
   },
   "dependencies": {
+    "@hugeicons/core-free-icons": "^4.3.5",
+    "@hugeicons/react": "^1.1.10",
     "@tailwindcss/typography": "^0.5.10",
     "cursor-effects": "^1.0.18",
     "framer-motion": "^10.16.16",
-    "gsap": "^3.13.0",
+    "gsap": "^3.15.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "ogl": "^1.0.11",
@@ -21,6 +24,7 @@
     "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1157.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

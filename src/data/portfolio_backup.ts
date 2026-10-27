@@ -1,3 +1,5 @@
+import { imageAsset } from "./portfolio"
+
 export const personalInfo = {
   name: "Karthikeya Bendi",
   title: "n8n Automation Specialist & Full-Stack Developer",
@@ -6,7 +8,7 @@ export const personalInfo = {
   location: "India",
   tagline: "Transforming business processes through intelligent automation",
   bio: "I'm currently pursuing a B.Sc. (Hons.) in Artificial Intelligence and Data Science at IIT Guwahati, with a solid foundation in programming, web development, and data-driven problem-solving. I specialize in automation using n8n, with experience designing and maintaining 50+ custom workflows that have saved over 200 hours of manual work per week. At Advait, I work as an n8n Specialist, creating API integrations and automations that streamline business operations across CRM, document systems, reporting, and compliance. I collaborate with cross-functional teams to identify automation opportunities and build scalable, maintainable solutions that align with business goals. ",
-  avatar: "/Images/karthikeya_crop.jpg",
+  avatar: imageAsset("/Images/karthikeya_crop.jpg"),
   resume: "/resume.pdf",
   experience: "n8n Specialist at Advait - I design and implement custom workflows, API integrations, and process automations to help businesses operate more efficiently and at scale. Working remotely with cross-functional teams, I identify opportunities for automation, optimize existing processes, and ensure that solutions are well-documented, maintainable, and aligned with business objectives."
 }
@@ -38,7 +40,7 @@ export const n8nProjects = [
       "Website + n8n integration"
     ],
     impact: "Automated entire data analysis workflow, reducing analysis time by 85%",
-    image: "/Images/Project_bussines_analyst -1.png",
+    image: imageAsset("/Images/Project_bussines_analyst -1.png"),
     workflow: {
       trigger: "Website Webhook",
       steps: ["Data Upload", "AWS Processing", "AI Analysis", "Chatbot Integration"],
@@ -62,7 +64,7 @@ export const n8nProjects = [
       "n8n integration in college"
     ],
     impact: "Automated daily communication to 500+ students, saving 2 hours daily",
-    image: "/Images/daily thought.png",
+    image: imageAsset("/Images/daily thought.png"),
     workflow: {
       trigger: "Daily Schedule",
       steps: ["Content Selection", "Image Fetch", "Email Generation", "Tracking Update"],
@@ -87,8 +89,8 @@ export const n8nProjects = [
       "Website + n8n integration"
     ],
     impact: "Streamlined entire business operations, reducing manual work by 90%",
-    image: "/Images/work-1.png",
-    additionalImages: ["/Images/work-2.png", "/Images/work-3.png", "/Images/work-4.png", "/Images/work-5.png"],
+    image: imageAsset("/Images/work-1.png"),
+    additionalImages: [imageAsset("/Images/work-2.png"), imageAsset("/Images/work-3.png"), imageAsset("/Images/work-4.png"), imageAsset("/Images/work-5.png")],
     workflow: {
       trigger: "Business Events",
       steps: ["Workflow Processing", "PDF Generation", "Email Automation", "Payment Tracking"],
@@ -112,8 +114,8 @@ export const n8nProjects = [
       "Workflow logs and lead tracking in sheets"
     ],
     impact: "Generated 1000+ qualified leads monthly with 25% response rate",
-    image: "/Images/mail automation.png",
-    additionalImages: ["/Images/mail automation-2.png"],
+    image: imageAsset("/Images/mail automation.png"),
+    additionalImages: [imageAsset("/Images/mail automation-2.png")],
     workflow: {
       trigger: "Scheduled Scraping",
       steps: ["Lead Scraping", "Data Cleaning", "Email Outreach", "Response Tracking"],
