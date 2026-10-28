@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Clock, Users, TrendingUp, Workflow, Zap, Database, Bot, Mail, FileText, Target, X, ExternalLink, ChevronRight } from 'lucide-react'
 import { n8nProjects } from '@/data/portfolio'
 import { useState, useEffect } from 'react'
+import BorderGlow from '@/components/BorderGlow'
 
 const NEW_PROJECT_IDS = [11, 12, 13, 14]
 
@@ -37,8 +38,19 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       transition={{ duration: 0.5 }}
       whileHover={{ y: -4 }}
       onClick={onClick}
-      className="group cursor-pointer bg-gray-900/60 border border-white/10 hover:border-gold-400/40 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-gold-400/5 flex flex-col"
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          onClick()
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
+      className="h-full"
     >
+      <BorderGlow className="group h-full cursor-pointer" backgroundColor="transparent" borderRadius={16}>
+      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-900/60 transition-all duration-300 hover:border-gold-400/40 hover:shadow-xl hover:shadow-gold-400/5">
       {/* Image */}
       <div className="relative overflow-hidden h-44 flex-shrink-0">
         <img
@@ -83,6 +95,8 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
           </span>
         </div>
       </div>
+      </div>
+      </BorderGlow>
     </motion.div>
   )
 }
@@ -397,6 +411,7 @@ const N8nShowcase = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
+          <BorderGlow backgroundColor="transparent" borderRadius={16}>
           <div className="bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/30 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gold-400">Ready to Transform Your Business Processes?</h3>
             <p className="text-lg text-cream-200 mb-6 max-w-2xl mx-auto">
@@ -413,6 +428,7 @@ const N8nShowcase = () => {
               <ArrowRight className="w-5 h-5 ml-2" />
             </motion.a>
           </div>
+          </BorderGlow>
         </motion.div>
       </div>
     </section>

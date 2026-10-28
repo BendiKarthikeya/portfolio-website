@@ -124,7 +124,7 @@ const Projects = () => {
               <div className="flex items-start justify-between gap-5">
                 <div className="max-w-3xl">
                   <div className="mb-2 text-[10px] uppercase tracking-[0.22em] text-cream-400 sm:text-xs">
-                    Project {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                    Project {String(activeIndex + 1).padStart(2, '0')}
                   </div>
                   <h3 className="text-xl font-bold leading-tight text-white sm:text-3xl">{active.title}</h3>
                   <p className="mt-3 line-clamp-2 max-w-3xl text-xs leading-relaxed text-cream-300 sm:text-sm">{active.description}</p>

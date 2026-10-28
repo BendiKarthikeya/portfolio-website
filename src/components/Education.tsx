@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Award, Trophy, FileText, ExternalLink } from 'lucide-react'
 import { education, certifications, achievements } from '@/data/portfolio'
+import BorderGlow from '@/components/BorderGlow'
 
 const Education = () => {
   return (
@@ -38,10 +39,12 @@ const Education = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 bg-gray-900/60 border border-white/10 rounded-2xl p-6"
+            className="lg:col-span-3"
           >
-            <h3 className="text-xs font-semibold tracking-widest uppercase text-gold-400 mb-6">Academic Timeline</h3>
-            <div className="relative">
+            <BorderGlow className="h-full" backgroundColor="transparent" borderRadius={16}>
+              <div className="h-full bg-gray-900/60 border border-white/10 rounded-2xl p-6">
+              <h3 className="text-xs font-semibold tracking-widest uppercase text-gold-400 mb-6">Academic Timeline</h3>
+              <div className="relative">
               {/* vertical line */}
               <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-cream-300/40 via-cream-500/20 to-transparent" />
 
@@ -64,11 +67,12 @@ const Education = () => {
                       <div className={`w-2 h-2 rounded-full ${edu.level === 'undergraduate' ? 'bg-gold-400' : 'bg-gray-500'}`} />
                     </div>
 
-                    <div className={`rounded-xl p-4 ${
-                      edu.level === 'undergraduate'
-                        ? 'bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/25'
-                        : 'bg-gray-800/40 border border-white/10'
-                    }`}>
+                    <BorderGlow backgroundColor="transparent" borderRadius={12} glowRadius={24}>
+                      <div className={`rounded-xl p-4 ${
+                        edu.level === 'undergraduate'
+                          ? 'bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/25'
+                          : 'bg-gray-800/40 border border-white/10'
+                      }`}>
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                         <div>
                           <h4 className={`font-bold text-base ${edu.level === 'undergraduate' ? 'text-gold-400' : 'text-cream-100'}`}>
@@ -96,11 +100,14 @@ const Education = () => {
                           </span>
                         ))}
                       </div>
-                    </div>
+                      </div>
+                    </BorderGlow>
                   </motion.div>
                 ))}
               </div>
-            </div>
+              </div>
+              </div>
+            </BorderGlow>
           </motion.div>
 
           {/* Stats + Achievements column */}
@@ -118,20 +125,23 @@ const Education = () => {
                 { value: '3+', label: 'Certs', color: 'text-burgundy-500' },
                 { value: '50+', label: 'Projects', color: 'text-gold-400' },
               ].map((s) => (
-                <div key={s.label} className="bg-gray-900/60 border border-white/10 rounded-xl p-3 text-center">
-                  <div className={`text-xl font-bold ${s.color}`}>{s.value}</div>
-                  <div className="text-xs text-cream-400 mt-0.5">{s.label}</div>
-                </div>
+                <BorderGlow key={s.label} backgroundColor="transparent" borderRadius={12} glowRadius={24}>
+                  <div className="h-full bg-gray-900/60 border border-white/10 rounded-xl p-3 text-center">
+                    <div className={`text-xl font-bold ${s.color}`}>{s.value}</div>
+                    <div className="text-xs text-cream-400 mt-0.5">{s.label}</div>
+                  </div>
+                </BorderGlow>
               ))}
             </div>
 
             {/* Achievements */}
-            <div className="bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/20 rounded-2xl p-5 flex-1">
-              <div className="flex items-center gap-2 mb-4">
+            <BorderGlow className="flex-1" backgroundColor="transparent" borderRadius={16}>
+              <div className="h-full bg-gradient-to-br from-cream-100/10 to-cream-600/10 border border-cream-400/20 rounded-2xl p-5">
+                <div className="flex items-center gap-2 mb-4">
                 <Trophy className="w-4 h-4 text-gold-400" />
                 <h4 className="text-xs font-semibold tracking-widest uppercase text-gold-400">Professional Achievements</h4>
-              </div>
-              <div className="space-y-3">
+                </div>
+                <div className="space-y-3">
                 {achievements.map((a, i) => (
                   <motion.div
                     key={i}
@@ -147,8 +157,9 @@ const Education = () => {
                     <p className="text-cream-300 text-sm leading-relaxed">{a}</p>
                   </motion.div>
                 ))}
+                </div>
               </div>
-            </div>
+            </BorderGlow>
           </motion.div>
         </div>
 
@@ -158,28 +169,30 @@ const Education = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gray-900/60 border border-white/10 rounded-2xl p-6"
+          className=""
         >
-          <div className="flex items-center gap-2 mb-6">
+          <BorderGlow backgroundColor="transparent" borderRadius={16}>
+            <div className="bg-gray-900/60 border border-white/10 rounded-2xl p-6">
+            <div className="flex items-center gap-2 mb-6">
             <Award className="w-4 h-4 text-gold-400" />
             <h3 className="text-xs font-semibold tracking-widest uppercase text-gold-400">Certifications</h3>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert, i) => {
               const CardComponent = cert.link ? motion.a : motion.div
               const linkProps = cert.link ? { href: cert.link, target: "_blank", rel: "noopener noreferrer" } : {}
               
               return (
-                <CardComponent
-                  key={cert.name}
-                  {...linkProps}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  whileHover={{ y: -3 }}
-                  className={`flex items-center gap-3 bg-gray-800/50 border border-white/10 hover:border-gold-400/30 rounded-xl p-4 transition-all duration-200 ${cert.link ? 'cursor-pointer hover:bg-gray-800/80' : ''}`}
-                >
+                <BorderGlow key={cert.name} className="h-full" backgroundColor="transparent" borderRadius={12} glowRadius={26}>
+                  <CardComponent
+                    {...linkProps}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    whileHover={{ y: -3 }}
+                    className={`flex h-full items-center gap-3 bg-gray-800/50 border border-white/10 hover:border-gold-400/30 rounded-xl p-4 transition-all duration-200 ${cert.link ? 'cursor-pointer hover:bg-gray-800/80' : ''}`}
+                  >
                   <div className="w-12 h-12 bg-gradient-to-br from-cream-100/15 to-cream-600/15 border border-cream-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     {cert.badge ? (
                       <img src={cert.badge} alt={cert.name} className="w-9 h-9 object-contain" />
@@ -195,10 +208,13 @@ const Education = () => {
                     <p className="text-gold-400 text-xs mt-0.5">{cert.issuer}</p>
                     <p className="text-cream-400 text-xs">{cert.date}</p>
                   </div>
-                </CardComponent>
+                  </CardComponent>
+                </BorderGlow>
               )
             })}
+            </div>
           </div>
+          </BorderGlow>
         </motion.div>
 
       </div>

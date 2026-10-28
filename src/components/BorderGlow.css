@@ -1,0 +1,94 @@
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: 28px;
+  --glow-padding: 40px;
+  --cone-spread: 25;
+
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  overflow: visible !important;
+  background: var(--card-bg, #120f17);
+  transform: translate3d(0, 0, 0.01px);
+  box-shadow:
+    rgb(0 0 0 / 10%) 0 1px 2px,
+    rgb(0 0 0 / 10%) 0 4px 8px,
+    rgb(0 0 0 / 10%) 0 16px 32px;
+}
+
+.border-glow-card--light {
+  border-color: rgb(24 24 27 / 12%);
+  box-shadow: rgb(24 24 27 / 4%) 0 1px 2px, rgb(24 24 27 / 5%) 0 8px 24px;
+}
+
+.border-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  padding: 1px;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 180ms ease-out, filter 180ms ease-out;
+}
+
+.border-glow-card:not(:hover):not(.sweep-active)::before {
+  opacity: 0;
+  transition: opacity 750ms ease-in-out;
+}
+
+.border-glow-card::before {
+  background: conic-gradient(
+    from var(--cursor-angle) at center,
+    var(--glow-color) 0deg,
+    var(--glow-color-20) 12deg,
+    transparent 38deg,
+    transparent 322deg,
+    var(--glow-color-20) 348deg,
+    var(--glow-color) 360deg
+  );
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  filter:
+    brightness(1.65)
+    saturate(1.15)
+    drop-shadow(0 0 3px var(--glow-color-60))
+    drop-shadow(0 0 10px var(--glow-color-30));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.border-glow-card::after {
+  display: none;
+}
+
+.border-glow-card > .edge-light {
+  display: none;
+}
+
+.border-glow-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .border-glow-card::before {
+    transition: none;
+  }
+}

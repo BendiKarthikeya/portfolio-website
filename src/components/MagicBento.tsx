@@ -23,6 +23,7 @@ import {
   SparklesIcon,
   Tick02Icon
 } from '@hugeicons/core-free-icons';
+import BorderGlow from '@/components/BorderGlow';
 
 const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
@@ -1393,20 +1394,29 @@ const MagicBento = ({
               gridRow: `span ${Math.max(1, Math.round(entry.rowSpan ?? 1))}`
             }}
           >
-            {entry.href ? (
-              <a {...cardProps} href={entry.href} target={entry.target} rel={entry.rel}>
-                {body}
-              </a>
-            ) : (
-              <div
-                {...cardProps}
-                role={clickable ? 'button' : undefined}
-                tabIndex={clickable ? 0 : undefined}
-                aria-label={clickable ? entry.title : undefined}
-              >
-                {body}
-              </div>
-            )}
+            <BorderGlow
+              className="h-full"
+              backgroundColor="transparent"
+              borderRadius={corner}
+              glowColor="40 85 75"
+              glowIntensity={0.75}
+              fillOpacity={0.24}
+            >
+              {entry.href ? (
+                <a {...cardProps} href={entry.href} target={entry.target} rel={entry.rel}>
+                  {body}
+                </a>
+              ) : (
+                <div
+                  {...cardProps}
+                  role={clickable ? 'button' : undefined}
+                  tabIndex={clickable ? 0 : undefined}
+                  aria-label={clickable ? entry.title : undefined}
+                >
+                  {body}
+                </div>
+              )}
+            </BorderGlow>
           </div>
         );
       })}

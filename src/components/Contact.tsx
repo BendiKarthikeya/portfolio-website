@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react'
 import { personalInfo, socialLinks } from '@/data/portfolio'
+import BorderGlow from '@/components/BorderGlow'
 
 const Contact = () => {
 
@@ -28,24 +29,14 @@ const Contact = () => {
   ]
 
   const socialPlatforms = [
-    {
-      name: 'GitHub',
-      icon: <Github className="w-5 h-5" />,
-      href: socialLinks.github,
-      color: 'hover:text-gray-900 dark:hover:text-white'
-    },
-    {
-      name: 'LinkedIn',
-      icon: <Linkedin className="w-5 h-5" />,
-      href: socialLinks.linkedin,
-      color: 'hover:text-blue-600'
-    },
-    {
-      name: 'Portfolio',
-      icon: <ExternalLink className="w-5 h-5" />,
-      href: socialLinks.portfolio,
-      color: 'hover:text-gold-400'
-    }
+    { name: 'GitHub', icon: <Github className="w-5 h-5" />, href: socialLinks.github },
+    { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: socialLinks.linkedin },
+    { name: 'Blog', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.blog },
+    { name: 'LeetCode', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.leetcode },
+    { name: 'Codeforces', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.codeforces },
+    { name: 'CodeChef', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.codechef },
+    { name: 'HackerRank', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.hackerrank },
+    { name: 'Portfolio', icon: <ExternalLink className="w-5 h-5" />, href: socialLinks.portfolio },
   ]
 
   return (
@@ -84,93 +75,20 @@ const Contact = () => {
           >
             <h4 className="text-lg font-semibold mb-4 text-gold-400 text-center">Connect With Me</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-              <motion.a
-                href={socialLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <Github size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">GitHub</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <Linkedin size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">LinkedIn</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.blog}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">Blog</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.leetcode}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">LeetCode</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.codeforces}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">Codeforces</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.codechef}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">CodeChef</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.hackerrank}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">HackerRank</span>
-              </motion.a>
-              
-              <motion.a
-                href={socialLinks.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="flex items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
-              >
-                <ExternalLink size={20} className="text-cream-300" />
-                <span className="text-cream-200 text-sm hidden sm:inline">Portfolio</span>
-              </motion.a>
+              {socialPlatforms.map((platform) => (
+                <BorderGlow key={platform.name} backgroundColor="transparent" borderRadius={8} glowRadius={24}>
+                  <motion.a
+                    href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex h-full items-center justify-center space-x-3 p-4 bg-gray-800/40 backdrop-blur-md border border-white/10 rounded-lg hover:border-gold-400/50 transition-all duration-200 text-center"
+                  >
+                    <span className="text-cream-300">{platform.icon}</span>
+                    <span className="text-cream-200 text-sm hidden sm:inline">{platform.name}</span>
+                  </motion.a>
+                </BorderGlow>
+              ))}
             </div>
           </motion.div>
 
@@ -191,19 +109,19 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="flex flex-col items-center text-center bg-gray-900 border border-white/10 rounded-xl p-6 pb-8 hover:border-gold-400/50 transition-all duration-300"
+                className="h-full"
               >
-                <div className="p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg mb-3">
+                <BorderGlow className="h-full" backgroundColor="transparent" borderRadius={12}>
+                  <div className="flex h-full flex-col items-center text-center bg-gray-900 border border-white/10 rounded-xl p-6 pb-8 hover:border-gold-400/50 transition-all duration-300">
+                  <div className="p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg mb-3">
                   {info.icon}
-                </div>
-                <div className="text-sm text-cream-400 mb-1">{info.label}</div>
-                <a
-                  href={info.href}
-                  
-                  className="text-cream-200 font-medium hover:text-gold-400 transition-colors text-sm"
-                >
-                  {info.value}
-                </a>
+                  </div>
+                  <div className="text-sm text-cream-400 mb-1">{info.label}</div>
+                  <a href={info.href} className="text-cream-200 font-medium hover:text-gold-400 transition-colors text-sm">
+                    {info.value}
+                  </a>
+                  </div>
+                </BorderGlow>
               </motion.div>
             ))}
           </motion.div>
@@ -217,6 +135,7 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-8 text-center"
         >
+          <BorderGlow backgroundColor="transparent" borderRadius={16}>
           <div className="bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/30 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-4 text-gold-400">Prefer a Quick Chat?</h3>
             <p className="text-lg text-cream-200 mb-6">
@@ -246,6 +165,7 @@ const Contact = () => {
               </motion.a>
             </div>
           </div>
+          </BorderGlow>
         </motion.div>
       </div>
     </section>

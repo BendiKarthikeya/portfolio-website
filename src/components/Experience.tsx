@@ -14,6 +14,7 @@ const Experience = () => {
   const [direction, setDirection] = useState(1)
   const active = experiences[activeIndex]
   const upcoming = experiences[activeIndex + 1]
+  const progressLineInset = `${100 / (experiences.length * 2)}%`
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
@@ -71,13 +72,20 @@ const Experience = () => {
 
           <nav className="mx-auto mb-4 max-w-5xl px-3 sm:mb-5" aria-label="Work experience progress">
             <div className="relative">
-              <div className="absolute left-0 right-0 top-3.5 h-px bg-slate-600/45" aria-hidden="true" />
-              <motion.div
-                className="absolute left-0 right-0 top-3.5 h-px origin-left bg-slate-100 will-change-transform"
-                style={{ scaleX: lineScaleX }}
+              <div
+                className="absolute top-3.5 h-px bg-slate-600/45"
+                style={{ left: progressLineInset, right: progressLineInset }}
                 aria-hidden="true"
               />
-              <ol className="relative flex items-start justify-between">
+              <motion.div
+                className="absolute top-3.5 h-px origin-left bg-slate-100 will-change-transform"
+                style={{ left: progressLineInset, right: progressLineInset, scaleX: lineScaleX }}
+                aria-hidden="true"
+              />
+              <ol
+                className="relative grid items-start"
+                style={{ gridTemplateColumns: `repeat(${experiences.length}, minmax(0, 1fr))` }}
+              >
                 {experiences.map((experience, index) => {
                   const isActive = index === activeIndex
                   const isComplete = index < activeIndex
@@ -147,7 +155,7 @@ const Experience = () => {
                 transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0 origin-center [transform-style:preserve-3d] will-change-transform"
               >
-                <GlareHover className="micro-slats h-full overflow-hidden rounded-[30px] border border-slate-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_34px_100px_rgba(0,0,0,0.42)]">
+                <GlareHover borderRadius={30} className="micro-slats h-full overflow-hidden rounded-[30px] border border-slate-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_34px_100px_rgba(0,0,0,0.42)]">
                   <article className="relative flex h-full overflow-hidden p-6 text-left sm:p-8 lg:p-10">
                     <div className="pointer-events-none absolute inset-0" aria-hidden="true">
                       <Image
@@ -169,7 +177,7 @@ const Experience = () => {
                           {active.type}
                         </span>
                         <span className="text-xs tabular-nums tracking-[0.16em] text-cream-400">
-                          {String(activeIndex + 1).padStart(2, '0')} / {String(experiences.length).padStart(2, '0')}
+                          {String(activeIndex + 1).padStart(2, '0')}
                         </span>
                       </div>
 

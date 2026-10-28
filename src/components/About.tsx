@@ -6,6 +6,8 @@ import { personalInfo } from '@/data/portfolio'
 import GlareHover from '@/components/GlareHover'
 
 const About = () => {
+  const process = ['Build', 'Connect', 'Automate', 'Optimize']
+
   const features = [
     {
       icon: <Code className="w-6 h-6" />,
@@ -54,44 +56,85 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4 sm:space-y-6"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.14 } },
+            }}
+            className="space-y-6 sm:space-y-8"
           >
-            <div className="max-w-none space-y-4 sm:space-y-6">
-              <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-7"
+            >
+              <motion.div
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-full w-px origin-top bg-gradient-to-b from-gold-300 via-gold-400/70 to-transparent"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+              />
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-gold-400">
+                The person behind the systems
+              </p>
+              <h3 className="max-w-xl text-xl font-semibold leading-snug text-cream-100 sm:text-3xl">
+                I turn ambitious ideas into intelligent products that work quietly in the background.
+              </h3>
+              <p className="mt-5 text-sm leading-relaxed text-cream-200 sm:text-base">
                 {personalInfo.bio}
               </p>
-              
-              <p className="hidden sm:block text-cream-200 leading-relaxed">
-                {personalInfo.experience}
-              </p>
+            </motion.div>
 
-         <p className="text-cream-200 text-sm sm:text-base leading-relaxed">
-                My mission is to transform complex processes into simple, automated systems that are reliable, scalable, and impactful.              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 sm:gap-3">
-              {['n8n Expert', 'Process Optimizer', 'API Integration', 'Workflow Designer'].map((trait) => (
-                <motion.span
-                  key={trait}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-full text-xs sm:text-sm font-medium"
-                >
-                  {trait}
-                </motion.span>
-              ))}
-            </div>
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="relative"
+            >
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-cream-400">How I work</p>
+              <div className="relative grid grid-cols-4 gap-2 pt-3">
+                <div className="absolute left-[7%] right-[7%] top-[1.1rem] h-px bg-white/10" aria-hidden="true" />
+                <motion.div
+                  className="absolute left-[7%] right-[7%] top-[1.1rem] h-px origin-left bg-gradient-to-r from-gold-400 via-amber-200 to-slate-300"
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.2, delay: 0.25, ease: 'easeInOut' }}
+                  aria-hidden="true"
+                />
+                {process.map((step, index) => (
+                  <motion.div
+                    key={step}
+                    className="relative z-10 text-center"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.25 + index * 0.16 }}
+                  >
+                    <motion.span
+                      className="mx-auto block h-3 w-3 rounded-full border-2 border-gold-300 bg-gray-950 shadow-[0_0_14px_rgba(251,191,36,0.7)]"
+                      animate={{ scale: [1, 1.28, 1] }}
+                      transition={{ duration: 2.4, delay: index * 0.35, repeat: Infinity, ease: 'easeInOut' }}
+                      aria-hidden="true"
+                    />
+                    <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.08em] text-cream-200 sm:text-xs sm:tracking-[0.16em]">
+                      {step}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Features Grid */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -100,18 +143,22 @@ const About = () => {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 26, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -7, rotate: index % 2 === 0 ? -0.6 : 0.6 }}
                 className="h-full"
               >
-                <GlareHover className="h-full rounded-xl border border-white/10 bg-gray-900 p-3 transition-colors duration-300 hover:border-slate-300/35 sm:p-6">
+                <GlareHover borderRadius={12} className="h-full rounded-xl border border-white/10 bg-gray-900 p-3 transition-colors duration-300 hover:border-slate-300/35 sm:p-6">
                   <div className="flex items-center mb-2 sm:mb-4">
-                    <div className="p-2 sm:p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg">
+                    <motion.div
+                      className="p-2 sm:p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg"
+                      whileHover={{ rotate: 8, scale: 1.08 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+                    >
                       {feature.icon}
-                    </div>
+                    </motion.div>
                   </div>
                   <h3 className="text-sm sm:text-lg font-semibold sm:mb-2 text-cream-100 leading-snug">{feature.title}</h3>
                   <p className="hidden sm:block text-cream-300 text-sm leading-relaxed">

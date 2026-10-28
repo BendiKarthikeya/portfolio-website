@@ -12,7 +12,7 @@ const categories = [
   { title: 'Web / Full Stack', label: 'Product development', skills: skills.webDev, colSpan: 1 },
   { title: 'AI Stack', label: 'Applied AI', skills: skills.aiStack, colSpan: 1 },
   { title: 'Databases & BI', label: 'Data layer', skills: skills.dataScience, colSpan: 1 },
-  { title: 'AI Tools', label: 'Daily toolkit', skills: skills.design, colSpan: 2 },
+  { title: 'AI Tools', label: 'Daily toolkit', skills: skills.design, colSpan: 1 },
   { title: 'DevOps & Tools', label: 'Delivery', skills: skills.tools, colSpan: 1 },
 ]
 

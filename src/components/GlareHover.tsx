@@ -1,16 +1,24 @@
 import type { ReactNode } from 'react'
+import BorderGlow from '@/components/BorderGlow'
 
 type GlareHoverProps = {
   children: ReactNode
   className?: string
+  borderRadius?: number
 }
 
-/** Structural wrapper retained for card layout without a cursor-following colour effect. */
-const GlareHover = ({ children, className = '' }: GlareHoverProps) => {
+const GlareHover = ({ children, className = '', borderRadius = 28 }: GlareHoverProps) => {
   return (
-    <div className={`relative isolate overflow-hidden ${className}`.trim()}>
+    <BorderGlow
+      className={`h-full ${className}`.trim()}
+      backgroundColor="transparent"
+      borderRadius={borderRadius}
+      glowColor="40 85 75"
+      glowIntensity={0.8}
+      fillOpacity={0.28}
+    >
       <div className="relative z-[1] h-full">{children}</div>
-    </div>
+    </BorderGlow>
   )
 }
 

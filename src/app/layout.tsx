@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import LightRays from '@/components/LightRays'
+import InitialLoadGate from '@/components/InitialLoadGate'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -67,7 +68,7 @@ export default function RootLayout({
         </div>
 
         <div className="relative z-10">
-          {children}
+          <InitialLoadGate>{children}</InitialLoadGate>
         </div>
       </body>
     </html>

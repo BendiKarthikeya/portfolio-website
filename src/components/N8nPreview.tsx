@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Workflow, Clock, Users, TrendingUp, Zap, Bot, Mail, FileText, Target } from 'lucide-react'
 import Link from 'next/link'
 import MagicBento from '@/components/MagicBento'
+import BorderGlow from '@/components/BorderGlow'
 
 const stats = [
   { icon: <Workflow className="w-5 h-5" />, value: "50+", label: "Workflows Built" },
@@ -200,8 +201,10 @@ const N8nPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/25 rounded-2xl px-8 py-6"
+          className="mt-8"
         >
+          <BorderGlow backgroundColor="transparent" borderRadius={16}>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-gradient-to-r from-cream-100/10 to-cream-600/10 border border-cream-400/25 rounded-2xl px-8 py-6">
           <div>
             <h3 className="text-xl font-bold text-gold-400">Explore My Complete n8n Portfolio</h3>
             <p className="text-cream-300 text-sm mt-1">Detailed case studies, workflow diagrams, and real implementations</p>
@@ -220,6 +223,8 @@ const N8nPreview = () => {
               Discuss Project
             </a>
           </div>
+          </div>
+          </BorderGlow>
         </motion.div>
 
       </div>
