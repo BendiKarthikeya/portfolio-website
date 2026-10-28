@@ -13,6 +13,7 @@ const Experience = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
   const active = experiences[activeIndex]
+  const upcoming = experiences[activeIndex + 1]
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
@@ -111,28 +112,39 @@ const Experience = () => {
             className="relative mx-auto h-[clamp(420px,58vh,520px)] w-full max-w-6xl"
             style={{ perspective: '1600px' }}
           >
-            <div className="pointer-events-none absolute inset-x-5 inset-y-0 translate-y-5 scale-[0.965] rounded-[30px] border border-white/[0.07] bg-[#0a0c10]/80 opacity-70" aria-hidden="true" />
+            <div
+              className="pointer-events-none absolute inset-x-5 inset-y-0 translate-y-5 scale-[0.965] overflow-hidden rounded-[30px] border border-white/[0.09] bg-[#0a0c10] opacity-80 shadow-[0_26px_70px_rgba(0,0,0,0.32)]"
+              aria-hidden="true"
+            >
+              {upcoming && (
+                <div className="flex h-full flex-col justify-end bg-[radial-gradient(circle_at_82%_35%,rgba(226,232,240,0.08),transparent_34%)] px-8 pb-7 sm:px-10">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-600">Up next</p>
+                  <p className="mt-1 text-sm font-semibold text-slate-500 sm:text-base">{upcoming.role}</p>
+                  <p className="mt-0.5 text-xs text-slate-600">{upcoming.company}</p>
+                </div>
+              )}
+            </div>
             <div className="pointer-events-none absolute inset-x-10 inset-y-0 translate-y-9 scale-[0.925] rounded-[30px] border border-white/[0.04] bg-[#080a0d]/65 opacity-50" aria-hidden="true" />
 
-            <AnimatePresence initial={false} mode="wait" custom={direction}>
+            <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={`${active.company}-${active.role}`}
                 custom={direction}
                 variants={{
                   enter: (travelDirection: number) =>
                     travelDirection > 0
-                      ? { opacity: 0, scale: 0.76, y: -34, z: -460, rotateX: 7, filter: 'blur(10px)' }
-                      : { opacity: 0, scale: 1.055, y: 34, z: 100, rotateX: -3, filter: 'blur(7px)' },
-                  center: { opacity: 1, scale: 1, y: 0, z: 0, rotateX: 0, filter: 'blur(0px)' },
+                      ? { opacity: 0.55, scale: 0.965, y: 20, z: -90, rotateX: 2, filter: 'blur(4px)', zIndex: 1 }
+                      : { opacity: 0, scale: 1.035, y: -24, z: 80, rotateX: -2, filter: 'blur(5px)', zIndex: 3 },
+                  center: { opacity: 1, scale: 1, y: 0, z: 0, rotateX: 0, filter: 'blur(0px)', zIndex: 2 },
                   exit: (travelDirection: number) =>
                     travelDirection > 0
-                      ? { opacity: 0, scale: 1.055, y: 38, z: 120, rotateX: -3, filter: 'blur(8px)' }
-                      : { opacity: 0, scale: 0.76, y: -34, z: -460, rotateX: 7, filter: 'blur(10px)' },
+                      ? { opacity: 0, scale: 1.04, y: -28, z: 100, rotateX: -2, filter: 'blur(6px)', zIndex: 3 }
+                      : { opacity: 0.5, scale: 0.965, y: 20, z: -90, rotateX: 2, filter: 'blur(4px)', zIndex: 1 },
                 }}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0 origin-center [transform-style:preserve-3d] will-change-transform"
               >
                 <GlareHover className="micro-slats h-full overflow-hidden rounded-[30px] border border-slate-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_34px_100px_rgba(0,0,0,0.42)]">
