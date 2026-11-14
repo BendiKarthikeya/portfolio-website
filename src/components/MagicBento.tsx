@@ -1381,6 +1381,20 @@ const MagicBento = ({
             <span className={BORDER_CLASS} style={BORDER_STYLE} />
           </>
         );
+        const card = entry.href ? (
+          <a {...cardProps} href={entry.href} target={entry.target} rel={entry.rel}>
+            {body}
+          </a>
+        ) : (
+          <div
+            {...cardProps}
+            role={clickable ? 'button' : undefined}
+            tabIndex={clickable ? 0 : undefined}
+            aria-label={clickable ? entry.title : undefined}
+          >
+            {body}
+          </div>
+        );
 
         return (
           <div
@@ -1394,29 +1408,18 @@ const MagicBento = ({
               gridRow: `span ${Math.max(1, Math.round(entry.rowSpan ?? 1))}`
             }}
           >
-            <BorderGlow
-              className="h-full"
-              backgroundColor="transparent"
-              borderRadius={corner}
-              glowColor="40 85 75"
-              glowIntensity={0.75}
-              fillOpacity={0.24}
-            >
-              {entry.href ? (
-                <a {...cardProps} href={entry.href} target={entry.target} rel={entry.rel}>
-                  {body}
-                </a>
-              ) : (
-                <div
-                  {...cardProps}
-                  role={clickable ? 'button' : undefined}
-                  tabIndex={clickable ? 0 : undefined}
-                  aria-label={clickable ? entry.title : undefined}
-                >
-                  {body}
-                </div>
-              )}
-            </BorderGlow>
+            {enableBorderGlow ? (
+              <BorderGlow
+                className="h-full"
+                backgroundColor="transparent"
+                borderRadius={corner}
+                glowColor="40 85 75"
+                glowIntensity={0.75}
+                fillOpacity={0.24}
+              >
+                {card}
+              </BorderGlow>
+            ) : card}
           </div>
         );
       })}

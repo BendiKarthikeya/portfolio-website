@@ -78,7 +78,7 @@ const Experience = () => {
                 aria-hidden="true"
               />
               <motion.div
-                className="absolute top-3.5 h-px origin-left bg-slate-100 will-change-transform"
+                className="absolute top-3.5 h-px origin-left bg-[#d8b968] will-change-transform"
                 style={{ left: progressLineInset, right: progressLineInset, scaleX: lineScaleX }}
                 aria-hidden="true"
               />

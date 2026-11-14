@@ -525,24 +525,6 @@ export const skills = {
 
 export const projects = [
   {
-    id: 1,
-    title: "Personal Portfolio Website",
-    description: "Modern, responsive portfolio website built with Next.js and Tailwind CSS showcasing my automation expertise and projects.",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
-    github: "https://github.com/BendiKarthikeya/portfolio-website",
-    live: "https://karthikeyabendi.tech",
-    image: imageAsset("/Images/Portfolio.png"),
-    features: [
-      "Modern responsive design",
-      "Dark/Light theme support",
-      "Smooth animations with Framer Motion",
-      "SEO optimized",
-      "Fast loading performance",
-      "Mobile-first approach",
-      "Interactive project showcases"
-    ]
-  },
-  {
     id: 6,
     title: "InsightPulse - Multi-Channel Survey & Analytics Platform",
     description: "Full-stack survey platform that distributes surveys via Voice AI, WhatsApp, and Web, with LLM-powered analysis generating NPS, EVI, CSAT, and CES scores in real time.",
@@ -583,7 +565,7 @@ export const projects = [
   },
   {
     id: 8,
-    title: "SyncJam — Real-Time Collaborative Listening Platform",
+    title: "SyncJam - Real-Time Collaborative Listening Platform",
     description: "A free, real-time web application enabling synchronized audio playback across multiple devices with zero perceptible latency, YouTube & Spotify link parsing, and multi-network routing.",
     technologies: ["Next.js 14", "TypeScript", "Socket.io", "Tailwind CSS", "YouTube API", "Node.js"],
     github: "https://github.com/BendiKarthikeya/SyncJam",
@@ -600,7 +582,7 @@ export const projects = [
   },
   {
     id: 9,
-    title: "Lumen — Keyboard-First Productivity & Focus Workspace",
+    title: "Lumen - Keyboard-First Productivity & Focus Workspace",
     description: "A single-page productivity application featuring an interactive Eisenhower task matrix, weekly schedule calendar, Pomodoro focus timer, and 26-week activity heatmap.",
     technologies: ["React 18", "JavaScript", "Supabase", "Google Calendar API", "OKLCH CSS", "Babel Standalone"],
     github: "https://github.com/BendiKarthikeya/Lumen",
@@ -613,6 +595,24 @@ export const projects = [
       "Weekly calendar scheduling with Google Calendar sync and click-drag time blocking",
       "26-week productivity activity heatmap and task completion history log",
       "Supabase authentication with per-user persistent state and customizable themes & typography"
+    ]
+  },
+  {
+    id: 1,
+    title: "Personal Portfolio Website",
+    description: "Modern, responsive portfolio website built with Next.js and Tailwind CSS showcasing my automation expertise and projects.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    github: "https://github.com/BendiKarthikeya/portfolio-website",
+    live: "https://karthikeyabendi.tech",
+    image: imageAsset("/Images/Portfolio.png"),
+    features: [
+      "Modern responsive design",
+      "Dark/Light theme support",
+      "Smooth animations with Framer Motion",
+      "SEO optimized",
+      "Fast loading performance",
+      "Mobile-first approach",
+      "Interactive project showcases"
     ]
   }
 ]

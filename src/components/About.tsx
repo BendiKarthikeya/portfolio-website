@@ -1,179 +1,221 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { User, Code, Zap, Heart, Target } from 'lucide-react'
+import { Bot, Briefcase, Code2, GraduationCap, MapPin, Sparkles, User, Workflow, type LucideIcon } from 'lucide-react'
 import { personalInfo } from '@/data/portfolio'
-import GlareHover from '@/components/GlareHover'
 
-const About = () => {
-  const process = ['Build', 'Connect', 'Automate', 'Optimize']
+const nameTiles = [
+  ['K', 'bg-[#d8b968] text-gray-950', '-rotate-3'],
+  ['A', 'bg-cream-100 text-gray-950', 'rotate-2'],
+  ['R', 'bg-slate-700 text-cream-100', '-rotate-2'],
+  ['T', 'bg-gold-500 text-gray-950', 'rotate-3'],
+  ['H', 'bg-gray-800 text-gold-300', '-rotate-1'],
+  ['I', 'bg-cream-200 text-gray-950', 'rotate-3'],
+  ['K', 'bg-[#d8b968] text-gray-950', '-rotate-3'],
+  ['E', 'bg-slate-600 text-white', 'rotate-2'],
+  ['Y', 'bg-gray-900 text-gold-300', '-rotate-2'],
+  ['A', 'bg-cream-100 text-gray-950', 'rotate-3'],
+] as const
 
-  const features = [
-    {
-      icon: <Code className="w-6 h-6" />,
-      title: "Full-Stack Development",
-      description: "Building scalable web applications with modern technologies"
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "AI & Automation Expert",
-      description: "Specializing in n8n workflows, business automation, and building autonomous agents using Agentic AI"
-    },
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Passionate Learner",
-      description: "Continuously exploring new technologies and automation possibilities"
-    },
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Results-Driven",
-      description: "Focused on delivering measurable improvements and efficiency gains"
-    }
-  ]
+type Note = {
+  label: string
+  title: string
+  copy: string
+  icon: LucideIcon
+  tone: string
+  rotate: string
+}
 
-  return (
-    <section id="about" className="section-padding bg-transparent">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-7 sm:mb-12"
-        >
-          <div className="inline-flex items-center justify-center gap-3 mb-3">
-            <div className="p-2.5 bg-gold-400/15 border border-gold-400/30 rounded-xl">
-              <User className="w-6 h-6 text-gold-400" />
-            </div>
-            <span className="text-sm font-semibold tracking-widest uppercase text-gold-400">Overview</span>
+const notes: Note[] = [
+  {
+    label: 'What I do',
+    title: 'AI + Full-Stack Developer',
+    copy: 'I build production-grade applications and intelligent systems that solve real business problems.',
+    icon: Code2,
+    tone: 'bg-[#f4df91] text-[#202024]',
+    rotate: '-rotate-2',
+  },
+  {
+    label: 'Founder',
+    title: 'GoAutomate',
+    copy: 'Helping teams eliminate manual work with n8n workflows, AI agents, and reliable API integrations.',
+    icon: Briefcase,
+    tone: 'bg-[#d8e6dc] text-[#18211c]',
+    rotate: 'rotate-2',
+  },
+  {
+    label: 'Education',
+    title: 'IIT Guwahati',
+    copy: 'B.Sc. (Hons.) in Computer Science and Artificial Intelligence.',
+    icon: GraduationCap,
+    tone: 'bg-[#d8ddea] text-[#181b24]',
+    rotate: 'rotate-1',
+  },
+  {
+    label: 'Automation',
+    title: 'Systems that run quietly',
+    copy: 'Hands-on with n8n, LLMs, Voice AI, WhatsApp APIs, databases, and business workflows.',
+    icon: Workflow,
+    tone: 'bg-[#edc8ad] text-[#241b17]',
+    rotate: '-rotate-1',
+  },
+  {
+    label: 'How I think',
+    title: 'Choose the right tool',
+    copy: 'I explore AI tools daily and focus on where each model or platform creates the strongest outcome.',
+    icon: Bot,
+    tone: 'bg-[#e8e0ca] text-[#211f19]',
+    rotate: 'rotate-1',
+  },
+  {
+    label: 'Based in',
+    title: personalInfo.location,
+    copy: 'Building products, automations, and founder-led ideas from Bengaluru.',
+    icon: MapPin,
+    tone: 'bg-[#cdd9d9] text-[#182020]',
+    rotate: '-rotate-2',
+  },
+]
+
+const About = () => (
+  <section id="about" className="section-padding bg-transparent">
+    <div className="container-custom">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-7 text-center sm:mb-12"
+      >
+        <div className="mb-3 inline-flex items-center justify-center gap-3">
+          <div className="rounded-xl border border-gold-400/30 bg-gold-400/15 p-2.5">
+            <User className="h-6 w-6 text-gold-400" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            About{' '}
-            <span className="text-gray-400">Me</span>
-          </h2>
-          <p className="text-cream-300 mt-2 sm:mt-3 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
-            Passionate about transforming complex business processes into streamlined, automated workflows
-          </p>
-        </motion.div>
+          <span className="text-sm font-semibold uppercase tracking-widest text-gold-400">A little about me</span>
+        </div>
+        <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+          The person <span className="text-gray-400">behind the systems</span>
+        </h2>
+      </motion.div>
 
-        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-8 lg:gap-16 items-center">
-          {/* Content */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.14 } },
-            }}
-            className="space-y-6 sm:space-y-8"
-          >
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-7"
+      <div className="relative isolate overflow-hidden rounded-[28px] border border-white/10 bg-[#090b10] px-4 py-8 shadow-2xl shadow-black/25 sm:px-7 md:min-h-[820px] md:p-10">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 opacity-[0.14]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(251,191,36,.24) 1px,transparent 1px),linear-gradient(90deg,rgba(251,191,36,.24) 1px,transparent 1px)',
+            backgroundSize: '46px 46px',
+          }}
+        />
+        <div aria-hidden="true" className="absolute left-1/2 top-1/3 -z-10 h-[440px] w-[440px] -translate-x-1/2 rounded-full bg-gold-400/[0.06] blur-[110px]" />
+
+        <div className="relative z-20 flex cursor-default select-none justify-center gap-1 sm:gap-2 md:absolute md:left-1/2 md:top-9 md:w-full md:-translate-x-1/2">
+          {nameTiles.map(([letter, tone, rotate], index) => (
+            <span
+              key={`${letter}-${index}`}
+              className={`${tone} ${rotate} inline-flex h-9 w-7 items-center justify-center font-black shadow-[5px_6px_0_rgba(0,0,0,.42)] transition-transform duration-200 ease-out hover:-translate-y-2 hover:rotate-0 hover:scale-[1.08] sm:h-14 sm:w-11 sm:text-2xl md:h-20 md:w-16 md:text-4xl lg:h-24 lg:w-[4.7rem] lg:text-5xl`}
             >
-              <motion.div
-                aria-hidden="true"
-                className="absolute left-0 top-0 h-full w-px origin-top bg-gradient-to-b from-gold-300 via-gold-400/70 to-transparent"
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-              />
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-gold-400">
-                The person behind the systems
-              </p>
-              <h3 className="max-w-xl text-xl font-semibold leading-snug text-cream-100 sm:text-3xl">
-                I turn ambitious ideas into intelligent products that work quietly in the background.
-              </h3>
-              <p className="mt-5 text-sm leading-relaxed text-cream-200 sm:text-base">
-                {personalInfo.bio}
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="relative"
-            >
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-cream-400">How I work</p>
-              <div className="relative grid grid-cols-4 gap-2 pt-3">
-                <div className="absolute left-[7%] right-[7%] top-[1.1rem] h-px bg-white/10" aria-hidden="true" />
-                <motion.div
-                  className="absolute left-[7%] right-[7%] top-[1.1rem] h-px origin-left bg-gradient-to-r from-gold-400 via-amber-200 to-slate-300"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.2, delay: 0.25, ease: 'easeInOut' }}
-                  aria-hidden="true"
-                />
-                {process.map((step, index) => (
-                  <motion.div
-                    key={step}
-                    className="relative z-10 text-center"
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: 0.25 + index * 0.16 }}
-                  >
-                    <motion.span
-                      className="mx-auto block h-3 w-3 rounded-full border-2 border-gold-300 bg-gray-950 shadow-[0_0_14px_rgba(251,191,36,0.7)]"
-                      animate={{ scale: [1, 1.28, 1] }}
-                      transition={{ duration: 2.4, delay: index * 0.35, repeat: Infinity, ease: 'easeInOut' }}
-                      aria-hidden="true"
-                    />
-                    <span className="mt-3 block text-[10px] font-medium uppercase tracking-[0.08em] text-cream-200 sm:text-xs sm:tracking-[0.16em]">
-                      {step}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-3 sm:gap-6"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 26, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -7, rotate: index % 2 === 0 ? -0.6 : 0.6 }}
-                className="h-full"
-              >
-                <GlareHover borderRadius={12} className="h-full rounded-xl border border-white/10 bg-gray-900 p-3 transition-colors duration-300 hover:border-slate-300/35 sm:p-6">
-                  <div className="flex items-center mb-2 sm:mb-4">
-                    <motion.div
-                      className="p-2 sm:p-3 bg-gold-400/20 border border-gold-400/30 text-gold-400 rounded-lg"
-                      whileHover={{ rotate: 8, scale: 1.08 }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 18 }}
-                    >
-                      {feature.icon}
-                    </motion.div>
-                  </div>
-                  <h3 className="text-sm sm:text-lg font-semibold sm:mb-2 text-cream-100 leading-snug">{feature.title}</h3>
-                  <p className="hidden sm:block text-cream-300 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </GlareHover>
-              </motion.div>
-            ))}
-          </motion.div>
+              {letter}
+            </span>
+          ))}
         </div>
 
+        <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2 md:hidden">
+          <div className="sm:col-span-2">
+            <PixelPortrait />
+          </div>
+          {notes.map((note) => <StickyNote key={note.title} note={note} />)}
+          <div className="sm:col-span-2">
+            <ProcessCard />
+          </div>
+          <img src="/decor/about-car.svg" alt="Stylized gold line-art sports car" className="mx-auto w-full max-w-md sm:col-span-2" />
+        </div>
 
+        <div className="hidden md:block">
+          <div className="absolute left-[4%] top-[27%] w-[27%]">
+            <StickyNote note={notes[0]} />
+          </div>
+          <div className="absolute left-1/2 top-[23%] z-10 -translate-x-1/2">
+            <PixelPortrait />
+          </div>
+          <div className="absolute right-[4%] top-[27%] w-[27%]">
+            <StickyNote note={notes[1]} />
+          </div>
+
+          <div className="absolute left-[6%] top-[52%] w-[24%]">
+            <StickyNote note={notes[2]} compact />
+          </div>
+          <div className="absolute left-[36%] top-[51%] w-[28%]">
+            <StickyNote note={notes[3]} compact />
+          </div>
+          <div className="absolute right-[6%] top-[52%] w-[24%]">
+            <StickyNote note={notes[4]} compact />
+          </div>
+
+          <div className="absolute bottom-[9%] left-[6%] w-[27%]">
+            <StickyNote note={notes[5]} compact />
+          </div>
+          <div className="absolute bottom-[10%] left-[37%] w-[27%]">
+            <ProcessCard />
+          </div>
+          <img src="/decor/about-car.svg" alt="Stylized gold line-art sports car" className="absolute bottom-[-1%] right-[1%] z-10 w-[32%]" />
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
+)
+
+const StickyNote = ({ note, compact = false }: { note: Note; compact?: boolean }) => {
+  const Icon = note.icon
+  return (
+    <article className={`${note.tone} ${note.rotate} relative overflow-hidden rounded-sm ${compact ? 'min-h-[145px] p-4' : 'min-h-[185px] p-5'} shadow-[7px_9px_18px_rgba(0,0,0,.30)]`}>
+      <span aria-hidden="true" className="absolute left-1/2 top-2 h-3 w-14 -translate-x-1/2 bg-white/35 shadow-sm" />
+      <Icon className={`${compact ? 'h-4 w-4' : 'h-5 w-5'} opacity-70`} />
+      <p className={`${compact ? 'mt-4' : 'mt-5'} text-[9px] font-bold uppercase tracking-[0.2em] opacity-55`}>{note.label}</p>
+      <h3 className={`${compact ? 'text-base' : 'text-lg'} mt-1 font-black leading-tight`}>{note.title}</h3>
+      <p className={`${compact ? 'mt-2 text-xs' : 'mt-3 text-sm'} leading-relaxed opacity-80`}>{note.copy}</p>
+    </article>
   )
 }
+
+const PixelPortrait = () => (
+  <div className="mx-auto w-36 rotate-1 bg-cream-100 p-2 pb-9 shadow-[8px_10px_0_rgba(0,0,0,.38)] lg:w-40">
+    <div className="relative aspect-square overflow-hidden bg-gray-800">
+      <Image
+        src={personalInfo.avatar}
+        alt={`${personalInfo.name} portrait`}
+        fill
+        sizes="160px"
+        className="object-cover object-center [image-rendering:pixelated]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-25 mix-blend-multiply"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(0,0,0,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.3) 1px,transparent 1px)',
+          backgroundSize: '6px 6px',
+        }}
+      />
+    </div>
+    <p className="mt-2 cursor-default select-none text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-gray-900">Karthikeya</p>
+  </div>
+)
+
+const ProcessCard = () => (
+  <div className="rounded-lg border border-white/10 bg-gray-950/90 p-4 shadow-xl">
+    <div className="mb-3 flex items-center gap-2">
+      <Sparkles className="h-4 w-4 text-gold-400" />
+      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-400">How I work</p>
+    </div>
+    <div className="grid grid-cols-4 gap-1 text-center text-[9px] font-semibold uppercase tracking-wide text-cream-200 lg:text-[10px]">
+      {['Build', 'Connect', 'Automate', 'Optimize'].map((step) => (
+        <span key={step} className="border-t border-gold-400/50 pt-2">{step}</span>
+      ))}
+    </div>
+  </div>
+)
 
 export default About

@@ -42,7 +42,7 @@ const DogCursor = () => {
 
   return (
     <>
-      {/* Exact cursor position — paw print */}
+      {/* Exact cursor position: paw print */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] select-none"
         style={{ x: mouseX, y: mouseY, translateX: '-50%', translateY: '-50%' }}
@@ -52,7 +52,7 @@ const DogCursor = () => {
         </span>
       </motion.div>
 
-      {/* Dog — lags behind with spring */}
+      {/* Dog lags behind with spring */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998] select-none"
         style={{ x: dogX, y: dogY, translateX: '-50%', translateY: '-130%' }}

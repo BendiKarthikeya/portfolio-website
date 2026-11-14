@@ -1,0 +1,20 @@
+<svg width="640" height="240" viewBox="0 0 640 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="carStroke" x1="88" y1="60" x2="560" y2="202" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE68A"/><stop offset="0.5" stop-color="#F59E0B"/><stop offset="1" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <filter id="carGlow" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g opacity="0.34" stroke="#F59E0B" stroke-linecap="round">
+    <path d="M12 154C54 126 78 139 112 111" stroke-width="2" stroke-dasharray="4 11"/><path d="M26 185C71 157 89 175 127 146" stroke-width="1.5" stroke-dasharray="3 9"/><path d="M3 119C39 98 65 107 93 82" stroke-width="1" stroke-dasharray="2 8"/>
+  </g>
+  <g filter="url(#carGlow)" stroke="url(#carStroke)" stroke-linejoin="round">
+    <path d="M104 164L125 116C133 98 151 88 171 86L279 76C309 73 334 79 359 96L403 126L520 139C548 142 569 158 579 181L587 199H558C554 170 532 151 503 151C475 151 451 171 448 199H235C232 170 208 151 180 151C151 151 128 171 125 199H83L87 180C89 171 94 166 104 164Z" fill="#090B10" fill-opacity="0.82" stroke-width="3"/>
+    <path d="M172 93L274 84C299 82 320 86 342 101L377 126H144L154 105C157 99 163 95 172 93Z" fill="#151922" stroke-width="2"/>
+    <path d="M282 85L287 126M137 136H397M411 132L483 140" stroke-width="2"/><path d="M526 148L558 158L567 177H537" stroke-width="3" stroke-linecap="round"/><path d="M95 173H123M238 184H445" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="180" cy="199" r="34" fill="#080A0E" stroke-width="3"/><circle cx="180" cy="199" r="17" stroke-width="3"/><circle cx="503" cy="199" r="34" fill="#080A0E" stroke-width="3"/><circle cx="503" cy="199" r="17" stroke-width="3"/>
+  </g>
+  <path d="M524 154L554 164" stroke="#FFF7D6" stroke-width="4" stroke-linecap="round" filter="url(#carGlow)"/>
+</svg>

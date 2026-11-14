@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 import OrbitLoader from '@/components/reactbits/OrbitLoader'
 import LightTunnel from '@/components/LightTunnel'
 
-const INITIAL_LOAD_DURATION_MS = 3000
+const INITIAL_LOAD_DURATION_MS = 1750
 
 const InitialLoadGate = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true)

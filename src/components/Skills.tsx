@@ -1,50 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Code2 } from 'lucide-react'
-import MagicBento from '@/components/MagicBento'
+import { Code2 } from 'lucide-react'
 import { skills } from '@/data/portfolio'
+import BorderGlow from '@/components/BorderGlow'
 
 const categories = [
-  { title: 'n8n & Automation', label: 'Core specialty', skills: skills.n8nSpecialist, colSpan: 2 },
-  { title: 'AI Integrations', label: 'Intelligence', skills: skills.automation, colSpan: 1 },
-  { title: 'Languages', label: 'Engineering', skills: skills.programming, colSpan: 1 },
-  { title: 'Web / Full Stack', label: 'Product development', skills: skills.webDev, colSpan: 1 },
-  { title: 'AI Stack', label: 'Applied AI', skills: skills.aiStack, colSpan: 1 },
-  { title: 'Databases & BI', label: 'Data layer', skills: skills.dataScience, colSpan: 1 },
-  { title: 'AI Tools', label: 'Daily toolkit', skills: skills.design, colSpan: 1 },
-  { title: 'DevOps & Tools', label: 'Delivery', skills: skills.tools, colSpan: 1 },
+  { title: 'n8n & Automation', label: 'Core specialty', skills: skills.n8nSpecialist },
+  { title: 'AI Integrations', label: 'Intelligence', skills: skills.automation },
+  { title: 'Languages', label: 'Engineering', skills: skills.programming },
+  { title: 'Web / Full Stack', label: 'Product development', skills: skills.webDev },
+  { title: 'AI Stack', label: 'Applied AI', skills: skills.aiStack },
+  { title: 'Databases & BI', label: 'Data layer', skills: skills.dataScience },
+  { title: 'AI Tools', label: 'Daily toolkit', skills: skills.design },
+  { title: 'DevOps & Tools', label: 'Delivery', skills: skills.tools },
 ]
 
 const Skills = () => {
-  const items = categories.map((category) => ({
-    id: category.title,
-    colSpan: category.colSpan,
-    content: (
-      <div className="h-full flex flex-col">
-        <div className="flex items-center justify-between gap-3 mb-4">
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-cream-400">{category.label}</p>
-            <h3 className="text-sm sm:text-base font-semibold text-cream-100 mt-1">{category.title}</h3>
-          </div>
-          <ArrowRight className="h-5 w-5 text-slate-300" aria-hidden="true" />
-        </div>
-
-        <div className="flex flex-wrap content-start gap-2 mt-auto">
-          {category.skills.map((skill) => (
-            <span
-              key={skill.name}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.045] px-2.5 py-1.5 text-[11px] text-cream-200"
-            >
-              <span aria-hidden="true">{skill.icon}</span>
-              {skill.name}
-            </span>
-          ))}
-        </div>
-      </div>
-    ),
-  }))
-
   return (
     <section id="skills" className="section-padding bg-transparent">
       <div className="container-custom">
@@ -69,25 +41,36 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <MagicBento
-          items={items}
-          columns={3}
-          rowHeight={190}
-          gap={14}
-          radius={20}
-          theme="dark"
-          glowColor="#94a3b8"
-          textAutoHide={false}
-          enableBorderGlow={false}
-          enableSpotlight={false}
-          spotlightRadius={290}
-          enableStars={false}
-          particleCount={4}
-          enableTilt={false}
-          enableMagnetism={false}
-          clickEffect={false}
-          intro
-        />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((category, index) => (
+            <motion.article
+              key={category.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.04 }}
+              className="min-w-0"
+            >
+              <BorderGlow className="h-full" backgroundColor="transparent" borderRadius={20}>
+                <div className="h-full rounded-[20px] border border-white/10 bg-gradient-to-b from-[#171a1f] to-[#0e1014] p-5 shadow-[0_18px_36px_-28px_rgba(0,0,0,.9)]">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-cream-400">{category.label}</p>
+                  <h3 className="mt-1 text-base font-semibold text-cream-100">{category.title}</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill.name}
+                        className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.045] px-2.5 py-1.5 text-[11px] leading-tight text-cream-200"
+                      >
+                        <span aria-hidden="true">{skill.icon}</span>
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </BorderGlow>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   )

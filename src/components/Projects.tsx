@@ -8,24 +8,28 @@ import GlareHover from '@/components/GlareHover'
 import { projects, socialLinks } from '@/data/portfolio'
 
 const PROJECT_TRANSITION_MS = 560
+const PROJECT_ORDER: Record<number, number> = { 8: 0, 9: 1, 6: 2, 7: 3, 1: 4 }
+const orderedProjects = [...projects].sort(
+  (first, second) => (PROJECT_ORDER[first.id] ?? Number.MAX_SAFE_INTEGER) - (PROJECT_ORDER[second.id] ?? Number.MAX_SAFE_INTEGER)
+)
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const previousIndexRef = useRef(0)
   const [activeIndex, setActiveIndex] = useState(0)
   const [pageDirection, setPageDirection] = useState(1)
-  const active = projects[activeIndex]
+  const active = orderedProjects[activeIndex]
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end end'],
   })
   const carouselItems = useMemo(
-    () => projects.map((project) => ({ image: project.image, alt: project.title })),
+    () => orderedProjects.map((project) => ({ image: project.image, alt: project.title })),
     []
   )
 
   useMotionValueEvent(scrollYProgress, 'change', (progress) => {
-    const nextIndex = Math.min(projects.length - 1, Math.floor(progress * projects.length))
+    const nextIndex = Math.min(orderedProjects.length - 1, Math.floor(progress * orderedProjects.length))
     if (nextIndex === previousIndexRef.current) return
     setPageDirection(nextIndex > previousIndexRef.current ? 1 : -1)
     previousIndexRef.current = nextIndex
@@ -37,7 +41,7 @@ const Projects = () => {
     const section = sectionRef.current
     if (!section) return
     const travel = Math.max(0, section.offsetHeight - window.innerHeight)
-    const targetProgress = (index + 0.5) / projects.length
+    const targetProgress = (index + 0.5) / orderedProjects.length
     window.scrollTo({
       top: section.offsetTop + travel * targetProgress,
       behavior: 'smooth',
@@ -49,7 +53,7 @@ const Projects = () => {
       ref={sectionRef}
       id="projects"
       className="relative bg-transparent"
-      style={{ height: `${projects.length * 100}vh` }}
+      style={{ height: `${orderedProjects.length * 100}vh` }}
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden py-4 sm:py-6">
         <div className="container-custom w-full">
@@ -70,7 +74,7 @@ const Projects = () => {
             Featured <span className="text-gray-400">Projects</span>
           </h2>
           <p className="text-cream-300 mt-2 max-w-2xl mx-auto text-xs sm:text-base">
-            Keep scrolling anywhere — this section completes every project before continuing
+            Keep scrolling anywhere. This section completes every project before continuing.
           </p>
         </motion.div>
 
